@@ -12,9 +12,9 @@ NASAL_OBJ = $(wildcard $(NASAL)/*.c.o)
 .PHONY:
 .DEFAULT: $(BIN)
 
-obj/%.o: src/%
+obj/%.o: src/% include
 	mkdir -p obj
-	$(CC) -O2 -c $< -o $@
+	$(CC) -O2 -Iinclude -DNAME=$(NAME) -c $< -o $@
 
 $(BIN): $(OBJ) $(NASAL_OBJ)
 	$(CC) -O2 -lm $< $(NASAL_OBJ) -o $@
