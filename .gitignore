@@ -1,4 +1,4 @@
-bin/
-nasal/
-obj/
-nasal-docgen
+/bin/
+/nasal/
+/obj/
+/nasal-docgen
