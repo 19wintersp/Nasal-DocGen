@@ -19,5 +19,5 @@ obj/%.o: src/% include
 	$(CC) -O2 -Iinclude $(CFLAGS) -DNAME=$(NAME) -c $< -o $@
 
 $(BIN): $(OBJ) $(NASAL_OBJ)
-	$(CC) -O2 -lm $(LIBS) $< $(NASAL_OBJ) -o $@
+	$(CC) -O2 -lm $(LIBS) $(OBJ) $(NASAL_OBJ) -o $@
 	strip $@
