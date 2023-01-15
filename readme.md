@@ -6,15 +6,13 @@ Licensed under the GNU General Public License, version 2.
 
 ## Build instructions
 
-Due to the utter stupidity of the existing build system, and the horror of that
-"build system" known generally as "CMake", the build process is convoluted. As
-`nasal-docgen` uses the Nasal library for parsing Nasal files with maximal
-compatibility, this must be built using the existing system within the SimGear
-repository, and then the necessary files copied over.
-
 These instructions, as with the build system, are designed for Unix systems. If
 you are able to extend this system to other platforms, contributions are welcome
 to improve support.
+
+The following libraries must also be available through `pkg-config`:
+
+* [`cmark` - CommonMark C implementation](https://github.com/commonmark/cmark)
 
 ### Cloning
 

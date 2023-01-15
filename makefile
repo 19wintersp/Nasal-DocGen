@@ -1,6 +1,8 @@
 NAME = nasal-docgen
 
 CC := clang
+CFLAGS = $(shell pkg-config --cflags libcmark)
+LIBS = $(shell pkg-config --libs libcmark)
 
 SRC = $(wildcard src/*.c)
 OBJ = $(patsubst src/%,obj/%.o,$(SRC))
@@ -14,8 +16,8 @@ NASAL_OBJ = $(wildcard $(NASAL)/*.c.o)
 
 obj/%.o: src/% include
 	mkdir -p obj
-	$(CC) -O2 -Iinclude -DNAME=$(NAME) -c $< -o $@
+	$(CC) -O2 -Iinclude $(CFLAGS) -DNAME=$(NAME) -c $< -o $@
 
 $(BIN): $(OBJ) $(NASAL_OBJ)
-	$(CC) -O2 -lm $< $(NASAL_OBJ) -o $@
+	$(CC) -O2 -lm $(LIBS) $< $(NASAL_OBJ) -o $@
 	strip $@
