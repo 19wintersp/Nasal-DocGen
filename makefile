@@ -16,7 +16,7 @@ NASAL_OBJ = $(wildcard $(NASAL)/*.c.o)
 
 obj/%.o: src/% include
 	mkdir -p obj
-	$(CC) -O2 -Iinclude $(CFLAGS) -DNAME=$(NAME) -c $< -o $@
+	$(CC) -O2 -Iinclude $(CFLAGS) -DNAME=\"$(NAME)\" -c $< -o $@
 
 $(BIN): $(OBJ) $(NASAL_OBJ)
 	$(CC) -O2 -lm $(LIBS) $(OBJ) $(NASAL_OBJ) -o $@
