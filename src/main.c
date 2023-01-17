@@ -8,7 +8,8 @@
 #endif
 #define VERSION "0.1.0"
 
-extern char *optarg;
+extern char* optarg;
+extern int optopt;
 
 int main(int argc, char* const argv[]) {
 	const char* output = NULL;
@@ -20,7 +21,7 @@ int main(int argc, char* const argv[]) {
 	}
 
 	int lastopt;
-	while ((lastopt = getopt(argc, argv, "ho:t:v")) != -1) {
+	while ((lastopt = getopt(argc, argv, ":ho:t:v")) != -1) {
 		switch ((char) lastopt) {
 			case 'h':
 				printf("Usage: %s [OPTION]... [FILE]...\n", argv[0]);
@@ -54,7 +55,7 @@ int main(int argc, char* const argv[]) {
 
 			case 'o':
 				if (output != NULL) {
-					fprintf(stderr, "%s: -o can only appear once", argv[0]);
+					fprintf(stderr, "%s: -o can only appear once\n", argv[0]);
 					return 1;
 				}
 
@@ -65,7 +66,7 @@ int main(int argc, char* const argv[]) {
 
 			case 't':
 				if (template != NULL) {
-					fprintf(stderr, "%s: -t can only appear once", argv[0]);
+					fprintf(stderr, "%s: -t can only appear once\n", argv[0]);
 					return 1;
 				}
 
@@ -74,7 +75,12 @@ int main(int argc, char* const argv[]) {
 
 				break;
 
-			default:
+			case ':':
+				fprintf(stderr, "%s: -%c requires a value\n", argv[0], (char) optopt);
+				return 1;
+
+			case '?':
+				fprintf(stderr, "%s: -%c is not an option\n", argv[0], (char) optopt);
 				return 1;
 		}
 	}
