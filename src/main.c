@@ -60,7 +60,7 @@ int main(int argc, char* const argv[]) {
 				}
 
 				output = malloc(strlen(optarg) + 1);
-				strcpy(output, optarg);
+				strcpy((char*) output, optarg);
 
 				break;
 
@@ -71,7 +71,7 @@ int main(int argc, char* const argv[]) {
 				}
 
 				template = malloc(strlen(optarg) + 1);
-				strcpy(template, optarg);
+				strcpy((char*) template, optarg);
 
 				break;
 
