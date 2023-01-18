@@ -24,7 +24,7 @@ install_bin: $(BIN)
 	cp $(BIN) $(PREFIX)/bin/
 
 install_doc: license readme.md
-	mkdir $(PREFIX)/doc/nasal-docgen
+	mkdir -p $(PREFIX)/doc/nasal-docgen
 	cp license readme.md $(PREFIX)/doc/nasal-docgen/
 
 install_man: man/nasal-docgen.1
