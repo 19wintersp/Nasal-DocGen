@@ -1,0 +1,67 @@
+'\" t
+.\"     Title: nasal-docgen
+.\"    Author: [FIXME: author] [see http://www.docbook.org/tdg5/en/html/author]
+.\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+.\"      Date: January 2023
+.\"    Manual: User Commands
+.\"    Source: LOCAL
+.\"  Language: English
+.\"
+.TH "NASAL\-DOCGEN" "1" "January 2023" "LOCAL" "User Commands"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+nasal-docgen \- Documentation generator for Nasal code
+.SH "SYNOPSIS"
+.sp
+\fBnasal\-docgen\fR [\fIOPTION\fR]\&... [\fIFILE\fR]\&...
+.SH "DESCRIPTION"
+.sp
+\fBnasal\-docgen\fR is a program for generating HTML or other\-format files from a template using parsed module items from Nasal source files\&.
+.sp
+When no \fIFILE\fR is specified, all Nasal files in the current directory (including any subdirectories) will be processed\&.
+.sp
+By default, a module path for each of the specified files will be guessed from the path, relative to the highest common ancestor directory\&. Optionally, a custom module path can be specified by placing a colon after the filename, then the module path\&. Its format is a set of identifiers separated by \fI\&.\fR characters, and an optional \fI\&.\fR at the start\&. When modules overlap, they will be merged if possible, and duplicate items are overwritten\&.
+.SH "OPTIONS"
+.PP
+\fB\-h\fR
+.RS 4
+Show help options
+.RE
+.PP
+\fB\-o\fR=\fIOUTPUT\fR
+.RS 4
+Set the output directory for the generated documentation to
+\fIOUTPUT\fR
+.RE
+.PP
+\fB\-t\fR=\fITEMPLATE\fR
+.RS 4
+Set the directory to be used as the documentation template to
+\fITEMPLATE\fR
+.RE
+.PP
+\fB\-v\fR
+.RS 4
+Show program version
+.RE
+.SH "BUGS"
+.sp
+To file bug reports, visit \m[blue]\fBhttps://github\&.com/19wintersp/Nasal\-DocGen\fR\m[]\&.
