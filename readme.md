@@ -63,7 +63,11 @@ To build this program, run:
 make
 ```
 
-The built program is written to `nasal-docgen`.
+The built program is written to `nasal-docgen`. To install it globally, run:
+
+```bash
+sudo make install
+```
 
 ## User documentation
 

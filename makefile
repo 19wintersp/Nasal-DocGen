@@ -11,8 +11,24 @@ BIN = $(NAME)
 NASAL := nasal
 NASAL_OBJ = $(wildcard $(NASAL)/*.c.o)
 
-.PHONY:
+PREFIX := /usr/local
+
+.PHONY: build install install_bin install_doc install_man
 .DEFAULT: $(BIN)
+
+build: $(BIN)
+
+install: install_bin install_doc install_man
+
+install_bin: $(BIN)
+	cp $(BIN) $(PREFIX)/bin/
+
+install_doc: license readme.md
+	mkdir $(PREFIX)/doc/nasal-docgen
+	cp license readme.md $(PREFIX)/doc/nasal-docgen/
+
+install_man: man/nasal-docgen.1
+	cp man/nasal-docgen.1 $(PREFIX)/share/man/man1/
 
 obj/%.o: src/% include
 	mkdir -p obj
