@@ -3,6 +3,7 @@ NAME = nasal-docgen
 CC := clang
 CFLAGS = $(shell pkg-config --cflags libcmark)
 LIBS = $(shell pkg-config --libs libcmark)
+DEFINES = -DNAME=\"$(NAME)\" -D_DEFAULT_SOURCE=1
 
 SRC = $(wildcard src/*.c)
 OBJ = $(patsubst src/%,obj/%.o,$(SRC))
@@ -32,7 +33,7 @@ install_man: man/nasal-docgen.1
 
 obj/%.o: src/% include
 	mkdir -p obj
-	$(CC) -O2 -Iinclude $(CFLAGS) -DNAME=\"$(NAME)\" -c $< -o $@
+	$(CC) -O2 -Iinclude $(CFLAGS) $(DEFINES) -c $< -o $@
 
 $(BIN): $(OBJ) $(NASAL_OBJ)
 	$(CC) -O2 -lm $(LIBS) $(OBJ) $(NASAL_OBJ) -o $@
