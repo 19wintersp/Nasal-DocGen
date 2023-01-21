@@ -15,20 +15,49 @@
 extern char* optarg;
 extern int optind, optopt;
 
+int argc;
+char* const* argv;
+
 struct input {
 	const char* file;
 	const char* module;
 };
 
-int main(int argc, char* const argv[]) {
-	const char* output = NULL;
-	const char* template = NULL;
+struct options {
+	const char* output;
+	const char* template;
+};
+
+int parse_options(struct options* options);
+int parse_inputs(struct input inputs[], int* n_inputs);
+int resolve_inputs(struct input inputs[], int n_inputs);
+
+int main(int _argc, char* const _argv[]) {
+	argc = _argc;
+	argv = _argv;
 
 	if (argc < 1) {
 		argv = (char* const[]) { NAME, NULL };
 		argc = 1;
 	}
 
+	struct options options = { NULL, NULL };
+	if (parse_options(&options)) return 1;
+
+	options.output = options.output == NULL ? "docs" : options.output;
+	options.template = options.template == NULL ? "default" : options.template;
+
+	struct input inputs[1024] = {};
+	int n_inputs = argc - optind;
+	if (parse_inputs(inputs, &n_inputs)) return 1;
+	if (resolve_inputs(inputs, n_inputs)) return 2;
+
+	// todo
+
+	return 0;
+}
+
+int parse_options(struct options* options) {
 	int lastopt;
 	while ((lastopt = getopt(argc, argv, ":ho:t:v")) != -1) {
 		switch ((char) lastopt) {
@@ -63,24 +92,28 @@ int main(int argc, char* const argv[]) {
 				return 0;
 
 			case 'o':
-				if (output != NULL) {
+				if (options->output != NULL) {
 					fprintf(stderr, "%s: -o can only appear once\n", argv[0]);
 					return 1;
 				}
 
-				output = malloc(strlen(optarg) + 1);
-				strcpy((char*) output, optarg);
+				options->output = malloc(strlen(optarg) + 1);
+				strcpy((char*) options->output, optarg);
+
+				if (options->output[0] == '=') options->output += 1;
 
 				break;
 
 			case 't':
-				if (template != NULL) {
+				if (options->template != NULL) {
 					fprintf(stderr, "%s: -t can only appear once\n", argv[0]);
 					return 1;
 				}
 
-				template = malloc(strlen(optarg) + 1);
-				strcpy((char*) template, optarg);
+				options->template = malloc(strlen(optarg) + 1);
+				strcpy((char*) options->template, optarg);
+
+				if (options->template[0] == '=') options->template += 1;
 
 				break;
 
@@ -94,16 +127,50 @@ int main(int argc, char* const argv[]) {
 		}
 	}
 
-	output = output == NULL ? "docs" : output;
-	template = template == NULL ? "default" : template;
+	return 0;
+}
 
-	if (output[0] == '=') output += 1;
-	if (template[0] == '=') template += 1;
+char buf[PATH_MAX] = { '.', '/', 0 };
+int buflen = 2;
 
-	struct input inputs[1024] = {};
-	int n_inputs = argc - optind;
-	bool search_dir = n_inputs == 0;
+void search_dir(struct input inputs[], int* n_inputs) {
+	DIR* dir = opendir(buf);
+	if (dir == NULL) return;
 
+	struct dirent* dir_item;
+	while ((dir_item = readdir(dir))) {
+		if (strcmp(dir_item->d_name, ".") == 0) continue;
+		if (strcmp(dir_item->d_name, "..") == 0) continue;
+
+		strcpy(buf + buflen, dir_item->d_name);
+
+		int buflen_before = buflen;
+		buflen += strlen(dir_item->d_name);
+
+		if (dir_item->d_type == DT_DIR) {
+			buf[buflen] = '/';
+			buflen += 1;
+			buf[buflen] = 0;
+
+			search_dir(inputs, n_inputs);
+		} else if (strcmp(buf + buflen - 4, ".nas") == 0) {
+			char* buf_clone = malloc(buflen - 1);
+			strcpy(buf_clone, buf + 2);
+
+			inputs[(*n_inputs)++] = (struct input) {
+				.file = buf_clone,
+				.module = NULL
+			};
+		}
+
+		buf[buflen_before] = 0;
+		buflen = buflen_before;
+	}
+
+	closedir(dir);
+}
+
+int parse_inputs(struct input inputs[], int* n_inputs) {
 	for (int i = optind; i < argc; i++) {
 		const char* module = strrchr(argv[i], ':');
 
@@ -148,59 +215,19 @@ int main(int argc, char* const argv[]) {
 		}
 	}
 
-	if (search_dir) {
-		void search_level(struct input inputs[1024], int* n_inputs);
-
-		search_level(inputs, &n_inputs);
+	if (*n_inputs == 0) {
+		search_dir(inputs, n_inputs);
 	}
-
-	for (int i = 0; i < n_inputs; i++) {
-		if (inputs[i].module == NULL) {
-			// set default name
-		}
-	}
-
-	// todo
 
 	return 0;
 }
 
-char buf[4096] = { '.', '/', 0 };
-int buflen = 2;
-
-void search_level(struct input inputs[1024], int* n_inputs) {
-	DIR* level = opendir(buf);
-	if (level == NULL) return;
-
-	struct dirent* level_item;
-	while ((level_item = readdir(level))) {
-		if (strcmp(level_item->d_name, ".") == 0) continue;
-		if (strcmp(level_item->d_name, "..") == 0) continue;
-
-		strcpy(buf + buflen, level_item->d_name);
-
-		int buflen_before = buflen;
-		buflen += strlen(level_item->d_name);
-
-		if (level_item->d_type == DT_DIR) {
-			buf[buflen] = '/';
-			buflen += 1;
-			buf[buflen] = 0;
-
-			search_level(inputs, n_inputs);
-		} else if (strcmp(buf + buflen - 4, ".nas") == 0) {
-			char* buf_clone = malloc(buflen - 1);
-			strcpy(buf_clone, buf + 2);
-
-			inputs[(*n_inputs)++] = (struct input) {
-				.file = buf_clone,
-				.module = NULL
-			};
+int resolve_inputs(struct input inputs[], int n_inputs) {
+	for (int i = 0; i < n_inputs; i++) {
+		if (inputs[i].module == NULL) {
+			// todo
 		}
-
-		buf[buflen_before] = 0;
-		buflen = buflen_before;
 	}
 
-	closedir(level);
+	return 0;
 }
