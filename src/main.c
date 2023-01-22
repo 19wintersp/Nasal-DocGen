@@ -1,11 +1,14 @@
 #include <ctype.h>
 #include <dirent.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
+
+#include "util.h"
 
 #ifndef NAME
 #define NAME    "nasal-docgen"
@@ -223,9 +226,79 @@ int parse_inputs(struct input inputs[], int* n_inputs) {
 }
 
 int resolve_inputs(struct input inputs[], int n_inputs) {
+	char* common = NULL;
+	char* segments[64] = { 0 };
+	int n_segments = 0;
+
 	for (int i = 0; i < n_inputs; i++) {
 		if (inputs[i].module == NULL) {
-			// todo
+			char* resolved = realpath(inputs[i].file, NULL);
+
+			if (resolved == NULL) {
+				perrorf("failed to resolve '%s'", inputs[i].file);
+				return 1;
+			}
+
+			resolved[0] = 0;
+
+			char* current = resolved + 1;
+			char* last_current = current;
+			int current_n = 0;
+
+			if (common == NULL) segments[n_segments++] = current;
+
+			while ((current = strchr(current, '/')) != NULL) {
+				current[0] = 0;
+				current += 1;
+
+				if (common == NULL) {
+					segments[n_segments++] = current;
+				} else if (
+					n_segments <= current_n ||
+					strcmp(segments[current_n], last_current) != 0
+				) {
+					n_segments = current_n;
+					break;
+				} else {
+					current_n++;
+				}
+
+				last_current = current;
+			}
+
+			if (common == NULL) {
+				n_segments -= 1;
+				common = resolved;
+			} else {
+				if (current_n < n_segments) n_segments = current_n;
+
+				free(resolved);
+			}
+		}
+	}
+
+	int prefix = 1 + n_segments;
+	for (int i = 0; i < n_segments; i++)
+		prefix += strlen(segments[i]);
+
+	free(common);
+
+	for (int i = 0; i < n_inputs; i++) {
+		if (inputs[i].module == NULL) {
+			char* resolved = realpath(inputs[i].file, NULL) + prefix;
+			int resolved_len = strlen(resolved);
+
+			if (strcmp(resolved + resolved_len - 4, ".nas") == 0)
+				resolved[resolved_len - 4] = 0;
+
+			for (int j = 0; resolved[j]; j++) {
+				if (resolved[j] == '/')
+					resolved[j] = '.';
+				else if (!isalnum(resolved[j]) && resolved[j] != '_')
+					resolved[j] = '_';
+			}
+
+			inputs[i].module = resolved;
 		}
 	}
 
