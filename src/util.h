@@ -10,6 +10,7 @@ void* list_get(struct list* this, int index);
 void* list_set(struct list* this, int index, void* value);
 void list_push(struct list* this, void* value);
 void* list_pop(struct list* this);
+void* list_iter(struct list* this, void* (* each)(void*, void*), void* user);
 
 char* asprintf(const char* format, ...);
 void perrorf(const char* format, ...);

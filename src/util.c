@@ -114,6 +114,27 @@ void* list_pop(struct list* this) {
 	return value;
 }
 
+void* list_iter(struct list* this, void* (* each)(void*, void*), void* user) {
+	if (each == NULL) return NULL;
+
+	struct list_node* current = this->head;
+	for (int i = 0; i < this->length / LIST_NODE_LENGTH; i++) {
+		for (int j = 0; j < LIST_NODE_LENGTH; j++) {
+			void* ret = each(current->items[j], user);
+			if (ret != NULL) return ret;
+		}
+
+		current = current->next;
+	}
+
+	for (int i = 0; i < this->length % LIST_NODE_LENGTH; i++) {
+		void* ret = each(current->items[i], user);
+		if (ret != NULL) return ret;
+	}
+
+	return NULL;
+}
+
 static char* vasprintf(const char* format, va_list list1) {
 	va_list list2;
 	va_copy(list2, list1);
