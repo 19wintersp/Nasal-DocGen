@@ -200,7 +200,7 @@ int parse_inputs(struct input inputs[], int* n_inputs) {
 			bool last_was_dot = false;
 			for (int j = 1; j < module_len + 1; j++) {
 				if (module[j] == '.') {
-					if (last_was_dot || j == module_len) {
+					if (last_was_dot || (j == module_len && j > 1)) {
 						fprintf(stderr, "%s: '%s' is invalid\n", argv[0], module + 1);
 						return 1;
 					}
