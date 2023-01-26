@@ -2,6 +2,7 @@ NAME = nasal-docgen
 
 CC := clang
 CFLAGS = $(shell pkg-config --cflags libcmark)
+LDFLAGS = -Xlinker --allow-multiple-definition
 LIBS = $(shell pkg-config --libs libcmark)
 DEFINES = -DNAME=\"$(NAME)\" -D_DEFAULT_SOURCE=1
 
@@ -36,5 +37,5 @@ obj/%.o: src/% include
 	$(CC) -O2 -Iinclude $(CFLAGS) $(DEFINES) -c $< -o $@
 
 $(BIN): $(OBJ) $(NASAL_OBJ)
-	$(CC) -O2 -lm $(LIBS) $(OBJ) $(NASAL_OBJ) -o $@
+	$(CC) -O2 -lm $(LDFLAGS) $(LIBS) $(OBJ) $(NASAL_OBJ) -o $@
 	strip $@
