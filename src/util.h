@@ -15,4 +15,6 @@ void* list_iter(struct list* this, void* (* each)(void*, void*), void* user);
 char* asprintf(const char* format, ...);
 void perrorf(const char* format, ...);
 
+char* astrndup(const char* src, size_t length);
+
 #endif // ifndef UTIL_H

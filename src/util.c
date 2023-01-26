@@ -171,3 +171,12 @@ void perrorf(const char* format, ...) {
 	free(message);
 	free(buffer);
 }
+
+char* astrndup(const char* src, size_t length) {
+	char* ret = malloc(length + 1);
+	ret[length] = 0;
+
+	strncpy(ret, src, length);
+
+	return ret;
+}
