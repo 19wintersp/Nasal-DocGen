@@ -35,11 +35,12 @@ struct list* list_new() {
 }
 
 void list_free(struct list* this, void (* each)(void*)) {
+	if (each != NULL) each = free;
+
 	struct list_node* current = this->head;
 	for (int i = 0; i < this->length / LIST_NODE_LENGTH; i++) {
 		for (int j = 0; j < LIST_NODE_LENGTH; j++)
-			if (each != NULL)
-				each(current->items[j]);
+			each(current->items[j]);
 
 		struct list_node* old_current = current;
 		current = current->next;
@@ -47,8 +48,7 @@ void list_free(struct list* this, void (* each)(void*)) {
 	}
 
 	for (int i = 0; i < this->length % LIST_NODE_LENGTH; i++)
-		if (each != NULL)
-			each(current->items[i]);
+		each(current->items[i]);
 	free(current);
 
 	free(this);
