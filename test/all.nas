@@ -29,9 +29,9 @@ var (
 ##
 ## This is a function taking one argument and returning one value.
 ##
-## @param foo num|str       A useless parameter that does nothing.
-## @param ... num|func(int) Extra variable parameters that also do nothing.
-## @return    num           The number `123`.
+## @param foo num|str   A useless parameter that does nothing.
+## @param ... num|(int) Extra variable parameters that also do nothing.
+## @return    num       The number `123`.
 var myFunction = func(foo, bar...) { return 123; };
 
 var myBracketlessFunction = func {};
