@@ -1,35 +1,22 @@
 #include <stdarg.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "util.h"
 
-#define LIST_NODE_LENGTH 64
-
-extern char* const* argv;
-
-struct list_node {
-	void* items[LIST_NODE_LENGTH];
-	struct list_node* next;
-	struct list_node* prev;
-};
+#define MAX_ALLOC 64
 
 struct list {
-	int length;
-	struct list_node* head;
-	struct list_node* tail;
+	int length, alloc, iter;
+	void** items;
 };
 
 struct list* list_new() {
-	struct list_node* node = malloc(sizeof(struct list_node));
-	node->next = NULL;
-	node->prev = NULL;
-
 	struct list* this = malloc(sizeof(struct list));
-	this->length = 0;
-	this->head = node;
-	this->tail = node;
+	this->length = this->alloc = 0;
+	this->items = NULL;
 
 	return this;
 }
@@ -37,19 +24,13 @@ struct list* list_new() {
 void list_free(struct list* this, void (* each)(void*)) {
 	if (each != NULL) each = free;
 
-	struct list_node* current = this->head;
-	for (int i = 0; i < this->length / LIST_NODE_LENGTH; i++) {
-		for (int j = 0; j < LIST_NODE_LENGTH; j++)
-			each(current->items[j]);
+	if (this->alloc > 0) {
+		for (int i = 0; i < this->length; i++) each(this->items[i]);
 
-		struct list_node* old_current = current;
-		current = current->next;
-		free(old_current);
+		free(this->items);
+	} else if (this->length == 1) {
+		each((void*) this->items);
 	}
-
-	for (int i = 0; i < this->length % LIST_NODE_LENGTH; i++)
-		each(current->items[i]);
-	free(current);
 
 	free(this);
 }
@@ -58,82 +39,97 @@ int list_length(struct list* this) {
 	return this->length;
 }
 
-static void** list_get_ptr(struct list* this, int index) {
+void* list_get(struct list* this, int index) {
 	if (index >= this->length) return NULL;
 
-	struct list_node* current = this->head;
-	for (int i = 0; i < index / LIST_NODE_LENGTH; i++) current = current->next;
-
-	return current->items + index % LIST_NODE_LENGTH;
-}
-
-void* list_get(struct list* this, int index) {
-	void** ptr = list_get_ptr(this, index);
-
-	if (ptr == NULL) return NULL;
-	else return *ptr;
+	return this->length == 1 ? (void*) this->items : this->items[index];
 }
 
 void* list_set(struct list* this, int index, void* value) {
-	void** ptr = list_get_ptr(this, index);
+	if (index >= this->length) return NULL;
 
-	if (ptr == NULL) {
-		return NULL;
-	} else {
-		void* old = *ptr;
-		*ptr = value;
-		return old;
-	}
+	void** ptr = this->length == 1 ? (void**) &this->items : this->items + index;
+
+	void* old = *ptr;
+	*ptr = value;
+	return old;
 }
 
 void list_push(struct list* this, void* value) {
-	if (this->length % LIST_NODE_LENGTH == 0 && this->length > 0) {
-		struct list_node* node = malloc(sizeof(struct list_node));
-		node->next = NULL;
-		node->prev = this->tail;
+	this->length++;
 
-		this->tail->next = node;
-		this->tail = node;
+	if (this->alloc == 0) {
+		if (this->length == 1) {
+			this->items = (void**) value;
+		} else {
+			void** items = malloc(4 * sizeof(void*));
+			items[0] = (void*) this->items;
+			items[1] = value;
+			items[2] = NULL;
+
+			this->alloc = 4;
+			this->items = items;
+		}
+	} else {
+		if (this->length >= this->alloc) {
+			this->alloc += this->alloc < MAX_ALLOC ? this->alloc : MAX_ALLOC;
+			this->items = realloc(this->items, this->alloc * sizeof(void*));
+		}
+
+		this->items[this->length - 1] = value;
+		this->items[this->length] = NULL;
 	}
-
-	this->length += 1;
-	list_set(this, this->length - 1, value);
 }
 
 void* list_pop(struct list* this) {
 	if (this->length == 0) return NULL;
 
-	void* value = list_get(this, this->length - 1);
-	this->length -= 1;
+	this->length--;
 
-	if (this->length % LIST_NODE_LENGTH == 0 && this->length > 0) {
-		this->tail->prev->next = NULL;
-		free(this->tail);
+	if (this->alloc == 0) {
+		void* value = (void*) this->items;
+		this->items = NULL;
+		return value;
+	} else {
+		void* value = this->items[this->length];
+		this->items[this->length] = NULL;
+		return value;
 	}
-
-	return value;
 }
 
 void* list_iter(struct list* this, void* (* each)(void*, void*), void* user) {
-	if (each == NULL) return NULL;
-
-	struct list_node* current = this->head;
-	for (int i = 0; i < this->length / LIST_NODE_LENGTH; i++) {
-		for (int j = 0; j < LIST_NODE_LENGTH; j++) {
-			void* ret = each(current->items[j], user);
-			if (ret != NULL) return ret;
+	if (this->alloc > 0) {
+		for (int i = 0; i < this->length; i++) {
+			void* ret = each(this->items[i], user);
+			if (ret) return ret;
 		}
-
-		current = current->next;
-	}
-
-	for (int i = 0; i < this->length % LIST_NODE_LENGTH; i++) {
-		void* ret = each(current->items[i], user);
-		if (ret != NULL) return ret;
+	} else if (this->length == 1) {
+		return each((void*) this->items, user);
 	}
 
 	return NULL;
 }
+
+void* list_iter_start(struct list* this) {
+	this->iter = 0;
+
+	return this->alloc > 0 ? this->items[0] : (void*) this->items;
+}
+
+void* list_iter_next(struct list* this) {
+	if (this->alloc == 0 || this->length <= 1) return NULL;
+
+	this->iter++;
+
+	if (this->iter >= this->length) return NULL;
+	else return this->items[this->iter];
+}
+
+bool list_iter_continue(struct list* this) {
+	return this->iter < this->length;
+}
+
+extern char* const* argv;
 
 static char* vasprintf(const char* format, va_list list1) {
 	va_list list2;
