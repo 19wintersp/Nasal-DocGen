@@ -32,7 +32,7 @@ var (
 ## @param foo num|str   A useless parameter that does nothing.
 ## @param ... num|(int) Extra variable parameters that also do nothing.
 ## @return    num       The number `123`.
-var myFunction = func(foo, bar...) { return 123; };
+var myFunction = func(foo, qux = "quux", bar...) { return 123; };
 
 var myBracketlessFunction = func {};
 var myBracelessFunction = func return;
