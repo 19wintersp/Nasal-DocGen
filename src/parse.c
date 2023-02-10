@@ -12,6 +12,7 @@
 #include <nasal/data.h>
 #include <nasal/parse.h>
 
+#include "marker.h"
 #include "parse.h"
 #include "util.h"
 
@@ -25,7 +26,8 @@ struct line {
 };
 
 static void parse_toplevel(struct Token*, struct line*, struct module*);
-static void parse_object(struct Token*, struct line*, struct module*);
+static void parse_object(struct Token*, struct line*, struct list*, struct list*);
+static void parse_function(struct Token*, struct list*);
 
 static struct Token* clone_token(struct Token* tok, struct Token* parent) {
 	struct Token* clone = malloc(sizeof(struct Token));
@@ -147,13 +149,15 @@ naRef naCodeGen(struct Parser* _p, struct Token* block, struct Token* _null) {
 
 static void process_item(
 	int line,
-	const char* name,
+	char* name,
 	struct Token* rhs,
 	struct line* lines,
-	struct module* module
+	struct list* module_children,
+	struct list* module_items
 ) {
-	char* buffer = malloc(1);
+	char* desc = malloc(1);
 	int length = 0;
+	struct markers* markers = markers_new();
 
 	for (int i = line - 2; i >= 0; i--) {
 		if (lines[i].start_nows[0] != '#') break;
@@ -164,20 +168,68 @@ static void process_item(
 		const char* line_end = lines[i].start + lines[i].length;
 		size_t line_length = line_end - lines[i].start_nows - hashes - spaces;
 
-		buffer = realloc(buffer, length + line_length + 1);
-		memmove(buffer + line_length, buffer, length);
-		strncpy(buffer, line_end - line_length, line_length);
-		length += line_length;
-		buffer[length - 1] = '\n';
+		if (*(line_end - line_length) == '@') {
+			parse_marker(line_end - line_length, line_length, markers);
+		} else {
+			desc = realloc(desc, length + line_length + 1);
+			memmove(desc + line_length, desc, length);
+			strncpy(desc, line_end - line_length, line_length);
+			length += line_length;
+			desc[length - 1] = '\n';
+		}
 
 		lines[i].doc_used = true;
 	}
 
-	buffer[length] = 0;
+	desc[length] = 0;
 
-	//
+	if (markers->f_var + markers->f_module + markers->f_class > 1)
+		markers->f_var = markers->f_module = markers->f_class = false;
+	if (markers->f_public && markers->f_private)
+		markers->f_public = markers->f_private = false;
 
-	free(buffer);
+	if (markers->f_private || (name[0] == '_' && !markers->f_public)) {
+		free(name);
+		free(desc);
+	} else {
+		struct item* item = malloc(sizeof(struct item));
+		item->name = name;
+		item->desc = desc;
+
+		list_push(module_items, item);
+
+		if (rhs->type == TOK_LCURL && !markers->f_var) {
+			if (markers->f_module && module_children != NULL) {
+				list_pop(module_items);
+				free(item);
+
+				struct module* submodule = malloc(sizeof(struct module));
+				submodule->name = name;
+				submodule->desc = desc;
+				submodule->children = list_new();
+				submodule->items = list_new();
+
+				parse_object(rhs, lines, submodule->children, submodule->items);
+
+				list_push(module_children, submodule);
+			} else {
+				item->type = ITEM_CLASS;
+				item->items = list_new();
+
+				parse_object(rhs, lines, NULL, item->items);
+			}
+		} else if (rhs->type == TOK_FUNC && !markers->f_var) {
+			item->type = ITEM_FUNC;
+			item->items = list_new();
+
+			parse_function(rhs, item->items);
+		} else {
+			item->type = ITEM_VAR;
+			item->items = NULL;
+		}
+	}
+
+	markers_free(markers);
 }
 
 static void parse_toplevel(
@@ -205,8 +257,14 @@ static void parse_toplevel(
 
 			if (tok->children->type == TOK_VAR && chch->type == TOK_SYMBOL) {
 				char* name = astrndup(chch->str, chch->strlen);
-				process_item(chch->line, name, tok->lastChild, lines, module);
-				free(name);
+				process_item(
+					chch->line,
+					name,
+					tok->lastChild,
+					lines,
+					module->children,
+					module->items
+				);
 			} else if (
 				tok->children->type == TOK_LPAR ||
 				(tok->children->type == TOK_VAR && chch->type == TOK_LPAR)
@@ -235,8 +293,14 @@ static void parse_toplevel(
 						}
 
 						if (name != NULL) {
-							process_item(lhp->line, name, rhp, lines, module);
-							free(name);
+							process_item(
+								lhp->line,
+								name,
+								rhp,
+								lines,
+								module->children,
+								module->items
+							);
 						}
 					}
 
@@ -257,7 +321,12 @@ static void parse_toplevel(
 static void parse_object(
 	struct Token* tok,
 	struct line* lines,
-	struct module* module
+	struct list* module_children,
+	struct list* module_items
 ) {
+	//
+}
+
+static void parse_function(struct Token* tok, struct list* params) {
 	//
 }
