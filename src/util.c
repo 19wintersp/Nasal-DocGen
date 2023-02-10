@@ -22,7 +22,7 @@ struct list* list_new() {
 }
 
 void list_free(struct list* this, void (* each)(void*)) {
-	if (each != NULL) each = free;
+	if (each == NULL) each = free;
 
 	if (this->alloc > 0) {
 		for (int i = 0; i < this->length; i++) each(this->items[i]);
