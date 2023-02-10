@@ -3,12 +3,13 @@
 
 #include <stdbool.h>
 
-#define LIST_ITER(list, item) \
+#define LIST_ITER_T(list, item, type) \
 	for ( \
-		void* item = list_iter_start(list); \
+		type item = list_iter_start(list); \
 		list_iter_continue(list); \
 		item = list_iter_next(list) \
 	)
+#define LIST_ITER(list, item) LIST_ITER_T(list, item, void*)
 
 struct list;
 
