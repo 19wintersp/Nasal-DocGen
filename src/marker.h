@@ -7,14 +7,14 @@
 #include "util.h"
 
 struct marker_pair {
-	struct list* typeset;
 	char* desc;
+	struct list* typeset;
 };
 
 struct marker_pair_named {
 	char* name;
-	struct list* typeset;
 	char* desc;
+	struct list* typeset;
 };
 
 struct markers {
@@ -26,6 +26,9 @@ struct markers {
 	struct list* props;       /* marker_pair_named */
 	struct list* inheritance; /* char* */
 };
+
+struct markers* markers_new();
+void markers_free(struct markers* markers);
 
 void parse_marker(const char* line, int length, struct markers* markers);
 

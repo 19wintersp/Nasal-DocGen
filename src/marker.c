@@ -8,6 +8,62 @@
 #include "parse.h"
 #include "util.h"
 
+struct markers* markers_new() {
+	return calloc(1, sizeof(struct markers));
+}
+
+static void free_typeset(struct list* typeset);
+
+static void free_type(struct type* type) {
+	switch (type->type) {
+		case TYPE_LIST:
+		case TYPE_HASH:
+			free_typeset(type->data.typeset);
+			break;
+
+		case TYPE_OBJ:
+			free(type->data.class);
+			break;
+
+		case TYPE_FUNC:
+			list_free(type->data.func.param_typesets, (void (*)(void*)) free_typeset);
+			free_typeset(type->data.func.return_typeset);
+			break;
+
+		default:
+			break;
+	}
+
+	free(type);
+}
+
+static void free_typeset(struct list* typeset) {
+	list_free(typeset, (void (*)(void*)) free_type);
+}
+
+static void free_marker_pair(struct marker_pair* pair) {
+	free(pair->desc);
+	free_typeset(pair->typeset);
+	free(pair);
+}
+
+static void free_marker_pair_named(struct marker_pair_named* pair) {
+	free(pair->name);
+	free(pair->desc);
+	free_typeset(pair->typeset);
+	free(pair);
+}
+
+void markers_free(struct markers* markers) {
+	free_typeset(markers->type);
+	list_free(markers->returns, (void (*)(void*)) free_marker_pair);
+	list_free(markers->params, (void (*)(void*)) free_marker_pair_named);
+	list_free(markers->props, (void (*)(void*)) free_marker_pair_named);
+	list_free(markers->inheritance, free);
+
+	free(markers);
+}
+
 static void parse_type(const char* type, int length, struct list** typeset);
 
 void parse_marker(const char* line, int length, struct markers* markers) {
@@ -81,8 +137,8 @@ void parse_marker(const char* line, int length, struct markers* markers) {
 
 		if (arg_length > 0) desc = astrndup(arg, arg_length);
 
-		struct marker_pair unnamed = { typeset, desc };
-		struct marker_pair_named named = { name, typeset, desc };
+		struct marker_pair unnamed = { desc, typeset };
+		struct marker_pair_named named = { name, desc, typeset };
 
 		if (MARKER_MATCH("return")) {
 			struct marker_pair* ptr = malloc(sizeof(struct marker_pair));
