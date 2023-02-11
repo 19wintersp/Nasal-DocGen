@@ -4,3 +4,4 @@
 /nasal-docgen
 build/
 .vscode/
+debug/
