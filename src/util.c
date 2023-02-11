@@ -123,9 +123,9 @@ void* list_iter_start(struct list* this) {
 }
 
 void* list_iter_next(struct list* this) {
-	if (this->alloc == 0 || this->length <= 1) return NULL;
-
 	this->iter++;
+
+	if (this->alloc == 0 || this->length <= 1) return NULL;
 
 	if (this->iter >= this->length) return NULL;
 	else return this->items[this->iter];
