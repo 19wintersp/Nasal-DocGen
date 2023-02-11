@@ -111,6 +111,11 @@ void* list_iter(struct list* this, void* (* each)(void*, void*), void* user) {
 	return NULL;
 }
 
+void list_sort(struct list* this, int (* comp)(const void*, const void*)) {
+	if (this->alloc > 0 && this->length > 1)
+		qsort(this->items, this->length, sizeof(void*), comp);
+}
+
 void* list_iter_start(struct list* this) {
 	this->iter = 0;
 

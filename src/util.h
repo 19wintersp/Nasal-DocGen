@@ -21,6 +21,7 @@ void* list_set(struct list* this, int index, void* value);
 void list_push(struct list* this, void* value);
 void* list_pop(struct list* this);
 void* list_iter(struct list* this, void* (* each)(void*, void*), void* user);
+void list_sort(struct list* this, int (* comp)(const void*, const void*));
 
 void* list_iter_start(struct list* this);
 bool list_iter_continue(struct list* this);
