@@ -327,6 +327,52 @@ static void parse_object(
 	//
 }
 
+static void parse_param(struct Token* tok, struct list* params) {
+	if (tok == NULL) return;
+
+	struct param param = { 0 };
+
+	switch (tok->type) {
+		case TOK_SYMBOL:
+			param.name = astrndup(tok->str, tok->strlen);
+
+			break;
+
+		case TOK_ASSIGN:
+			if (tok->children && tok->children->type == TOK_SYMBOL) {
+				param.name = astrndup(tok->children->str, tok->children->strlen);
+				param.optional = true;
+
+				break;
+			} else return;
+
+		case TOK_ELLIPSIS:
+			if (tok->children && tok->children->type == TOK_SYMBOL) {
+				param.name = astrndup(tok->children->str, tok->children->strlen);
+				param.variable = true;
+
+				break;
+			} else return;
+
+		default:
+			break;
+	}
+
+	struct param* clone = malloc(sizeof(struct param));
+	*clone = param;
+
+	list_push(params, clone);
+}
+
 static void parse_function(struct Token* tok, struct list* params) {
-	//
+	if (!tok->children || tok->children->type != TOK_LPAR) return;
+
+	struct Token* item = tok->children->children;
+
+	while (item && item->type == TOK_COMMA) {
+		parse_param(item->children, params);
+		item = item->lastChild;
+	}
+
+	parse_param(item, params);
 }
