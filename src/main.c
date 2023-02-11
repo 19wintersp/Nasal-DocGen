@@ -332,9 +332,6 @@ int comp_module(const struct module** a, const struct module** b) {
 }
 
 int comp_item(const struct item** a, const struct item** b) {
-	if (strcmp((*a)->name, "new") == 0) return -1;
-	if (strcmp((*b)->name, "new") == 0) return 1;
-
 	return strcmp((*a)->name, (*b)->name);
 }
 
