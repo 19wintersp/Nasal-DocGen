@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include "parse.h"
 #include "util.h"
 
 #ifndef NAME
@@ -34,6 +35,7 @@ struct options {
 int parse_options(struct options* options);
 int parse_inputs(struct input inputs[], int* n_inputs);
 int resolve_inputs(struct input inputs[], int n_inputs);
+int process_inputs(struct input inputs[], int n_inputs);
 
 int main(int _argc, char* const _argv[]) {
 	argc = _argc;
@@ -55,7 +57,8 @@ int main(int _argc, char* const _argv[]) {
 	if (parse_inputs(inputs, &n_inputs)) return 1;
 	if (resolve_inputs(inputs, n_inputs)) return 2;
 
-	// todo
+	int ret = process_inputs(inputs, n_inputs);
+	if (ret > 0) return ret;
 
 	return 0;
 }
@@ -301,6 +304,85 @@ int resolve_inputs(struct input inputs[], int n_inputs) {
 			inputs[i].module = resolved;
 		}
 	}
+
+	return 0;
+}
+
+void* filter_name_eq(void* item, void* compare) {
+	return strcmp(((struct module*) item)->name, compare) == 0 ? item : NULL;
+}
+
+struct module* find_or_create_module(struct module* current, char* segment) {
+	struct module* select = list_iter(current->children, filter_name_eq, segment);
+	if (select == NULL) {
+		select = malloc(sizeof(struct module));
+		select->name = segment;
+		select->desc = NULL;
+		select->children = list_new();
+		select->items = list_new();
+
+		list_push(current->children, select);
+	}
+
+	return select;
+}
+
+int comp_module(const struct module** a, const struct module** b) {
+	return strcmp((*a)->name, (*b)->name);
+}
+
+int comp_item(const struct item** a, const struct item** b) {
+	if (strcmp((*a)->name, "new") == 0) return -1;
+	if (strcmp((*b)->name, "new") == 0) return 1;
+
+	return strcmp((*a)->name, (*b)->name);
+}
+
+void sort_items(struct list* items) {
+	list_sort(items, (int (*)(const void*, const void*)) comp_item);
+	LIST_ITER_T(items, item, struct item*) {
+		if (item->type == ITEM_CLASS) sort_items(item->items);
+	}
+}
+
+void sort_module(struct module* current) {
+	list_sort(current->children, (int (*)(const void*, const void*)) comp_module);
+	LIST_ITER_T(current->children, child, struct module*) {
+		sort_module(child);
+	}
+
+	sort_items(current->items);
+}
+
+int process_inputs(struct input inputs[], int n_inputs) {
+	struct module root = {
+		.name = "",
+		.desc = "", // configure this via arg
+		.children = list_new(),
+		.items = list_new(),
+	};
+
+	for (int i = 0; i < n_inputs; i++) {
+		struct module* current = &root;
+		const char* segment = inputs[i].module;
+		char* next_segment;
+
+		while ((next_segment = strchr(segment, '.')) != NULL) {
+			next_segment[0] = 0;
+
+			current = find_or_create_module(current, (char*) segment);
+			segment = next_segment + 1;
+		}
+
+		current = find_or_create_module(current, (char*) segment);
+
+		int ret = parse_file(inputs[i].file, current);
+		if (ret > 0) return ret;
+	}
+
+	sort_module(&root);
+
+	// generate
 
 	return 0;
 }
