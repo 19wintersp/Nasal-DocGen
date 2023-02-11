@@ -318,13 +318,38 @@ static void parse_toplevel(
 	}
 }
 
+static void parse_object_item(
+	struct Token* tok,
+	struct line* lines,
+	struct list* module_children,
+	struct list* module_items
+) {
+	if (tok == NULL || tok->type != TOK_COLON) return;
+	if (!tok->children || !tok->children->next) return;
+	if (tok->children->type != TOK_SYMBOL) return;
+
+	process_item(
+		tok->children->line,
+		astrndup(tok->children->str, tok->children->strlen),
+		tok->lastChild,
+		lines, module_children, module_items
+	);
+}
+
 static void parse_object(
 	struct Token* tok,
 	struct line* lines,
 	struct list* module_children,
 	struct list* module_items
 ) {
-	//
+	struct Token* item = tok->children;
+
+	while (item && item->type == TOK_COMMA) {
+		parse_object_item(item->children, lines, module_children, module_items);
+		item = item->lastChild;
+	}
+
+	parse_object_item(item, lines, module_children, module_items);
 }
 
 static void parse_param(struct Token* tok, struct list* params) {
