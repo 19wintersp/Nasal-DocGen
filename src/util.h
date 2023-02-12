@@ -29,6 +29,7 @@ bool list_iter_continue(struct list* this);
 void* list_iter_next(struct list* this);
 
 char* asprintf(const char* format, ...);
+void errorf(const char* format, ...);
 void perrorf(const char* format, ...);
 
 char* astrndup(const char* src, size_t length);

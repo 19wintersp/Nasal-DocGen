@@ -162,6 +162,16 @@ char* asprintf(const char* format, ...) {
 	return vasprintf(format, list1);
 }
 
+void errorf(const char* format, ...) {
+	va_list list1;
+	va_start(list1, format);
+
+	char* message = vasprintf(format, list1);
+	fprintf(stderr, "%s: %s", argv[0], message);
+
+	free(message);
+}
+
 void perrorf(const char* format, ...) {
 	va_list list1;
 	va_start(list1, format);
