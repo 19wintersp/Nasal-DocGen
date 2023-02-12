@@ -41,7 +41,7 @@ int generate_docs(
 		return 3;
 	}
 
-	if (mkdir(opts.output, 0) == -1) {
+	if (mkdir(opts.output, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1) {
 		if (errno != EEXIST) {
 			perrorf("failed to create output dir");
 			return 2;
@@ -112,9 +112,6 @@ static char* load_template(const char* dir, const char* name) {
 	char* filename = asprintf("%s/pages/%s.html", dir, name);
 	char* contents = read_file(filename);
 	free(filename);
-
-	puts(name);
-	puts(contents);
 
 	return contents;
 }
