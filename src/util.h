@@ -33,4 +33,6 @@ void perrorf(const char* format, ...);
 
 char* astrndup(const char* src, size_t length);
 
+char* read_file(const char* filename);
+
 #endif // ifndef UTIL_H

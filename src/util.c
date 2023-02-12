@@ -1,8 +1,10 @@
+#include <fcntl.h>
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "util.h"
 
@@ -181,4 +183,32 @@ char* astrndup(const char* src, size_t length) {
 	strncpy(ret, src, length);
 
 	return ret;
+}
+
+char* read_file(const char* filename) {
+	int fd = open(filename, O_RDONLY);
+	if (fd == -1) {
+		perrorf("failed to open '%s'", filename);
+		return NULL;
+	}
+
+	off_t length = lseek(fd, 0, SEEK_END);
+	lseek(fd, 0, SEEK_SET);
+
+	if (length == -1) {
+		perrorf("failed to seek '%s'", filename);
+		return NULL;
+	}
+
+	char* buffer = malloc(length + 1);
+	buffer[length] = 0;
+
+	if (read(fd, buffer, length) == -1) {
+		perrorf("failed to read '%s'", filename);
+		return NULL;
+	}
+
+	close(fd);
+
+	return buffer;
 }
