@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include "generate.h"
 #include "parse.h"
 #include "util.h"
 
@@ -23,19 +24,18 @@ int argc;
 char* const* argv;
 
 struct input {
-	const char* file;
-	const char* module;
+	char* file;
+	char* module;
 };
 
 struct options {
-	const char* output;
-	const char* template;
+	struct generate_options generate;
 };
 
 int parse_options(struct options* options);
 int parse_inputs(struct input inputs[], int* n_inputs);
 int resolve_inputs(struct input inputs[], int n_inputs);
-int process_inputs(struct input inputs[], int n_inputs);
+int process_inputs(struct input inputs[], int n_inputs, struct options opts);
 
 int main(int _argc, char* const _argv[]) {
 	argc = _argc;
@@ -46,21 +46,17 @@ int main(int _argc, char* const _argv[]) {
 		argc = 1;
 	}
 
-	struct options options = { NULL, NULL };
+	struct options options = { 0 };
 	if (parse_options(&options)) return 1;
 
-	options.output = options.output == NULL ? "docs" : options.output;
-	options.template = options.template == NULL ? "default" : options.template;
+	if (!options.generate.output) options.generate.output = "docs";
 
 	struct input inputs[1024] = {};
 	int n_inputs = argc - optind;
 	if (parse_inputs(inputs, &n_inputs)) return 1;
 	if (resolve_inputs(inputs, n_inputs)) return 2;
 
-	int ret = process_inputs(inputs, n_inputs);
-	if (ret > 0) return ret;
-
-	return 0;
+	return process_inputs(inputs, n_inputs, options);
 }
 
 int parse_options(struct options* options) {
@@ -98,28 +94,28 @@ int parse_options(struct options* options) {
 				return 0;
 
 			case 'o':
-				if (options->output != NULL) {
+				if (options->generate.output != NULL) {
 					fprintf(stderr, "%s: -o can only appear once\n", argv[0]);
 					return 1;
 				}
 
-				options->output = malloc(strlen(optarg) + 1);
-				strcpy((char*) options->output, optarg);
+				options->generate.output = malloc(strlen(optarg) + 1);
+				strcpy((char*) options->generate.output, optarg);
 
-				if (options->output[0] == '=') options->output += 1;
+				if (options->generate.output[0] == '=') options->generate.output++;
 
 				break;
 
 			case 't':
-				if (options->template != NULL) {
+				if (options->generate.template != NULL) {
 					fprintf(stderr, "%s: -t can only appear once\n", argv[0]);
 					return 1;
 				}
 
-				options->template = malloc(strlen(optarg) + 1);
-				strcpy((char*) options->template, optarg);
+				options->generate.template = malloc(strlen(optarg) + 1);
+				strcpy((char*) options->generate.template, optarg);
 
-				if (options->template[0] == '=') options->template += 1;
+				if (options->generate.template[0] == '=') options->generate.template++;
 
 				break;
 
@@ -351,7 +347,7 @@ void sort_module(struct module* current) {
 	sort_items(current->items);
 }
 
-int process_inputs(struct input inputs[], int n_inputs) {
+int process_inputs(struct input inputs[], int n_inputs, struct options opts) {
 	struct module root = {
 		.filename = NULL,
 		.name = "",
@@ -382,7 +378,5 @@ int process_inputs(struct input inputs[], int n_inputs) {
 
 	sort_module(&root);
 
-	// generate
-
-	return 0;
+	return generate_docs(&root, opts.generate);
 }
