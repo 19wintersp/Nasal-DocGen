@@ -30,6 +30,7 @@ struct input {
 
 struct options {
 	struct generate_options generate;
+	int prefix;
 };
 
 int parse_options(struct options* options);
@@ -53,8 +54,9 @@ int main(int _argc, char* const _argv[]) {
 
 	struct input inputs[1024] = {};
 	int n_inputs = argc - optind;
-	if (parse_inputs(inputs, &n_inputs)) return 1;
-	if (resolve_inputs(inputs, n_inputs)) return 2;
+
+	if (parse_inputs(inputs, &n_inputs) == -1) return 1;
+	if ((options.prefix = resolve_inputs(inputs, n_inputs)) == -1) return 2;
 
 	return process_inputs(inputs, n_inputs, options);
 }
@@ -201,14 +203,14 @@ int parse_inputs(struct input inputs[], int* n_inputs) {
 				if (module[j] == '.') {
 					if (last_was_dot || (j == module_len && j > 1)) {
 						fprintf(stderr, "%s: '%s' is invalid\n", argv[0], module + 1);
-						return 1;
+						return -1;
 					}
 
 					last_was_dot = true;
 				} else {
 					if (!isalnum(module[j]) && module[j] != '_') {
 						fprintf(stderr, "%s: '%s' is invalid\n", argv[0], module + 1);
-						return 1;
+						return -1;
 					}
 
 					last_was_dot = false;
@@ -235,7 +237,7 @@ int resolve_inputs(struct input inputs[], int n_inputs) {
 
 			if (resolved == NULL) {
 				perrorf("failed to resolve '%s'", inputs[i].file);
-				return 1;
+				return -1;
 			}
 
 			resolved[0] = 0;
@@ -301,7 +303,7 @@ int resolve_inputs(struct input inputs[], int n_inputs) {
 		}
 	}
 
-	return 0;
+	return prefix;
 }
 
 void* filter_name_eq(void* item, void* compare) {
@@ -369,10 +371,10 @@ int process_inputs(struct input inputs[], int n_inputs, struct options opts) {
 		}
 
 		current = find_or_create_module(current, (char*) segment);
-		current->filename = inputs[i].file;
+		current->filename = inputs[i].file + opts.prefix;
 		current->line = 1;
 
-		int ret = parse_file(inputs[i].file, current);
+		int ret = parse_file(inputs[i].file, inputs[i].file + opts.prefix, current);
 		if (ret > 0) return ret;
 	}
 

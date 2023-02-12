@@ -44,7 +44,7 @@ enum item_type {
 };
 
 struct item {
-	char* filename;
+	const char* filename;
 	int line;
 	char* name;
 	char* desc;
@@ -53,7 +53,7 @@ struct item {
 };
 
 struct module {
-	char* filename;
+	const char* filename;
 	int line;
 	char* name;
 	char* desc;
@@ -61,6 +61,6 @@ struct module {
 	struct list* items;    /* item */
 };
 
-int parse_file(const char* filename, struct module* module);
+int parse_file(const char* filename, const char* fr, struct module* module);
 
 #endif // ifndef PARSE_H

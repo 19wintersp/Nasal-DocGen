@@ -17,7 +17,7 @@
 #include "util.h"
 
 extern char* const* argv;
-char* filename;
+const char* current_file;
 
 struct line {
 	const char* start;
@@ -59,8 +59,10 @@ static void free_token(struct Token* tok) {
 	free(tok);
 }
 
-int parse_file(const char* rawfilename, struct module* module) {
-	filename = realpath(rawfilename, NULL);
+int parse_file(const char* rawfilename, const char* fr, struct module* module) {
+	current_file = fr;
+
+	char* filename = realpath(rawfilename, NULL);
 	if (filename == NULL) {
 		perrorf("failed to resolve '%s'", rawfilename);
 		return 2;
@@ -109,6 +111,7 @@ int parse_file(const char* rawfilename, struct module* module) {
 	struct Token* root = (void*) PTR(codeRef).obj;
 
 	naFreeContext(ctx);
+	free(filename);
 
 	struct line* lines = malloc(1024);
 	int n_lines = 0;
@@ -193,7 +196,7 @@ static void process_item(
 		free(desc);
 	} else {
 		struct item* item = malloc(sizeof(struct item));
-		item->filename = filename;
+		item->filename = current_file;
 		item->line = line;
 		item->name = name;
 		item->desc = desc;
@@ -206,7 +209,7 @@ static void process_item(
 				free(item);
 
 				struct module* submodule = malloc(sizeof(struct module));
-				submodule->filename = filename;
+				submodule->filename = current_file;
 				submodule->line = line;
 				submodule->name = name;
 				submodule->desc = desc;
