@@ -44,6 +44,8 @@ enum item_type {
 };
 
 struct item {
+	char* filename;
+	int line;
 	char* name;
 	char* desc;
 	enum item_type type;
@@ -51,6 +53,8 @@ struct item {
 };
 
 struct module {
+	char* filename;
+	int line;
 	char* name;
 	char* desc;
 	struct list* children; /* module */

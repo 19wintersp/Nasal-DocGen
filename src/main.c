@@ -353,6 +353,7 @@ void sort_module(struct module* current) {
 
 int process_inputs(struct input inputs[], int n_inputs) {
 	struct module root = {
+		.filename = NULL,
 		.name = "",
 		.desc = "", // configure this via arg
 		.children = list_new(),
@@ -372,6 +373,8 @@ int process_inputs(struct input inputs[], int n_inputs) {
 		}
 
 		current = find_or_create_module(current, (char*) segment);
+		current->filename = inputs[i].file;
+		current->line = 1;
 
 		int ret = parse_file(inputs[i].file, current);
 		if (ret > 0) return ret;
