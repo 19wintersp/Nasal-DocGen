@@ -2,6 +2,7 @@
 #define UTIL_H
 
 #include <stdbool.h>
+#include <stddef.h>
 
 #define LIST_ITER_T(list, item, type) \
 	for ( \
