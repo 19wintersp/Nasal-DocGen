@@ -63,36 +63,8 @@ int parse_file(const char* rawfilename, const char* fr, struct module* module) {
 	current_file = fr;
 
 	char* filename = realpath(rawfilename, NULL);
-	if (filename == NULL) {
-		perrorf("failed to resolve '%s'", rawfilename);
-		return 2;
-	}
-
-	int fd = open(filename, O_RDONLY);
-	if (fd == -1) {
-		perrorf("failed to open '%s'", filename);
-		return 2;
-	}
-
-	struct stat s;
-	if (fstat(fd, &s) == -1) {
-		perrorf("failed to stat '%s'", filename);
-		return 2;
-	}
-
-	if ((s.st_mode & S_IFMT) != S_IFREG) {
-		fprintf(stderr, "%s: '%s' is not a regular file\n", argv[0], filename);
-		return 1;
-	}
-
-	char* file = malloc(s.st_size + 1);
-	file[s.st_size] = 0;
-	if (read(fd, file, s.st_size) == -1) {
-		perrorf("failed to read '%s'", filename);
-		return 2;
-	}
-
-	close(fd);
+	char* file = read_file(filename);
+	if (file == NULL) return 2;
 
 	naContext ctx = naNewContext();
 
@@ -100,7 +72,7 @@ int parse_file(const char* rawfilename, const char* fr, struct module* module) {
 	naStr_fromdata(filenameStr, filename, strlen(filename));
 
 	int errLine;
-	naRef codeRef = naParseCode(ctx, filenameStr, 1, file, s.st_size, &errLine);
+	naRef codeRef = naParseCode(ctx, filenameStr, 1, file, strlen(file), &errLine);
 
 	if (naIsNil(codeRef)) {
 		char* err = naGetError(ctx);
