@@ -8,6 +8,15 @@ struct generate_options {
 	const char* template;
 };
 
-int generate_docs(struct module* root, struct generate_options opts);
+struct source {
+	const char* file;
+	const char* alias;
+};
+
+int generate_docs(
+	struct module* root,
+	struct source sources[],
+	struct generate_options opts
+);
 
 #endif // ifndef GENERATE_H

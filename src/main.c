@@ -380,5 +380,13 @@ int process_inputs(struct input inputs[], int n_inputs, struct options opts) {
 
 	sort_module(&root);
 
-	return generate_docs(&root, opts.generate);
+	struct source sources[n_inputs + 1];
+	sources[n_inputs].file = NULL;
+
+	for (int i = 0; i < n_inputs; i++) {
+		sources[i].file = inputs[i].file;
+		sources[i].alias = inputs[i].file + opts.prefix;
+	}
+
+	return generate_docs(&root, sources, opts.generate);
 }
