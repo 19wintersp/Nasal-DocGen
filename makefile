@@ -15,12 +15,12 @@ NASAL_OBJ = $(wildcard $(NASAL)/*.c.o)
 
 PREFIX := /usr/local
 
-.PHONY: build install install_bin install_doc install_man
+.PHONY: build install install_bin install_doc install_man install_template
 .DEFAULT: $(BIN)
 
 build: $(BIN)
 
-install: install_bin install_doc install_man
+install: install_bin install_doc install_man install_template
 
 install_bin: $(BIN)
 	cp $(BIN) $(PREFIX)/bin/
@@ -31,6 +31,10 @@ install_doc: license readme.md
 
 install_man: man/nasal-docgen.1
 	cp man/nasal-docgen.1 $(PREFIX)/share/man/man1/
+
+install_template: template
+	mkdir -p $(PREFIX)/share/$(NAME)
+	cp -r template $(PREFIX)/share/$(NAME)
 
 obj/%.o: src/% include
 	mkdir -p obj
