@@ -25,12 +25,12 @@ char* const* argv;
 
 struct input {
 	char* file;
+	char* absolute;
 	char* module;
 };
 
 struct options {
 	struct generate_options generate;
-	int prefix;
 };
 
 int parse_options(struct options* options);
@@ -56,7 +56,7 @@ int main(int _argc, char* const _argv[]) {
 	int n_inputs = argc - optind;
 
 	if (parse_inputs(inputs, &n_inputs) == -1) return 1;
-	if ((options.prefix = resolve_inputs(inputs, n_inputs)) == -1) return 2;
+	if (resolve_inputs(inputs, n_inputs) == -1) return 2;
 
 	return process_inputs(inputs, n_inputs, options);
 }
@@ -289,6 +289,8 @@ int resolve_inputs(struct input inputs[], int n_inputs) {
 			char* resolved = realpath(inputs[i].file, NULL) + prefix;
 			int resolved_len = strlen(resolved);
 
+			inputs[i].absolute = astrndup(resolved, resolved_len);
+
 			if (strcmp(resolved + resolved_len - 4, ".nas") == 0)
 				resolved[resolved_len - 4] = 0;
 
@@ -303,7 +305,7 @@ int resolve_inputs(struct input inputs[], int n_inputs) {
 		}
 	}
 
-	return prefix;
+	return 0;
 }
 
 void* filter_name_eq(void* item, void* compare) {
@@ -371,10 +373,10 @@ int process_inputs(struct input inputs[], int n_inputs, struct options opts) {
 		}
 
 		current = find_or_create_module(current, (char*) segment);
-		current->filename = inputs[i].file + opts.prefix;
+		current->filename = inputs[i].absolute;
 		current->line = 1;
 
-		int ret = parse_file(inputs[i].file, inputs[i].file + opts.prefix, current);
+		int ret = parse_file(inputs[i].file, inputs[i].absolute, current);
 		if (ret > 0) return ret;
 	}
 
@@ -385,7 +387,7 @@ int process_inputs(struct input inputs[], int n_inputs, struct options opts) {
 
 	for (int i = 0; i < n_inputs; i++) {
 		sources[i].file = inputs[i].file;
-		sources[i].alias = inputs[i].file + opts.prefix;
+		sources[i].alias = inputs[i].absolute;
 	}
 
 	return generate_docs(&root, sources, opts.generate);
