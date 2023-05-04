@@ -14,7 +14,7 @@ The following libraries must also be available through `pkg-config`:
 
 * [`cmark` - CommonMark C implementation](https://github.com/commonmark/cmark)
 * [cJSON - Ultralightweight JSON parser](https://github.com/DaveGamble/cJSON)
-* [`mustach` - Mustache C implementation](https://gitlab.com/jobol/mustach)
+* [Lattice - C templating library](https://github.com/19wintersp/Lattice)
 
 ### Cloning
 

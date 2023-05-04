@@ -1,9 +1,9 @@
 NAME = nasal-docgen
 
 CC := clang
-CFLAGS = $(shell pkg-config --cflags libcmark libcjson libmustach)
+CFLAGS = $(shell pkg-config --cflags libcmark libcjson lattice)
 LDFLAGS = -Xlinker --allow-multiple-definition
-LIBS = $(shell pkg-config --libs libcmark libcjson libmustach)
+LIBS = $(shell pkg-config --libs libcmark libcjson lattice)
 DEFINES = -DNAME=\"$(NAME)\" -D_DEFAULT_SOURCE=1
 
 SRC = $(wildcard src/*.c)
