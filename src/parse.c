@@ -359,7 +359,7 @@ static void parse_param(struct Token* tok, struct list* params) {
 			} else return;
 
 		default:
-			break;
+			return;
 	}
 
 	struct param* clone = malloc(sizeof(struct param));
