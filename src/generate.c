@@ -261,10 +261,11 @@ static int document_module(struct ctx ctx, struct module* module) {
 }
 
 static cJSON* item_to_json(struct item* item, struct list* stack) {
-	char crumbs[list_length(stack) * 3 + 1];
+	int crumb_limit = list_length(stack) - (item->type != ITEM_CLASS);
+	char crumbs[crumb_limit * 3 + 1];
 
 	crumbs[0] = 0;
-	for (int i = 0; i < list_length(stack); i++) strcpy(crumbs + i * 3, "../");
+	for (int i = 0; i < crumb_limit; i++) strcpy(crumbs + i * 3, "../");
 
 	cJSON* root = cJSON_CreateObject();
 
@@ -378,6 +379,7 @@ static int document_item(struct ctx ctx, struct item* item) {
 	cJSON_Delete(json);
 
 	if (err) {
+		fprintf(stderr, "%s %d\n", item->name, err->line);
 		perrorf("failed to render item template (%s)", err->message);
 
 		lattice_error_code code = err->code;
