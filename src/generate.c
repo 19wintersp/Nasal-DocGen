@@ -146,9 +146,11 @@ static cJSON* module_to_json(struct module* module, struct list* stack) {
 	if (module->desc != NULL) {
 		char* desc = cmark_markdown_to_html(module->desc, strlen(module->desc), 0);
 		cJSON_AddStringToObject(root, "desc", desc);
+		cJSON_AddStringToObject(root, "rawDesc", module->desc);
 		free(desc);
 	} else {
 		cJSON_AddStringToObject(root, "desc", "");
+		cJSON_AddStringToObject(root, "rawDesc", "");
 	}
 
 	cJSON* parents = cJSON_AddArrayToObject(root, "parents");
@@ -278,9 +280,11 @@ static cJSON* item_to_json(struct item* item, struct list* stack) {
 	if (item->desc != NULL) {
 		char* desc = cmark_markdown_to_html(item->desc, strlen(item->desc), 0);
 		cJSON_AddStringToObject(root, "desc", desc);
+		cJSON_AddStringToObject(root, "rawDesc", item->desc);
 		free(desc);
 	} else {
 		cJSON_AddStringToObject(root, "desc", "");
+		cJSON_AddStringToObject(root, "rawDesc", "");
 	}
 
 	cJSON* parents = cJSON_AddArrayToObject(root, "parents");
