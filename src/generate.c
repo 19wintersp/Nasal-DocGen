@@ -34,6 +34,7 @@ struct ctx {
 	DIR* output;
 	struct templates templates;
 	struct list* stack;
+	const struct generate_options *opts;
 };
 
 static int document_module(struct ctx ctx, struct module* module);
@@ -71,6 +72,7 @@ int generate_docs(
 			.source = load_template(template, "source"),
 		},
 		.stack = list_new(),
+		.opts = &opts,
 	};
 
 	if (
@@ -132,7 +134,11 @@ static char* load_template(const char* dir, const char* name) {
 	return contents;
 }
 
-static cJSON* module_to_json(struct module* module, struct list* stack) {
+static cJSON* module_to_json(
+	struct module* module,
+	struct list* stack,
+	const struct generate_options *opts
+) {
 	char crumbs[list_length(stack) * 3 + 1];
 
 	crumbs[0] = 0;
@@ -142,6 +148,7 @@ static cJSON* module_to_json(struct module* module, struct list* stack) {
 
 	cJSON_AddStringToObject(root, "name", module->name);
 	cJSON_AddStringToObject(root, "root", crumbs);
+	cJSON_AddStringToObject(root, "library", opts->library);
 
 	if (module->desc != NULL) {
 		char* desc = cmark_markdown_to_html(module->desc, strlen(module->desc), 0);
@@ -214,7 +221,7 @@ static int document_module(struct ctx ctx, struct module* module) {
 		return 2;
 	}
 
-	cJSON* json = module_to_json(module, ctx.stack);
+	cJSON* json = module_to_json(module, ctx.stack, ctx.opts);
 
 	lattice_error *err = NULL;
 	const char *search[] = { ctx.templates.dir, NULL };
@@ -262,7 +269,11 @@ static int document_module(struct ctx ctx, struct module* module) {
 	return 0;
 }
 
-static cJSON* item_to_json(struct item* item, struct list* stack) {
+static cJSON* item_to_json(
+	struct item* item,
+	struct list* stack,
+	const struct generate_options *opts
+) {
 	int crumb_limit = list_length(stack) - (item->type != ITEM_CLASS);
 	char crumbs[crumb_limit * 3 + 1];
 
@@ -273,6 +284,7 @@ static cJSON* item_to_json(struct item* item, struct list* stack) {
 
 	cJSON_AddStringToObject(root, "name", item->name);
 	cJSON_AddStringToObject(root, "root", crumbs);
+	cJSON_AddStringToObject(root, "library", opts->library);
 
 	static const char* types[] = { "var", "func", "class" };
 	cJSON_AddStringToObject(root, "type", types[item->type]);
@@ -372,7 +384,7 @@ static int document_item(struct ctx ctx, struct item* item) {
 		return 2;
 	}
 
-	cJSON* json = item_to_json(item, ctx.stack);
+	cJSON* json = item_to_json(item, ctx.stack, ctx.opts);
 
 	lattice_error *err = NULL;
 	const char *search[] = { ctx.templates.dir, NULL };

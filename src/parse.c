@@ -143,7 +143,7 @@ static void process_item(
 		const char* line_end = lines[i].start + lines[i].length;
 		size_t line_length = line_end - lines[i].start_nows - hashes - spaces;
 
-		if (*(line_end - line_length) == '@') {
+		if (0 && *(line_end - line_length) == '@') { // TEMPORARY - FIXME!
 			parse_marker(line_end - line_length, line_length, markers);
 		} else {
 			desc = realloc(desc, length + line_length + 1);

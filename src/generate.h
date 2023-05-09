@@ -4,6 +4,7 @@
 #include "parse.h"
 
 struct generate_options {
+	const char* library;
 	const char* output;
 	const char* template;
 };

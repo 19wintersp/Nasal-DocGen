@@ -50,6 +50,7 @@ int main(int _argc, char* const _argv[]) {
 	struct options options = { 0 };
 	if (parse_options(&options)) return 1;
 
+	if (!options.generate.library) options.generate.library = "globals";
 	if (!options.generate.output) options.generate.output = "docs";
 
 	struct input inputs[1024] = {};
@@ -61,9 +62,21 @@ int main(int _argc, char* const _argv[]) {
 	return process_inputs(inputs, n_inputs, options);
 }
 
+#define OPTION_VALUE(flag, name) {                                             \
+	if (options->name != NULL) {                                                 \
+		fprintf(stderr, "%s: " flag " can only appear once\n", argv[0]);           \
+		return 1;                                                                  \
+	}                                                                            \
+                                                                               \
+	options->name = malloc(strlen(optarg) + 1);                                  \
+	strcpy((char*) options->name, optarg);                                       \
+                                                                               \
+	if (options->name[0] == '=') options->name++;                                \
+}
+
 int parse_options(struct options* options) {
 	int lastopt;
-	while ((lastopt = getopt(argc, argv, ":ho:t:v")) != -1) {
+	while ((lastopt = getopt(argc, argv, ":ho:r:t:v")) != -1) {
 		switch ((char) lastopt) {
 			case 'h':
 				printf("Usage: %s [OPTION]... [FILE]...\n", argv[0]);
@@ -75,6 +88,7 @@ int parse_options(struct options* options) {
 				puts("These OPTIONs are available:");
 				puts("  -h             print help information");
 				puts("  -o=OUTPUT      output to directory OUTPUT");
+				puts("  -r=NAME        set name of library");
 				puts("  -t=TEMPLATE    use documentation template from TEMPLATE");
 				puts("  -v             print version information");
 
@@ -96,29 +110,15 @@ int parse_options(struct options* options) {
 				return 0;
 
 			case 'o':
-				if (options->generate.output != NULL) {
-					fprintf(stderr, "%s: -o can only appear once\n", argv[0]);
-					return 1;
-				}
+				OPTION_VALUE("-o", generate.output);
+				break;
 
-				options->generate.output = malloc(strlen(optarg) + 1);
-				strcpy((char*) options->generate.output, optarg);
-
-				if (options->generate.output[0] == '=') options->generate.output++;
-
+			case 'r':
+				OPTION_VALUE("-r", generate.library);
 				break;
 
 			case 't':
-				if (options->generate.template != NULL) {
-					fprintf(stderr, "%s: -t can only appear once\n", argv[0]);
-					return 1;
-				}
-
-				options->generate.template = malloc(strlen(optarg) + 1);
-				strcpy((char*) options->generate.template, optarg);
-
-				if (options->generate.template[0] == '=') options->generate.template++;
-
+				OPTION_VALUE("-t", generate.template);
 				break;
 
 			case ':':
