@@ -315,9 +315,8 @@ void* filter_name_eq(void* item, void* compare) {
 struct module* find_or_create_module(struct module* current, char* segment) {
 	struct module* select = list_iter(current->children, filter_name_eq, segment);
 	if (select == NULL) {
-		select = malloc(sizeof(struct module));
+		select = calloc(1, sizeof(struct module));
 		select->name = segment;
-		select->desc = NULL;
 		select->children = list_new();
 		select->items = list_new();
 
