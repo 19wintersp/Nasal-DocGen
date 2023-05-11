@@ -39,6 +39,7 @@ struct ctx {
 
 static int document_module(struct ctx ctx, struct module* module);
 static int document_item(struct ctx ctx, struct item* item);
+static int document_list(struct ctx ctx, struct module* root);
 static char* default_template();
 static char* load_template(const char* dir, const char* name);
 
@@ -82,7 +83,12 @@ int generate_docs(
 		!ctx.templates.source
 	) return 2;
 
-	int ret = document_module(ctx, root);
+	int ret;
+
+	ret = document_list(ctx, root);
+	if (ret > 0) return ret;
+
+	ret = document_module(ctx, root);
 	if (ret > 0) return ret;
 
 	closedir(ctx.output);
@@ -413,6 +419,109 @@ static int document_item(struct ctx ctx, struct item* item) {
 
 		ctx.output = dir;
 		list_pop(ctx.stack);
+	}
+
+	return 0;
+}
+
+static const char* type_keys[] = {
+	[ITEM_VAR] = "vars",
+	[ITEM_FUNC] = "funcs",
+	[ITEM_CLASS] = "classes",
+};
+
+static void all_class_to_json(
+	cJSON *root,
+	struct item *class,
+	struct list *stack
+) {
+	list_push(stack, class->name);
+
+	LIST_ITER_T(class->items, item, struct item *) {
+		cJSON *array = cJSON_GetObjectItem(root, type_keys[item->type]);
+		cJSON *entry = cJSON_CreateArray();
+
+		LIST_ITER_T(stack, parent, const char *) {
+			cJSON_AddItemToArray(entry, cJSON_CreateString(parent));
+		}
+		cJSON_AddItemToArray(entry, cJSON_CreateString(item->name));
+
+		cJSON_AddItemToArray(array, entry);
+
+		if (item->type == ITEM_CLASS) all_class_to_json(root, item, stack);
+	}
+
+	list_pop(stack);
+}
+
+static void all_to_json(
+	cJSON *root,
+	struct module *module,
+	struct list *stack
+) {
+	list_push(stack, module->name);
+
+	LIST_ITER_T(module->items, item, struct item *) {
+		cJSON *array = cJSON_GetObjectItem(root, type_keys[item->type]);
+		cJSON *entry = cJSON_CreateArray();
+
+		LIST_ITER_T(stack, parent, const char *) {
+			cJSON_AddItemToArray(entry, cJSON_CreateString(parent));
+		}
+		cJSON_AddItemToArray(entry, cJSON_CreateString(item->name));
+
+		cJSON_AddItemToArray(array, entry);
+
+		if (item->type == ITEM_CLASS) all_class_to_json(root, item, stack);
+	}
+
+	LIST_ITER_T(module->children, child, struct module *) {
+		all_to_json(root, child, stack);
+	}
+
+	list_pop(stack);
+}
+
+static int document_list(struct ctx ctx, struct module* root) {
+	int fd = openat(
+		dirfd(ctx.output), "list.html", O_CREAT | O_WRONLY | O_TRUNC, FILE_FLAGS
+	);
+	if (fd == -1) {
+		perrorf("failed to open output");
+		return 2;
+	}
+
+	FILE *file = fdopen(fd, "w");
+	if (!file) {
+		perrorf("failed to open output");
+		return 2;
+	}
+
+	cJSON *json = cJSON_CreateObject();
+	cJSON_AddStringToObject(json, "root", "./");
+	cJSON_AddStringToObject(json, "library", ctx.opts->library);
+	cJSON_AddArrayToObject(json, "vars");
+	cJSON_AddArrayToObject(json, "funcs");
+	cJSON_AddArrayToObject(json, "classes");
+
+	struct list *stack = list_new();
+	all_to_json(json, root, stack);
+	list_free(stack, NULL);
+
+	lattice_error *err = NULL;
+	const char *search[] = { ctx.templates.dir, NULL };
+	lattice_opts opts = { .search = search, .ignore_emit_zero = true };
+	lattice_cjson_file(ctx.templates.list, json, file, opts, &err);
+
+	fclose(file);
+	cJSON_Delete(json);
+
+	if (err) {
+		perrorf("failed to render module template (%s)", err->message);
+
+		lattice_error_code code = err->code;
+		lattice_error_free(err);
+		return code == LATTICE_IO_ERROR ? 2 : 3;
 	}
 
 	return 0;
