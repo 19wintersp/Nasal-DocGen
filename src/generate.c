@@ -95,6 +95,49 @@ int generate_docs(
 	ret = document_module(ctx, root);
 	if (ret > 0) return ret;
 
+	char *path = asprintf("%s/static/", template);
+	DIR *template_static = opendir(path);
+	free(path);
+
+	if (!template_static) {
+		if (errno == ENOENT) goto no_statics;
+
+		perrorf("failed to open template static files directory");
+		return 2;
+	}
+
+	struct dirent *dirent;
+	char buf[8192];
+	ssize_t read_result, write_result;
+
+	while ((dirent = readdir(template_static))) {
+		if (dirent->d_type != DT_REG) continue;
+
+		int in_fd = openat(dirfd(template_static), dirent->d_name, O_RDONLY);
+		int out_fd = openat(
+			dirfd(ctx.output), dirent->d_name, O_CREAT | O_WRONLY | O_TRUNC, FILE_FLAGS
+		);
+
+		while ((read_result = read(in_fd, &buf[0], sizeof(buf)))) {
+			if (read_result < 0) {
+				perrorf("failed to copy static file");
+				return 2;
+			}
+
+			write_result = write(out_fd, &buf[0], read_result);
+			if (write_result < 0 || write_result != read_result) {
+				perrorf("failed to copy static file");
+				return 2;
+			}
+		}
+
+		close(in_fd);
+		close(out_fd);
+	}
+
+	closedir(template_static);
+
+no_statics:
 	closedir(ctx.output);
 	free(ctx.templates.item);
 	free(ctx.templates.list);
