@@ -40,6 +40,7 @@ struct ctx {
 static int document_module(struct ctx ctx, struct module* module);
 static int document_item(struct ctx ctx, struct item* item);
 static int document_list(struct ctx ctx, struct module* root);
+static int document_sources(struct ctx ctx, struct source sources[]);
 static char* default_template();
 static char* load_template(const char* dir, const char* name);
 
@@ -86,6 +87,9 @@ int generate_docs(
 	int ret;
 
 	ret = document_list(ctx, root);
+	if (ret > 0) return ret;
+
+	ret = document_sources(ctx, sources);
 	if (ret > 0) return ret;
 
 	ret = document_module(ctx, root);
@@ -524,5 +528,235 @@ static int document_list(struct ctx ctx, struct module* root) {
 		return code == LATTICE_IO_ERROR ? 2 : 3;
 	}
 
+	return 0;
+}
+
+struct directory {
+	const char *name; size_t length;
+	struct list *children, *files;
+};
+
+static int dsalcmp(const void *a, const void *b) {
+	return strcmp(*((const char **) a), *((const char **) b));
+}
+
+static void dir_to_json(
+	cJSON *array,
+	struct directory *dir,
+	char *parents,
+	size_t length
+) {
+	size_t new_length = length;
+	if (dir->length > 0) {
+		strncpy(parents + length, dir->name, dir->length);
+		strcpy(parents + length + dir->length, "/");
+		new_length += dir->length + 1;
+	}
+
+	cJSON_AddItemToArray(array, cJSON_CreateString(parents));
+
+	LIST_ITER_T(dir->children, child, struct directory *)
+		dir_to_json(array, child, parents, new_length);
+
+	LIST_ITER_T(dir->files, file, const char *)
+		cJSON_AddItemToArray(array, cJSON_CreateString(file));
+
+	if (length > 0) free(dir);
+}
+
+static int create_source_dirs(int parent, struct directory *dir) {
+	LIST_ITER_T(dir->children, child, struct directory *) {
+		char *name = strndup(child->name, child->length);
+		if (mkdirat(parent, name, DIR_FLAGS) == -1) {
+			if (errno != EEXIST) {
+				perrorf("failed to create output dir");
+				return 2;
+			}
+		}
+
+		int new = openat(parent, name, O_DIRECTORY);
+
+		if (create_source_dirs(new, child) > 0) return 2;
+
+		free(name);
+		close(new);
+	}
+
+	return 0;
+}
+
+static int document_sources(struct ctx ctx, struct source sources[]) {
+	cJSON *json = cJSON_CreateObject();
+	cJSON_AddStringToObject(json, "root", "./");
+	cJSON_AddStringToObject(json, "library", ctx.opts->library);
+	cJSON_AddNullToObject(json, "path");
+	cJSON_AddNullToObject(json, "contents");
+	cJSON *array = cJSON_AddArrayToObject(json, "tree");
+
+	size_t count = 0;
+	for (struct source *source = sources; source->file; source++) count++;
+
+	const char *names[count + 1];
+	names[count] = NULL;
+
+	size_t max = 0;
+	for (struct source *source = sources; source->file; source++) {
+		names[source - sources] = source->alias;
+
+		size_t length = strlen(source->alias);
+		if (length > max) max = length;
+	}
+
+	qsort(names, count, sizeof(const char *), dsalcmp);
+
+	struct directory root = {
+		.name = "", .length = 0,
+		.children = list_new(),
+		.files = list_new(),
+	}, *current;
+
+	struct list *stack = list_new();
+	list_push(stack, &root);
+
+	for (size_t j = 0; j < count; j++) {
+		size_t k = 0, offset = 0;
+		current = &root;
+
+		LIST_ITER_T(stack, parent, struct directory *) {
+			if (k++ == 0) continue;
+
+			if (
+				strncmp(names[j] + offset, parent->name, parent->length) ||
+				strcspn(names[j] + offset, "/") != parent->length
+			) {
+				k--;
+				break;
+			}
+
+			current = parent;
+			offset += parent->length + 1;
+		}
+
+		size_t iss = list_length(stack);
+		for (; k < iss; k++) list_pop(stack);
+
+		size_t length;
+		while ((length = strcspn(names[j] + offset, "/"))) {
+			if (*(names[j] + offset + length)) {
+				struct directory *new = malloc(sizeof(struct directory));
+				new->name = names[j] + offset;
+				new->length = length;
+				new->children = list_new();
+				new->files = list_new();
+
+				list_push(current->children, new);
+				list_push(stack, new);
+				current = new;
+				offset += length + 1;
+			} else break;
+		}
+
+		list_push(current->files, (void *) names[j]);
+	}
+
+	list_free(stack, NULL);
+
+	if (mkdirat(dirfd(ctx.output), "src", DIR_FLAGS) == -1) {
+		if (errno != EEXIST) {
+			perrorf("failed to create output dir");
+			return 2;
+		}
+	}
+
+	int src_fd = openat(dirfd(ctx.output), "src", O_DIRECTORY);
+	if (create_source_dirs(src_fd, &root) > 0) return 2;
+	close(src_fd);
+
+	char buffer[max + 2];
+	buffer[0] = 0;
+	dir_to_json(array, &root, buffer, 0);
+
+	int fd = openat(
+		dirfd(ctx.output), "src.html", O_CREAT | O_WRONLY | O_TRUNC, FILE_FLAGS
+	);
+	if (fd == -1) {
+		perrorf("failed to open output");
+		return 2;
+	}
+
+	FILE *file = fdopen(fd, "w");
+	if (!file) {
+		perrorf("failed to open output");
+		return 2;
+	}
+
+	lattice_error *err = NULL;
+	const char *search[] = { ctx.templates.dir, NULL };
+	lattice_opts opts = { .search = search, .ignore_emit_zero = true };
+
+	lattice_cjson_file(ctx.templates.source, json, file, opts, &err);
+	fclose(file);
+
+	if (err) {
+		perrorf("failed to render sources template (%s)", err->message);
+
+		lattice_error_code code = err->code;
+		lattice_error_free(err);
+		return code == LATTICE_IO_ERROR ? 2 : 3;
+	}
+
+	for (struct source *source = sources; source->file; source++) {
+		size_t path_len = strlen(source->alias);
+		char path[path_len + 10];
+
+		strcpy(path, "src/");
+		strcpy(path + 4, source->alias);
+		strcpy(path + path_len + 4, ".html");
+
+		fd = openat(dirfd(ctx.output), path, O_CREAT | O_WRONLY | O_TRUNC, FILE_FLAGS);
+		if (fd == -1) {
+			perrorf("failed to open output");
+			return 2;
+		}
+
+		file = fdopen(fd, "w");
+		if (!file) {
+			perrorf("failed to open output");
+			return 2;
+		}
+
+		cJSON_DeleteItemFromObject(json, "root");
+		cJSON_DeleteItemFromObject(json, "path");
+		cJSON_DeleteItemFromObject(json, "contents");
+
+		char *contents = read_file(source->file);
+		if (!contents) {
+			perrorf("failed to read source file");
+			return 2;
+		}
+
+		size_t dotdots = 0;
+		for (size_t i = 0; path[i]; i++) if (path[i] == '/') dotdots++;
+		char root[dotdots * 3 + 1];
+		for (size_t i = 0; i < dotdots; i++) strcpy(root + i * 3, "../");
+
+		cJSON_AddStringToObject(json, "root", root);
+		cJSON_AddStringToObject(json, "path", source->alias);
+		cJSON_AddStringToObject(json, "contents", contents);
+		free(contents);
+
+		lattice_cjson_file(ctx.templates.source, json, file, opts, &err);
+		fclose(file);
+
+		if (err) {
+			perrorf("failed to render sources template (%s)", err->message);
+
+			lattice_error_code code = err->code;
+			lattice_error_free(err);
+			return code == LATTICE_IO_ERROR ? 2 : 3;
+		}
+	}
+
+	cJSON_Delete(json);
 	return 0;
 }

@@ -31,6 +31,7 @@
 	--fg1: #f5f5f5;
 	--fg2: #d4d4d4;
 	--acc: #60a5fa;
+	--clh: 1.5rem;
 
 	color: var(--fg2);
 	font-family: "Roboto", sans-serif;
@@ -230,6 +231,19 @@ a:hover {
 	text-decoration: underline;
 }
 
+main ul {
+	margin: 0px;
+}
+
+main li {
+	margin-bottom: 0.4em;
+}
+
+code {
+	font-family: "Roboto Mono", monospace;
+	line-height: var(--clh);
+}
+
 .chip {
 	display: inline-block;
 
@@ -254,6 +268,15 @@ a:hover {
 	list-style: inside none;
 }
 
+.hidden {
+	display: inline-block;
+
+	height: 0px;
+	width: 0px;
+
+	overflow: hidden;
+}
+
 .mini {
 	font-size: 12px;
 }
@@ -266,4 +289,30 @@ a:hover {
 
 .spacer {
 	flex-grow: 1;
+}
+
+#tree > li {
+	margin-left: calc(var(--indent) * 1em);
+}
+
+#source {
+	display: flex;
+	gap: 2em;
+}
+
+#source > div {
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+}
+
+#source > div > span {
+	line-height: var(--clh);
+}
+
+#source > pre {
+	margin: 0px;
+	width: 100%;
+
+	overflow-x: auto;
 }
