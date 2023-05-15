@@ -103,7 +103,7 @@
 				$for module in modules:
 					<div class="flex">
 						<h3><a href="$[module.name]/index.html">$[module.name]</a></h3>
-						<!-- <p>$($[module.desc ||) $["(no description)"]</p> FIXME: DESC -->
+						$if module.desc: <p>$[module.desc]</p> $end
 					</div>
 				$end
 			$end

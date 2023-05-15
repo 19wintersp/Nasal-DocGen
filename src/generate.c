@@ -194,7 +194,7 @@ static cJSON* module_to_json(
 		cJSON* nd = cJSON_CreateObject();
 
 		cJSON_AddStringToObject(nd, "name", child->name);
-		cJSON_AddStringToObject(nd, "desc", child->desc);
+		cJSON_AddStringToObject(nd, "desc", child->desc ? child->desc : "");
 
 		cJSON_AddItemToArray(children, nd);
 	}

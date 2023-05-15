@@ -104,6 +104,29 @@ int parse_file(const char* rawfilename, const char* fr, struct module* module) {
 
 	lines[n_lines - 1].length = strlen(lines[n_lines - 1].start);
 
+	char *desc = malloc(1);
+	desc[0] = 0;
+	int length = 0;
+
+	for (int i = 0; i < n_lines; i++) {
+		if (lines[i].start_nows[0] != '#') break;
+
+		size_t hashes = strspn(lines[i].start_nows, "#");
+		size_t spaces = strspn(lines[i].start_nows + hashes, "\t ");
+
+		const char* line_end = lines[i].start + lines[i].length;
+		size_t line_length = line_end - lines[i].start_nows - hashes - spaces;
+
+		desc = realloc(desc, length + line_length + 2);
+		desc[length] = '\n';
+		strncpy(desc + length + 1, line_end - line_length, line_length);
+		length += line_length + 1;
+
+		lines[i].doc_used = true;
+	}
+
+	module->desc = desc;
+
 	parse_toplevel(root, lines, module);
 
 	free_token(root);
