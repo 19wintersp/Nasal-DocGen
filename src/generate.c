@@ -204,9 +204,33 @@ static cJSON* module_to_json(
 	cJSON_AddStringToObject(root, "library", opts->library);
 
 	if (module->desc != NULL) {
-		char* desc = cmark_markdown_to_html(module->desc, strlen(module->desc), 0);
+		char* desc;
+		if (opts->no_markdown) {
+			size_t allocate = 12;
+			for (char *ch = module->desc; *ch; ch++)
+				allocate += (*ch == '<' || *ch == '>' || *ch == '&') ? 5 : 1;
+
+			desc = malloc(allocate);
+			strcpy(desc, "<pre>");
+
+			for (size_t i = 0, j = 5; module->desc[i]; i++, j++) {
+				char ch = module->desc[i];
+				desc[j] = ch;
+
+				if (ch == '<' || ch == '>' || ch == '&') {
+					sprintf(desc + j, "&#%02d;", module->desc[i]);
+					j += 4;
+				}
+			}
+
+			strcpy(desc + allocate - 7, "</pre>");
+		} else {
+			desc = cmark_markdown_to_html(module->desc, strlen(module->desc), 0);
+		}
+
 		cJSON_AddStringToObject(root, "desc", desc);
 		cJSON_AddStringToObject(root, "rawDesc", module->desc);
+
 		free(desc);
 	} else {
 		cJSON_AddStringToObject(root, "desc", "");
@@ -343,9 +367,33 @@ static cJSON* item_to_json(
 	cJSON_AddStringToObject(root, "type", types[item->type]);
 
 	if (item->desc != NULL) {
-		char* desc = cmark_markdown_to_html(item->desc, strlen(item->desc), 0);
+		char* desc;
+		if (opts->no_markdown) {
+			size_t allocate = 12;
+			for (char *ch = item->desc; *ch; ch++)
+				allocate += (*ch == '<' || *ch == '>' || *ch == '&') ? 5 : 1;
+
+			desc = malloc(allocate);
+			strcpy(desc, "<pre>");
+
+			for (size_t i = 0, j = 5; item->desc[i]; i++, j++) {
+				char ch = item->desc[i];
+				desc[j] = ch;
+
+				if (ch == '<' || ch == '>' || ch == '&') {
+					sprintf(desc + j, "&#%02d;", item->desc[i]);
+					j += 4;
+				}
+			}
+
+			strcpy(desc + allocate - 7, "</pre>");
+		} else {
+			desc = cmark_markdown_to_html(item->desc, strlen(item->desc), 0);
+		}
+
 		cJSON_AddStringToObject(root, "desc", desc);
 		cJSON_AddStringToObject(root, "rawDesc", item->desc);
+
 		free(desc);
 	} else {
 		cJSON_AddStringToObject(root, "desc", "");

@@ -1,12 +1,15 @@
 #ifndef GENERATE_H
 #define GENERATE_H
 
+#include <stdbool.h>
+
 #include "parse.h"
 
 struct generate_options {
 	const char* library;
 	const char* output;
 	const char* template;
+	bool no_markdown;
 };
 
 struct source {

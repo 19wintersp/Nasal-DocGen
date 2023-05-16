@@ -239,6 +239,13 @@ main li {
 	margin-bottom: 0.4em;
 }
 
+pre {
+	margin: 0px;
+	width: 100%;
+
+	overflow-x: auto;
+}
+
 code {
 	font-family: "Roboto Mono", monospace;
 	line-height: var(--clh);
@@ -308,11 +315,4 @@ code {
 
 #source > div > span {
 	line-height: var(--clh);
-}
-
-#source > pre {
-	margin: 0px;
-	width: 100%;
-
-	overflow-x: auto;
 }

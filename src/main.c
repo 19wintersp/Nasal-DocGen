@@ -78,12 +78,8 @@ int main(int _argc, char* const _argv[]) {
 
 int parse_options(struct options* options) {
 	int lastopt;
-	while ((lastopt = getopt(argc, argv, ":d:ho:r:t:v")) != -1) {
+	while ((lastopt = getopt(argc, argv, ":d:hno:r:t:v")) != -1) {
 		switch ((char) lastopt) {
-			case 'd':
-				OPTION_VALUE("-d", desc);
-				break;
-
 			case 'h':
 				printf("Usage: %s [OPTION]... [FILE]...\n", argv[0]);
 				puts("Generate documentation for FILE(s).");
@@ -94,6 +90,7 @@ int parse_options(struct options* options) {
 				puts("These OPTIONs are available:");
 				puts("  -d=DESC        set description of library");
 				puts("  -h             print help information");
+				puts("  -n             disable markdown rendering");
 				puts("  -o=OUTPUT      output to directory OUTPUT");
 				puts("  -r=NAME        set name of library");
 				puts("  -t=TEMPLATE    use documentation template from TEMPLATE");
@@ -115,6 +112,14 @@ int parse_options(struct options* options) {
 				puts("Licensed under the GNU General Public License, version 2.");
 
 				return 0;
+
+			case 'd':
+				OPTION_VALUE("-d", desc);
+				break;
+
+			case 'n':
+				options->generate.no_markdown = true;
+				break;
 
 			case 'o':
 				OPTION_VALUE("-o", generate.output);
