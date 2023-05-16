@@ -31,6 +31,7 @@ struct input {
 
 struct options {
 	struct generate_options generate;
+	const char *desc;
 };
 
 int parse_options(struct options* options);
@@ -50,6 +51,7 @@ int main(int _argc, char* const _argv[]) {
 	struct options options = { 0 };
 	if (parse_options(&options)) return 1;
 
+	if (!options.desc) options.desc = "";
 	if (!options.generate.library) options.generate.library = "globals";
 	if (!options.generate.output) options.generate.output = "docs";
 
@@ -76,8 +78,12 @@ int main(int _argc, char* const _argv[]) {
 
 int parse_options(struct options* options) {
 	int lastopt;
-	while ((lastopt = getopt(argc, argv, ":ho:r:t:v")) != -1) {
+	while ((lastopt = getopt(argc, argv, ":d:ho:r:t:v")) != -1) {
 		switch ((char) lastopt) {
+			case 'd':
+				OPTION_VALUE("-d", desc);
+				break;
+
 			case 'h':
 				printf("Usage: %s [OPTION]... [FILE]...\n", argv[0]);
 				puts("Generate documentation for FILE(s).");
@@ -86,6 +92,7 @@ int parse_options(struct options* options) {
 				puts("");
 
 				puts("These OPTIONs are available:");
+				puts("  -d=DESC        set description of library");
 				puts("  -h             print help information");
 				puts("  -o=OUTPUT      output to directory OUTPUT");
 				puts("  -r=NAME        set name of library");
@@ -354,7 +361,7 @@ int process_inputs(struct input inputs[], int n_inputs, struct options opts) {
 	struct module root = {
 		.filename = NULL,
 		.name = "",
-		.desc = "", // configure this via arg
+		.desc = (char *) opts.desc,
 		.children = list_new(),
 		.items = list_new(),
 	};
