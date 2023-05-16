@@ -108,7 +108,7 @@
 				</a></p>
 			$end
 
-			<div id="description">${desc || "(no description)"}</div>
+			<div id="description">${rawDesc.trim() ? desc : "(no description)"}</div>
 
 			$if type == "func":
 				$if params:
