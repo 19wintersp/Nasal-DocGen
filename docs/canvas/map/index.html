@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Namespace globals.canvas.map</title>
+
+		<meta name="color-scheme" content="dark light" />
+		<meta name="description" content="
+map.nas - 	provide a high level method to create typical maps in FlightGear (airports, navaids, fixes and waypoints) for both, the GUI and instruments
+implements the notion of a &#34;layer&#34; by using canvas groups and adding geo-referenced elements to a layer
+layered maps are linked to boolean properties so that visibility can be easily toggled (via GUI checkboxes or cockpit hotspots)
+without having to redraw other layers
+
+GOALS:	have a single Nasal/Canvas wrapper for all sort of maps in FlightGear, that can be easily shared and reused for different purposes
+
+DESIGN:	... is slowly evolving, but still very much beta for the time being
+
+API:		not yet documented, but see eventually design.txt (will need to add doxygen-strings then)
+
+PERFORMANCE:	will be improved, probabaly by moving some features to C++ space and optimizing things there
+
+
+ISSUES:	just look for the FIXME and TODO strings - currently, the priority is to create an OOP/MVC design with less specialized code in XML files
+
+
+REGRESSIONS:  744 ND: toggle layer on/off, support different dialogs
+
+ROADMAP:	Generalize this further, so that:
+
+- it can be easily reused
+- it uses a MVC approach, where layer-specific data is provided by a Model object
+- other dialogs can use this without tons of custom code (airports.xml, route-manager.xml, map-canvas.xml)
+- generalize this further so that it can be used by MFDs/instruments
+- implement additional layers (tcas, wxradar, agradar) - especially expose the required data to Nasal
+- implement better GUI support (events) so that zooming/panning via mouse can be supported
+- make the whole thing styleable
+
+- keep track of things getting added here and decide if they should better move to the core canvas module or the C++ code
+
+
+C++ RFEs:
+- overload findNavaidsWithinRange() to support an optional position argument, so that arbitrary navaids can be looked up
+- add Nasal extension function to get scenery vector data (landclass)
+-
+-
+
+" />
+		<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		<meta name="og:description" content="
+map.nas - 	provide a high level method to create typical maps in FlightGear (airports, navaids, fixes and waypoints) for both, the GUI and instruments
+implements the notion of a &#34;layer&#34; by using canvas groups and adding geo-referenced elements to a layer
+layered maps are linked to boolean properties so that visibility can be easily toggled (via GUI checkboxes or cockpit hotspots)
+without having to redraw other layers
+
+GOALS:	have a single Nasal/Canvas wrapper for all sort of maps in FlightGear, that can be easily shared and reused for different purposes
+
+DESIGN:	... is slowly evolving, but still very much beta for the time being
+
+API:		not yet documented, but see eventually design.txt (will need to add doxygen-strings then)
+
+PERFORMANCE:	will be improved, probabaly by moving some features to C++ space and optimizing things there
+
+
+ISSUES:	just look for the FIXME and TODO strings - currently, the priority is to create an OOP/MVC design with less specialized code in XML files
+
+
+REGRESSIONS:  744 ND: toggle layer on/off, support different dialogs
+
+ROADMAP:	Generalize this further, so that:
+
+- it can be easily reused
+- it uses a MVC approach, where layer-specific data is provided by a Model object
+- other dialogs can use this without tons of custom code (airports.xml, route-manager.xml, map-canvas.xml)
+- generalize this further so that it can be used by MFDs/instruments
+- implement additional layers (tcas, wxradar, agradar) - especially expose the required data to Nasal
+- implement better GUI support (events) so that zooming/panning via mouse can be supported
+- make the whole thing styleable
+
+- keep track of things getting added here and decide if they should better move to the core canvas module or the C++ code
+
+
+C++ RFEs:
+- overload findNavaidsWithinRange() to support an optional position argument, so that arbitrary navaids can be looked up
+- add Nasal extension function to get scenery vector data (landclass)
+-
+-
+
+" />
+		<meta name="og:image" content="../../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta name="og:title" content="Namespace globals.canvas.map" />
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../../style.css" />
+
+		<link rel="apple-touch-icon" href="../../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../../list.html">All items</a></li>
+				<li><a href="../../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Namespace</h3>
+				<ul class="flex">
+					<li><a href="#description">Description</a></li>
+										 <li><a href="#classes">Classes</a></li> 					 <li><a href="#funcs">Functions</a></li> 					 <li><a href="#vars">Variables</a></li> 				</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Namespace</span>
+					
+						<a href="../../index.html">
+							globals
+						</a>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+					
+						<a href="../index.html">
+							canvas
+						</a>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+										<span>map</span>
+							</h1>
+
+			
+				<p><a href="../../src/canvas/map.nas.html#1">
+					View source
+				</a></p>
+			
+			<div id="description"><pre>
+map.nas - 	provide a high level method to create typical maps in FlightGear (airports, navaids, fixes and waypoints) for both, the GUI and instruments
+implements the notion of a "layer" by using canvas groups and adding geo-referenced elements to a layer
+layered maps are linked to boolean properties so that visibility can be easily toggled (via GUI checkboxes or cockpit hotspots)
+without having to redraw other layers
+
+GOALS:	have a single Nasal/Canvas wrapper for all sort of maps in FlightGear, that can be easily shared and reused for different purposes
+
+DESIGN:	... is slowly evolving, but still very much beta for the time being
+
+API:		not yet documented, but see eventually design.txt (will need to add doxygen-strings then)
+
+PERFORMANCE:	will be improved, probabaly by moving some features to C++ space and optimizing things there
+
+
+ISSUES:	just look for the FIXME and TODO strings - currently, the priority is to create an OOP/MVC design with less specialized code in XML files
+
+
+REGRESSIONS:  744 ND: toggle layer on/off, support different dialogs
+
+ROADMAP:	Generalize this further, so that:
+
+- it can be easily reused
+- it uses a MVC approach, where layer-specific data is provided by a Model object
+- other dialogs can use this without tons of custom code (airports.xml, route-manager.xml, map-canvas.xml)
+- generalize this further so that it can be used by MFDs/instruments
+- implement additional layers (tcas, wxradar, agradar) - especially expose the required data to Nasal
+- implement better GUI support (events) so that zooming/panning via mouse can be supported
+- make the whole thing styleable
+
+- keep track of things getting added here and decide if they should better move to the core canvas module or the C++ code
+
+
+C++ RFEs:
+- overload findNavaidsWithinRange() to support an optional position argument, so that arbitrary navaids can be looked up
+- add Nasal extension function to get scenery vector data (landclass)
+-
+-
+
+</pre></div>
+
+			
+			
+				<h2 id="classes">Classes</h2>
+
+				
+					<div class="flex">
+						<h3><a href="GenericMap/index.html">GenericMap</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="Layer/index.html">Layer</a></h3>
+						 <p>
+A layer is mapped to a canvas group
+Layers are linked to a single boolean property to toggle them on/off
+FIXME: this is GUI specific ATM
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="LayerModel/index.html">LayerModel</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="LayeredMap/index.html">LayeredMap</a></h3>
+						 <p>
+A layered map consists of several layers
+TODO: Support nested LayeredMaps, where a LayeredMap may contain other LayeredMaps
+TODO: use MapBehavior here and move the zoom/refpos methods there, so that map behavior can be easily customized
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="MAP_LAYERS/index.html">MAP_LAYERS</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="Runway/index.html">Runway</a></h3>
+						 <p>Runway
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="SURFACECOLORS/index.html">SURFACECOLORS</a></h3>
+						 <p>Mapping from surface codes to colors (shared by runways.draw and taxiways.draw)
+</p> 					</div>
+							
+			
+				<h2 id="funcs">Functions</h2>
+
+				
+					<div class="flex">
+						<h3><a href="func.assert.html">assert</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.draw_layer.html">draw_layer</a></h3>
+						 <p>
+ALL LayeredMap &#34;draws&#34; go through this wrapper, which makes it easy to check what&#39;s going on:
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.files_with.html">files_with</a></h3>
+						 <p>read in the file names dynamically: *.draw, *.model, *.layer
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.load_modules.html">load_modules</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.make.html">make</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.register_callback.html">register_callback</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.register_layer.html">register_layer</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.run_callbacks.html">run_callbacks</a></h3>
+											</div>
+							
+			
+				<h2 id="vars">Variables</h2>
+
+				
+					<div class="flex">
+						<h3><a href="var.DEBUG.html">DEBUG</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.MVC_FOLDER.html">MVC_FOLDER</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.callbacks.html">callbacks</a></h3>
+						 <p>FIXME: this is a hack so that dialogs can register their own
+callbacks that are automatically invoked at the end of the
+generic-canvas-map.xml file (canvas/nasal section)
+</p> 					</div>
+									</main>
+	</body>
+</html>

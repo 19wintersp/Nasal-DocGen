@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Namespace globals.prop_key_handler</title>
+
+		<meta name="color-scheme" content="dark light" />
+		<meta name="description" content="Property Key Handler
+------------------------------------------------------------------
+This is an extension mainly targeted at developers. It implements
+some useful tools for dealing with internal properties if enabled
+(Menu-&#62;Debug-&#62;Configure Development Extensions). To use this feature,
+press the &#39;/&#39;-key, then type a property path (using the &#60;TAB&#62; key to
+complete property path elements if possible), or a search string ...
+
+
+Commands:
+
+&#60;property&#62;=&#60;value&#62;&#60;CR&#62; -&#62; set property to value
+&#60;property&#62;&#60;CR&#62;         -&#62; print property and value to screen and terminal
+&#60;property&#62;*            -&#62; print property and all children to terminal
+&#60;property&#62;!            -&#62; add property to display list  (reset list with  /!)
+&#60;property&#62;:            -&#62; open property browser in this property&#39;s directory
+&#60;string&#62;?              -&#62; print all properties whose path or value contains this string
+&#60;string&#62;#              -&#62; add listener for property and all child properties (cancel all listeners with /#)
+
+
+Keys:
+
+&#60;CR&#62;              ... carriage return or enter, to confirm some operations
+&#60;TAB&#62;             ... complete property path element (if possible), or
+cycle through available elements
+&#60;Shift-TAB&#62;       ... like &#60;TAB&#62; but cycles backwards
+&#60;CurUp&#62;/&#60;CurDown&#62; ... switch back/forth in the history
+&#60;Escape&#62;          ... cancel the operation
+&#60;Shift-Backspace&#62; ... remove last whole path element
+
+
+Colors:
+
+white   ... syntactically correct path to not yet existing property
+green   ... path to existing property
+red     ... broken path syntax  (e.g. &#34;/foo*bar&#34; ... &#39;*&#39; not allowed)
+yellow  ... while typing in value for a valid property path
+magenta ... while typing search string (except when first character is &#39;/&#39;)
+
+
+For example, to open the property browser in /position/, type &#39;/p&#60;TAB&#62;:&#39;.
+" />
+		<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		<meta name="og:description" content="Property Key Handler
+------------------------------------------------------------------
+This is an extension mainly targeted at developers. It implements
+some useful tools for dealing with internal properties if enabled
+(Menu-&#62;Debug-&#62;Configure Development Extensions). To use this feature,
+press the &#39;/&#39;-key, then type a property path (using the &#60;TAB&#62; key to
+complete property path elements if possible), or a search string ...
+
+
+Commands:
+
+&#60;property&#62;=&#60;value&#62;&#60;CR&#62; -&#62; set property to value
+&#60;property&#62;&#60;CR&#62;         -&#62; print property and value to screen and terminal
+&#60;property&#62;*            -&#62; print property and all children to terminal
+&#60;property&#62;!            -&#62; add property to display list  (reset list with  /!)
+&#60;property&#62;:            -&#62; open property browser in this property&#39;s directory
+&#60;string&#62;?              -&#62; print all properties whose path or value contains this string
+&#60;string&#62;#              -&#62; add listener for property and all child properties (cancel all listeners with /#)
+
+
+Keys:
+
+&#60;CR&#62;              ... carriage return or enter, to confirm some operations
+&#60;TAB&#62;             ... complete property path element (if possible), or
+cycle through available elements
+&#60;Shift-TAB&#62;       ... like &#60;TAB&#62; but cycles backwards
+&#60;CurUp&#62;/&#60;CurDown&#62; ... switch back/forth in the history
+&#60;Escape&#62;          ... cancel the operation
+&#60;Shift-Backspace&#62; ... remove last whole path element
+
+
+Colors:
+
+white   ... syntactically correct path to not yet existing property
+green   ... path to existing property
+red     ... broken path syntax  (e.g. &#34;/foo*bar&#34; ... &#39;*&#39; not allowed)
+yellow  ... while typing in value for a valid property path
+magenta ... while typing search string (except when first character is &#39;/&#39;)
+
+
+For example, to open the property browser in /position/, type &#39;/p&#60;TAB&#62;:&#39;.
+" />
+		<meta name="og:image" content="../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta name="og:title" content="Namespace globals.prop_key_handler" />
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../style.css" />
+
+		<link rel="apple-touch-icon" href="../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../list.html">All items</a></li>
+				<li><a href="../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Namespace</h3>
+				<ul class="flex">
+					<li><a href="#description">Description</a></li>
+										 <li><a href="#classes">Classes</a></li> 					 <li><a href="#funcs">Functions</a></li> 					 <li><a href="#vars">Variables</a></li> 				</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Namespace</span>
+					
+						<a href="../index.html">
+							globals
+						</a>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+										<span>prop_key_handler</span>
+							</h1>
+
+			
+				<p><a href="../src/prop_key_handler.nas.html#1">
+					View source
+				</a></p>
+			
+			<div id="description"><pre>Property Key Handler
+------------------------------------------------------------------
+This is an extension mainly targeted at developers. It implements
+some useful tools for dealing with internal properties if enabled
+(Menu-&#62;Debug-&#62;Configure Development Extensions). To use this feature,
+press the '/'-key, then type a property path (using the &#60;TAB&#62; key to
+complete property path elements if possible), or a search string ...
+
+
+Commands:
+
+&#60;property&#62;=&#60;value&#62;&#60;CR&#62; -&#62; set property to value
+&#60;property&#62;&#60;CR&#62;         -&#62; print property and value to screen and terminal
+&#60;property&#62;*            -&#62; print property and all children to terminal
+&#60;property&#62;!            -&#62; add property to display list  (reset list with  /!)
+&#60;property&#62;:            -&#62; open property browser in this property's directory
+&#60;string&#62;?              -&#62; print all properties whose path or value contains this string
+&#60;string&#62;#              -&#62; add listener for property and all child properties (cancel all listeners with /#)
+
+
+Keys:
+
+&#60;CR&#62;              ... carriage return or enter, to confirm some operations
+&#60;TAB&#62;             ... complete property path element (if possible), or
+cycle through available elements
+&#60;Shift-TAB&#62;       ... like &#60;TAB&#62; but cycles backwards
+&#60;CurUp&#62;/&#60;CurDown&#62; ... switch back/forth in the history
+&#60;Escape&#62;          ... cancel the operation
+&#60;Shift-Backspace&#62; ... remove last whole path element
+
+
+Colors:
+
+white   ... syntactically correct path to not yet existing property
+green   ... path to existing property
+red     ... broken path syntax  (e.g. "/foo*bar" ... '*' not allowed)
+yellow  ... while typing in value for a valid property path
+magenta ... while typing search string (except when first character is '/')
+
+
+For example, to open the property browser in /position/, type '/p&#60;TAB&#62;:'.
+</pre></div>
+
+			
+			
+				<h2 id="classes">Classes</h2>
+
+				
+					<div class="flex">
+						<h3><a href="listeners_children/index.html">listeners_children</a></h3>
+											</div>
+							
+			
+				<h2 id="funcs">Functions</h2>
+
+				
+					<div class="flex">
+						<h3><a href="func.build_completion.html">build_completion</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.complete.html">complete</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.handle_key.html">handle_key</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.parse_input.html">parse_input</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.print_prop.html">print_prop</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.search.html">search</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.set_color.html">set_color</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.set_history.html">set_history</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.start.html">start</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.stop.html">stop</a></h3>
+											</div>
+							
+			
+				<h2 id="vars">Variables</h2>
+
+				
+					<div class="flex">
+						<h3><a href="var.completion.html">completion</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.completion_pos.html">completion_pos</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.history.html">history</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.history_pos.html">history_pos</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.input.html">input</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.listener.html">listener</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.listeners.html">listeners</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.state.html">state</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.text.html">text</a></h3>
+											</div>
+									</main>
+	</body>
+</html>

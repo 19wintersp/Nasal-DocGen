@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Namespace globals.towing.hitch</title>
+
+		<meta name="color-scheme" content="dark light" />
+		<meta name="description" content="
+Version: 30. December 2014
+
+Purpose of this routine:
+------------------------
+
+- Create visible winch- and towropes for gliders and towplanes
+- Support of aerotowing and winch for JSBSim-aircraft (glider and towplanes)
+
+This routine is very similar to /FDM/YASim/Hitch.cpp
+Aerotowing is fully compatible to the YASim functionality.
+This means that YASim-gliders could be towed by JSBSim-aircraft and vice versa.
+Setup-instructions with copy and paste examples are given below:
+
+
+Setup of visible winch/towropes for Yasim-aircraft:
+----------------------------------------------------
+
+YASim-aircraft with winch/aerotowing functionality should work out of the box.
+Optional you can customize the rope-diameter by adding the following to &#34;your_aircraft-set.xml&#34;:
+&#60;/sim&#62;
+&#60;hitches&#62;
+&#60;aerotow&#62;
+&#60;rope&#62;
+&#60;rope-diameter-mm type =&#34;float&#34;&#62;10&#60;/rope-diameter-mm&#62;
+&#60;/rope&#62;
+&#60;/aerotow&#62;
+&#60;winch&#62;
+&#60;rope&#62;
+&#60;rope-diameter-mm type =&#34;float&#34;&#62;20&#60;/rope-diameter-mm&#62;
+&#60;/rope&#62;
+&#60;/winch&#62;
+&#60;/hitches&#62;
+&#60;/sim&#62;
+
+That&#39;s all!
+
+
+
+Support of aerotowing and winch for JSBSim-aircraft (glider and towplanes):
+----------------------------------------------------------------------------
+
+1. Define a hitch in the JSBSim-File. Coordinates according to JSBSims structural frame of reference
+(x points to the tail, y points to the right wing, z points upwards).
+Unit must be &#34;LBS&#34;, frame must be &#34;BODY&#34;. The force name is arbitrary.
+
+&#60;external_reactions&#62;
+&#60;force name=&#34;hitch&#34; frame=&#34;BODY&#34; unit=&#34;LBS&#34; &#62;
+&#60;location unit=&#34;M&#34;&#62;
+&#60;x&#62;3.65&#60;/x&#62;
+&#60;y&#62; 0.0&#60;/y&#62;
+&#60;z&#62;-0.12&#60;/z&#62;
+&#60;/location&#62;
+&#60;direction&#62;
+&#60;x&#62;0.0&#60;/x&#62;
+&#60;y&#62;0.0&#60;/y&#62;
+&#60;z&#62;0.0&#60;/z&#62;
+&#60;/direction&#62;
+&#60;/force&#62;
+&#60;/external_reactions&#62;
+" />
+		<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		<meta name="og:description" content="
+Version: 30. December 2014
+
+Purpose of this routine:
+------------------------
+
+- Create visible winch- and towropes for gliders and towplanes
+- Support of aerotowing and winch for JSBSim-aircraft (glider and towplanes)
+
+This routine is very similar to /FDM/YASim/Hitch.cpp
+Aerotowing is fully compatible to the YASim functionality.
+This means that YASim-gliders could be towed by JSBSim-aircraft and vice versa.
+Setup-instructions with copy and paste examples are given below:
+
+
+Setup of visible winch/towropes for Yasim-aircraft:
+----------------------------------------------------
+
+YASim-aircraft with winch/aerotowing functionality should work out of the box.
+Optional you can customize the rope-diameter by adding the following to &#34;your_aircraft-set.xml&#34;:
+&#60;/sim&#62;
+&#60;hitches&#62;
+&#60;aerotow&#62;
+&#60;rope&#62;
+&#60;rope-diameter-mm type =&#34;float&#34;&#62;10&#60;/rope-diameter-mm&#62;
+&#60;/rope&#62;
+&#60;/aerotow&#62;
+&#60;winch&#62;
+&#60;rope&#62;
+&#60;rope-diameter-mm type =&#34;float&#34;&#62;20&#60;/rope-diameter-mm&#62;
+&#60;/rope&#62;
+&#60;/winch&#62;
+&#60;/hitches&#62;
+&#60;/sim&#62;
+
+That&#39;s all!
+
+
+
+Support of aerotowing and winch for JSBSim-aircraft (glider and towplanes):
+----------------------------------------------------------------------------
+
+1. Define a hitch in the JSBSim-File. Coordinates according to JSBSims structural frame of reference
+(x points to the tail, y points to the right wing, z points upwards).
+Unit must be &#34;LBS&#34;, frame must be &#34;BODY&#34;. The force name is arbitrary.
+
+&#60;external_reactions&#62;
+&#60;force name=&#34;hitch&#34; frame=&#34;BODY&#34; unit=&#34;LBS&#34; &#62;
+&#60;location unit=&#34;M&#34;&#62;
+&#60;x&#62;3.65&#60;/x&#62;
+&#60;y&#62; 0.0&#60;/y&#62;
+&#60;z&#62;-0.12&#60;/z&#62;
+&#60;/location&#62;
+&#60;direction&#62;
+&#60;x&#62;0.0&#60;/x&#62;
+&#60;y&#62;0.0&#60;/y&#62;
+&#60;z&#62;0.0&#60;/z&#62;
+&#60;/direction&#62;
+&#60;/force&#62;
+&#60;/external_reactions&#62;
+" />
+		<meta name="og:image" content="../../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta name="og:title" content="Namespace globals.towing.hitch" />
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../../style.css" />
+
+		<link rel="apple-touch-icon" href="../../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../../list.html">All items</a></li>
+				<li><a href="../../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Namespace</h3>
+				<ul class="flex">
+					<li><a href="#description">Description</a></li>
+															 <li><a href="#funcs">Functions</a></li> 									</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Namespace</span>
+					
+						<a href="../../index.html">
+							globals
+						</a>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+					
+						<a href="../index.html">
+							towing
+						</a>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+										<span>hitch</span>
+							</h1>
+
+			
+				<p><a href="../../src/towing/hitch.nas.html#1">
+					View source
+				</a></p>
+			
+			<div id="description"><pre>
+Version: 30. December 2014
+
+Purpose of this routine:
+------------------------
+
+- Create visible winch- and towropes for gliders and towplanes
+- Support of aerotowing and winch for JSBSim-aircraft (glider and towplanes)
+
+This routine is very similar to /FDM/YASim/Hitch.cpp
+Aerotowing is fully compatible to the YASim functionality.
+This means that YASim-gliders could be towed by JSBSim-aircraft and vice versa.
+Setup-instructions with copy and paste examples are given below:
+
+
+Setup of visible winch/towropes for Yasim-aircraft:
+----------------------------------------------------
+
+YASim-aircraft with winch/aerotowing functionality should work out of the box.
+Optional you can customize the rope-diameter by adding the following to "your_aircraft-set.xml":
+&#60;/sim&#62;
+&#60;hitches&#62;
+&#60;aerotow&#62;
+&#60;rope&#62;
+&#60;rope-diameter-mm type ="float"&#62;10&#60;/rope-diameter-mm&#62;
+&#60;/rope&#62;
+&#60;/aerotow&#62;
+&#60;winch&#62;
+&#60;rope&#62;
+&#60;rope-diameter-mm type ="float"&#62;20&#60;/rope-diameter-mm&#62;
+&#60;/rope&#62;
+&#60;/winch&#62;
+&#60;/hitches&#62;
+&#60;/sim&#62;
+
+That's all!
+
+
+
+Support of aerotowing and winch for JSBSim-aircraft (glider and towplanes):
+----------------------------------------------------------------------------
+
+1. Define a hitch in the JSBSim-File. Coordinates according to JSBSims structural frame of reference
+(x points to the tail, y points to the right wing, z points upwards).
+Unit must be "LBS", frame must be "BODY". The force name is arbitrary.
+
+&#60;external_reactions&#62;
+&#60;force name="hitch" frame="BODY" unit="LBS" &#62;
+&#60;location unit="M"&#62;
+&#60;x&#62;3.65&#60;/x&#62;
+&#60;y&#62; 0.0&#60;/y&#62;
+&#60;z&#62;-0.12&#60;/z&#62;
+&#60;/location&#62;
+&#60;direction&#62;
+&#60;x&#62;0.0&#60;/x&#62;
+&#60;y&#62;0.0&#60;/y&#62;
+&#60;z&#62;0.0&#60;/z&#62;
+&#60;/direction&#62;
+&#60;/force&#62;
+&#60;/external_reactions&#62;
+</pre></div>
+
+			
+			
+			
+				<h2 id="funcs">Functions</h2>
+
+				
+					<div class="flex">
+						<h3><a href="func.PointRotate3D.html">PointRotate3D</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.aerotow.html">aerotow</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.assignHitchLocations.html">assignHitchLocations</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.closeHitch.html">closeHitch</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.createTowrope.html">createTowrope</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.findBestAIObject.html">findBestAIObject</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.getFreeModelID.html">getFreeModelID</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.pull_in_rope.html">pull_in_rope</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.releaseHitch.html">releaseHitch</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.releaseWinch.html">releaseWinch</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.removeTowrope.html">removeTowrope</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.runWinch.html">runWinch</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.setAIObjectDefaults.html">setAIObjectDefaults</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.setWinchPositionAuto.html">setWinchPositionAuto</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.towing.html">towing</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.winch.html">winch</a></h3>
+											</div>
+							
+					</main>
+	</body>
+</html>

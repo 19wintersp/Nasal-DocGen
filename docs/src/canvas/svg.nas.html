@@ -1,0 +1,3572 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Source canvas/svg.nas</title>
+
+		<meta name="color-scheme" content="dark light" />
+		
+			<meta
+				name="description"
+				content="Source file canvas/svg.nas in globals."
+			/>
+				<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		
+			<meta
+				name="og:description"
+				content="Source file canvas/svg.nas in globals."
+			/>
+				<meta name="og:image" content="../../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta
+			name="og:title"
+			content="Source canvas/svg.nas"
+		/>
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../../style.css" />
+
+		<link rel="apple-touch-icon" href="../../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../../list.html">All items</a></li>
+				<li><a href="../../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Sources</h3>
+				<ul class="flex" id="tree">
+					
+						
+											
+						
+							<li style="--indent: 0;">
+																Autopush/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/Autopush/autopush.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		autopush.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/Autopush/driver.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		driver.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/Autopush/dynarr.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		dynarr.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/Autopush/route.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		route.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																FailureMgr/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/FailureMgr/private.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		private.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/FailureMgr/public.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		public.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																canvas/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																PFD/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/DataEntryElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DataEntryElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/GroupElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		GroupElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/HighlightElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/HighlightTimer.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightTimer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/PointerElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		PointerElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/RotatingElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		RotatingElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/ScrollElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		ScrollElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/TextElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		TextElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/UIElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		UIElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																api/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/canvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/colors.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/element.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		element.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/group.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		group.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/helpers.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		helpers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/image.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		image.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/map.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/path.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		path.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/svgcanvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		svgcanvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/text.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		text.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/transform.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																draw/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/draw/compass.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		compass.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/draw/draw.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/draw/scales.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		scales.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/draw/transform.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																gui/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																dialogs/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/dialogs/AircraftCenter.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		AircraftCenter.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/dialogs/InputDialog.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		InputDialog.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/dialogs/MessageBox.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		MessageBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																styles/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/styles/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/gui/styles/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																widgets/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/Button.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Button.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/CdlgWidgets.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CdlgWidgets.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/CheckBox.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CheckBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/Label.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Label.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/LineEdit.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		LineEdit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/ScrollArea.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		ScrollArea.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/gui/Config.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/gui/Style.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Style.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/gui/Widget.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Widget.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/MFD_Generic.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MFD_Generic.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/MapDrivers.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapDrivers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/MapStructure.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapStructure.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/PropertyElement.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		PropertyElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/api.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		api.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/draw.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/gui.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/map.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/svg.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		svg.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/tooltip.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		tooltip.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																console/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/console/repl.nas.html">
+									
+										<span class="hidden">console/</span>
+																		repl.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																debug/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/debug/emesary.deb.nas.html">
+									
+										<span class="hidden">debug/</span>
+																		emesary.deb.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																input_helpers/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/input_helpers/goflight.nas.html">
+									
+										<span class="hidden">input_helpers/</span>
+																		goflight.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/jetways/jetways.nas.html">
+									
+										<span class="hidden">jetways/</span>
+																		jetways.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways_edit/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/jetways_edit/jetways_edit.nas.html">
+									
+										<span class="hidden">jetways_edit/</span>
+																		jetways_edit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																local_weather/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/cloud_definitions.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_definitions.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/cloud_placement_lowlevel.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_placement_lowlevel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/compat_layer.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		compat_layer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/local_weather.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		local_weather.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/sea_colors.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		sea_colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/weather_dynamics.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_dynamics.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/weather_tile_management.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tile_management.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/weather_tiles.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tiles.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																modules/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">modules/</span>
+																canvas_efis/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/display-unit.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		display-unit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/efis-canvas.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/efis-framework.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-framework.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/efis.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/eicas-message-sys.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		eicas-message-sys.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/main.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		main.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/modules/dummy.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		dummy.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/modules/repair_config.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		repair_config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																performance_monitor/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/performance_monitor/monitor.nas.html">
+									
+										<span class="hidden">performance_monitor/</span>
+																		monitor.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																std/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/std/Vector.nas.html">
+									
+										<span class="hidden">std/</span>
+																		Vector.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/std/hash.nas.html">
+									
+										<span class="hidden">std/</span>
+																		hash.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/std/string.nas.html">
+									
+										<span class="hidden">std/</span>
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																towing/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/towing/hitch.nas.html">
+									
+										<span class="hidden">towing/</span>
+																		hitch.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																tutorial/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/tutorial/tutorial.nas.html">
+									
+										<span class="hidden">tutorial/</span>
+																		tutorial.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/addons.nas.html">
+																		addons.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/aircraft.nas.html">
+																		aircraft.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/aurora.nas.html">
+																		aurora.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/bits.nas.html">
+																		bits.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/checklist.nas.html">
+																		checklist.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/contrail.nas.html">
+																		contrail.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/controls.nas.html">
+																		controls.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/debug.nas.html">
+																		debug.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/dynamic_view.nas.html">
+																		dynamic_view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/earthview.nas.html">
+																		earthview.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/emesary.nas.html">
+																		emesary.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/emesary_mp_bridge.nas.html">
+																		emesary_mp_bridge.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/emexec.nas.html">
+																		emexec.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/environment.nas.html">
+																		environment.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/events.nas.html">
+																		events.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/frame_utils.nas.html">
+																		frame_utils.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/fuel.nas.html">
+																		fuel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/geo.nas.html">
+																		geo.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/glide_slope_tunnel.nas.html">
+																		glide_slope_tunnel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/globals.nas.html">
+																		globals.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/gui.nas.html">
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/io.nas.html">
+																		io.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/joystick.nas.html">
+																		joystick.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/lag_adjust.nas.html">
+																		lag_adjust.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/local_weather_auto_init.nas.html">
+																		local_weather_auto_init.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/material.nas.html">
+																		material.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/math.nas.html">
+																		math.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/modules.nas.html">
+																		modules.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/mp_broadcast.nas.html">
+																		mp_broadcast.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/multikey.nas.html">
+																		multikey.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/multiplayer.nas.html">
+																		multiplayer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/notifications.nas.html">
+																		notifications.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/orbital_target.nas.html">
+																		orbital_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/prop_key_handler.nas.html">
+																		prop_key_handler.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/props.nas.html">
+																		props.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/redout.nas.html">
+																		redout.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/route_manager.nas.html">
+																		route_manager.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/scenery.nas.html">
+																		scenery.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/screen.nas.html">
+																		screen.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/seaport.nas.html">
+																		seaport.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/std.nas.html">
+																		std.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/string.nas.html">
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/tanker.nas.html">
+																		tanker.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/track_target.nas.html">
+																		track_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/video.nas.html">
+																		video.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/view.nas.html">
+																		view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/volcano.nas.html">
+																		volcano.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/weather_scenario.nas.html">
+																		weather_scenario.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/wildfire.nas.html">
+																		wildfire.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/windsock.nas.html">
+																		windsock.nas
+								</a>
+							</li>
+															</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Source</span>
+					
+						<span>canvas</span>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+										<span>svg.nas</span>
+							</h1>
+
+			
+				<div id="source">
+					<div>
+						
+							<span id="1">1</span>
+						
+							<span id="2">2</span>
+						
+							<span id="3">3</span>
+						
+							<span id="4">4</span>
+						
+							<span id="5">5</span>
+						
+							<span id="6">6</span>
+						
+							<span id="7">7</span>
+						
+							<span id="8">8</span>
+						
+							<span id="9">9</span>
+						
+							<span id="10">10</span>
+						
+							<span id="11">11</span>
+						
+							<span id="12">12</span>
+						
+							<span id="13">13</span>
+						
+							<span id="14">14</span>
+						
+							<span id="15">15</span>
+						
+							<span id="16">16</span>
+						
+							<span id="17">17</span>
+						
+							<span id="18">18</span>
+						
+							<span id="19">19</span>
+						
+							<span id="20">20</span>
+						
+							<span id="21">21</span>
+						
+							<span id="22">22</span>
+						
+							<span id="23">23</span>
+						
+							<span id="24">24</span>
+						
+							<span id="25">25</span>
+						
+							<span id="26">26</span>
+						
+							<span id="27">27</span>
+						
+							<span id="28">28</span>
+						
+							<span id="29">29</span>
+						
+							<span id="30">30</span>
+						
+							<span id="31">31</span>
+						
+							<span id="32">32</span>
+						
+							<span id="33">33</span>
+						
+							<span id="34">34</span>
+						
+							<span id="35">35</span>
+						
+							<span id="36">36</span>
+						
+							<span id="37">37</span>
+						
+							<span id="38">38</span>
+						
+							<span id="39">39</span>
+						
+							<span id="40">40</span>
+						
+							<span id="41">41</span>
+						
+							<span id="42">42</span>
+						
+							<span id="43">43</span>
+						
+							<span id="44">44</span>
+						
+							<span id="45">45</span>
+						
+							<span id="46">46</span>
+						
+							<span id="47">47</span>
+						
+							<span id="48">48</span>
+						
+							<span id="49">49</span>
+						
+							<span id="50">50</span>
+						
+							<span id="51">51</span>
+						
+							<span id="52">52</span>
+						
+							<span id="53">53</span>
+						
+							<span id="54">54</span>
+						
+							<span id="55">55</span>
+						
+							<span id="56">56</span>
+						
+							<span id="57">57</span>
+						
+							<span id="58">58</span>
+						
+							<span id="59">59</span>
+						
+							<span id="60">60</span>
+						
+							<span id="61">61</span>
+						
+							<span id="62">62</span>
+						
+							<span id="63">63</span>
+						
+							<span id="64">64</span>
+						
+							<span id="65">65</span>
+						
+							<span id="66">66</span>
+						
+							<span id="67">67</span>
+						
+							<span id="68">68</span>
+						
+							<span id="69">69</span>
+						
+							<span id="70">70</span>
+						
+							<span id="71">71</span>
+						
+							<span id="72">72</span>
+						
+							<span id="73">73</span>
+						
+							<span id="74">74</span>
+						
+							<span id="75">75</span>
+						
+							<span id="76">76</span>
+						
+							<span id="77">77</span>
+						
+							<span id="78">78</span>
+						
+							<span id="79">79</span>
+						
+							<span id="80">80</span>
+						
+							<span id="81">81</span>
+						
+							<span id="82">82</span>
+						
+							<span id="83">83</span>
+						
+							<span id="84">84</span>
+						
+							<span id="85">85</span>
+						
+							<span id="86">86</span>
+						
+							<span id="87">87</span>
+						
+							<span id="88">88</span>
+						
+							<span id="89">89</span>
+						
+							<span id="90">90</span>
+						
+							<span id="91">91</span>
+						
+							<span id="92">92</span>
+						
+							<span id="93">93</span>
+						
+							<span id="94">94</span>
+						
+							<span id="95">95</span>
+						
+							<span id="96">96</span>
+						
+							<span id="97">97</span>
+						
+							<span id="98">98</span>
+						
+							<span id="99">99</span>
+						
+							<span id="100">100</span>
+						
+							<span id="101">101</span>
+						
+							<span id="102">102</span>
+						
+							<span id="103">103</span>
+						
+							<span id="104">104</span>
+						
+							<span id="105">105</span>
+						
+							<span id="106">106</span>
+						
+							<span id="107">107</span>
+						
+							<span id="108">108</span>
+						
+							<span id="109">109</span>
+						
+							<span id="110">110</span>
+						
+							<span id="111">111</span>
+						
+							<span id="112">112</span>
+						
+							<span id="113">113</span>
+						
+							<span id="114">114</span>
+						
+							<span id="115">115</span>
+						
+							<span id="116">116</span>
+						
+							<span id="117">117</span>
+						
+							<span id="118">118</span>
+						
+							<span id="119">119</span>
+						
+							<span id="120">120</span>
+						
+							<span id="121">121</span>
+						
+							<span id="122">122</span>
+						
+							<span id="123">123</span>
+						
+							<span id="124">124</span>
+						
+							<span id="125">125</span>
+						
+							<span id="126">126</span>
+						
+							<span id="127">127</span>
+						
+							<span id="128">128</span>
+						
+							<span id="129">129</span>
+						
+							<span id="130">130</span>
+						
+							<span id="131">131</span>
+						
+							<span id="132">132</span>
+						
+							<span id="133">133</span>
+						
+							<span id="134">134</span>
+						
+							<span id="135">135</span>
+						
+							<span id="136">136</span>
+						
+							<span id="137">137</span>
+						
+							<span id="138">138</span>
+						
+							<span id="139">139</span>
+						
+							<span id="140">140</span>
+						
+							<span id="141">141</span>
+						
+							<span id="142">142</span>
+						
+							<span id="143">143</span>
+						
+							<span id="144">144</span>
+						
+							<span id="145">145</span>
+						
+							<span id="146">146</span>
+						
+							<span id="147">147</span>
+						
+							<span id="148">148</span>
+						
+							<span id="149">149</span>
+						
+							<span id="150">150</span>
+						
+							<span id="151">151</span>
+						
+							<span id="152">152</span>
+						
+							<span id="153">153</span>
+						
+							<span id="154">154</span>
+						
+							<span id="155">155</span>
+						
+							<span id="156">156</span>
+						
+							<span id="157">157</span>
+						
+							<span id="158">158</span>
+						
+							<span id="159">159</span>
+						
+							<span id="160">160</span>
+						
+							<span id="161">161</span>
+						
+							<span id="162">162</span>
+						
+							<span id="163">163</span>
+						
+							<span id="164">164</span>
+						
+							<span id="165">165</span>
+						
+							<span id="166">166</span>
+						
+							<span id="167">167</span>
+						
+							<span id="168">168</span>
+						
+							<span id="169">169</span>
+						
+							<span id="170">170</span>
+						
+							<span id="171">171</span>
+						
+							<span id="172">172</span>
+						
+							<span id="173">173</span>
+						
+							<span id="174">174</span>
+						
+							<span id="175">175</span>
+						
+							<span id="176">176</span>
+						
+							<span id="177">177</span>
+						
+							<span id="178">178</span>
+						
+							<span id="179">179</span>
+						
+							<span id="180">180</span>
+						
+							<span id="181">181</span>
+						
+							<span id="182">182</span>
+						
+							<span id="183">183</span>
+						
+							<span id="184">184</span>
+						
+							<span id="185">185</span>
+						
+							<span id="186">186</span>
+						
+							<span id="187">187</span>
+						
+							<span id="188">188</span>
+						
+							<span id="189">189</span>
+						
+							<span id="190">190</span>
+						
+							<span id="191">191</span>
+						
+							<span id="192">192</span>
+						
+							<span id="193">193</span>
+						
+							<span id="194">194</span>
+						
+							<span id="195">195</span>
+						
+							<span id="196">196</span>
+						
+							<span id="197">197</span>
+						
+							<span id="198">198</span>
+						
+							<span id="199">199</span>
+						
+							<span id="200">200</span>
+						
+							<span id="201">201</span>
+						
+							<span id="202">202</span>
+						
+							<span id="203">203</span>
+						
+							<span id="204">204</span>
+						
+							<span id="205">205</span>
+						
+							<span id="206">206</span>
+						
+							<span id="207">207</span>
+						
+							<span id="208">208</span>
+						
+							<span id="209">209</span>
+						
+							<span id="210">210</span>
+						
+							<span id="211">211</span>
+						
+							<span id="212">212</span>
+						
+							<span id="213">213</span>
+						
+							<span id="214">214</span>
+						
+							<span id="215">215</span>
+						
+							<span id="216">216</span>
+						
+							<span id="217">217</span>
+						
+							<span id="218">218</span>
+						
+							<span id="219">219</span>
+						
+							<span id="220">220</span>
+						
+							<span id="221">221</span>
+						
+							<span id="222">222</span>
+						
+							<span id="223">223</span>
+						
+							<span id="224">224</span>
+						
+							<span id="225">225</span>
+						
+							<span id="226">226</span>
+						
+							<span id="227">227</span>
+						
+							<span id="228">228</span>
+						
+							<span id="229">229</span>
+						
+							<span id="230">230</span>
+						
+							<span id="231">231</span>
+						
+							<span id="232">232</span>
+						
+							<span id="233">233</span>
+						
+							<span id="234">234</span>
+						
+							<span id="235">235</span>
+						
+							<span id="236">236</span>
+						
+							<span id="237">237</span>
+						
+							<span id="238">238</span>
+						
+							<span id="239">239</span>
+						
+							<span id="240">240</span>
+						
+							<span id="241">241</span>
+						
+							<span id="242">242</span>
+						
+							<span id="243">243</span>
+						
+							<span id="244">244</span>
+						
+							<span id="245">245</span>
+						
+							<span id="246">246</span>
+						
+							<span id="247">247</span>
+						
+							<span id="248">248</span>
+						
+							<span id="249">249</span>
+						
+							<span id="250">250</span>
+						
+							<span id="251">251</span>
+						
+							<span id="252">252</span>
+						
+							<span id="253">253</span>
+						
+							<span id="254">254</span>
+						
+							<span id="255">255</span>
+						
+							<span id="256">256</span>
+						
+							<span id="257">257</span>
+						
+							<span id="258">258</span>
+						
+							<span id="259">259</span>
+						
+							<span id="260">260</span>
+						
+							<span id="261">261</span>
+						
+							<span id="262">262</span>
+						
+							<span id="263">263</span>
+						
+							<span id="264">264</span>
+						
+							<span id="265">265</span>
+						
+							<span id="266">266</span>
+						
+							<span id="267">267</span>
+						
+							<span id="268">268</span>
+						
+							<span id="269">269</span>
+						
+							<span id="270">270</span>
+						
+							<span id="271">271</span>
+						
+							<span id="272">272</span>
+						
+							<span id="273">273</span>
+						
+							<span id="274">274</span>
+						
+							<span id="275">275</span>
+						
+							<span id="276">276</span>
+						
+							<span id="277">277</span>
+						
+							<span id="278">278</span>
+						
+							<span id="279">279</span>
+						
+							<span id="280">280</span>
+						
+							<span id="281">281</span>
+						
+							<span id="282">282</span>
+						
+							<span id="283">283</span>
+						
+							<span id="284">284</span>
+						
+							<span id="285">285</span>
+						
+							<span id="286">286</span>
+						
+							<span id="287">287</span>
+						
+							<span id="288">288</span>
+						
+							<span id="289">289</span>
+						
+							<span id="290">290</span>
+						
+							<span id="291">291</span>
+						
+							<span id="292">292</span>
+						
+							<span id="293">293</span>
+						
+							<span id="294">294</span>
+						
+							<span id="295">295</span>
+						
+							<span id="296">296</span>
+						
+							<span id="297">297</span>
+						
+							<span id="298">298</span>
+						
+							<span id="299">299</span>
+						
+							<span id="300">300</span>
+						
+							<span id="301">301</span>
+						
+							<span id="302">302</span>
+						
+							<span id="303">303</span>
+						
+							<span id="304">304</span>
+						
+							<span id="305">305</span>
+						
+							<span id="306">306</span>
+						
+							<span id="307">307</span>
+						
+							<span id="308">308</span>
+						
+							<span id="309">309</span>
+						
+							<span id="310">310</span>
+						
+							<span id="311">311</span>
+						
+							<span id="312">312</span>
+						
+							<span id="313">313</span>
+						
+							<span id="314">314</span>
+						
+							<span id="315">315</span>
+						
+							<span id="316">316</span>
+						
+							<span id="317">317</span>
+						
+							<span id="318">318</span>
+						
+							<span id="319">319</span>
+						
+							<span id="320">320</span>
+						
+							<span id="321">321</span>
+						
+							<span id="322">322</span>
+						
+							<span id="323">323</span>
+						
+							<span id="324">324</span>
+						
+							<span id="325">325</span>
+						
+							<span id="326">326</span>
+						
+							<span id="327">327</span>
+						
+							<span id="328">328</span>
+						
+							<span id="329">329</span>
+						
+							<span id="330">330</span>
+						
+							<span id="331">331</span>
+						
+							<span id="332">332</span>
+						
+							<span id="333">333</span>
+						
+							<span id="334">334</span>
+						
+							<span id="335">335</span>
+						
+							<span id="336">336</span>
+						
+							<span id="337">337</span>
+						
+							<span id="338">338</span>
+						
+							<span id="339">339</span>
+						
+							<span id="340">340</span>
+						
+							<span id="341">341</span>
+						
+							<span id="342">342</span>
+						
+							<span id="343">343</span>
+						
+							<span id="344">344</span>
+						
+							<span id="345">345</span>
+						
+							<span id="346">346</span>
+						
+							<span id="347">347</span>
+						
+							<span id="348">348</span>
+						
+							<span id="349">349</span>
+						
+							<span id="350">350</span>
+						
+							<span id="351">351</span>
+						
+							<span id="352">352</span>
+						
+							<span id="353">353</span>
+						
+							<span id="354">354</span>
+						
+							<span id="355">355</span>
+						
+							<span id="356">356</span>
+						
+							<span id="357">357</span>
+						
+							<span id="358">358</span>
+						
+							<span id="359">359</span>
+						
+							<span id="360">360</span>
+						
+							<span id="361">361</span>
+						
+							<span id="362">362</span>
+						
+							<span id="363">363</span>
+						
+							<span id="364">364</span>
+						
+							<span id="365">365</span>
+						
+							<span id="366">366</span>
+						
+							<span id="367">367</span>
+						
+							<span id="368">368</span>
+						
+							<span id="369">369</span>
+						
+							<span id="370">370</span>
+						
+							<span id="371">371</span>
+						
+							<span id="372">372</span>
+						
+							<span id="373">373</span>
+						
+							<span id="374">374</span>
+						
+							<span id="375">375</span>
+						
+							<span id="376">376</span>
+						
+							<span id="377">377</span>
+						
+							<span id="378">378</span>
+						
+							<span id="379">379</span>
+						
+							<span id="380">380</span>
+						
+							<span id="381">381</span>
+						
+							<span id="382">382</span>
+						
+							<span id="383">383</span>
+						
+							<span id="384">384</span>
+						
+							<span id="385">385</span>
+						
+							<span id="386">386</span>
+						
+							<span id="387">387</span>
+						
+							<span id="388">388</span>
+						
+							<span id="389">389</span>
+						
+							<span id="390">390</span>
+						
+							<span id="391">391</span>
+						
+							<span id="392">392</span>
+						
+							<span id="393">393</span>
+						
+							<span id="394">394</span>
+						
+							<span id="395">395</span>
+						
+							<span id="396">396</span>
+						
+							<span id="397">397</span>
+						
+							<span id="398">398</span>
+						
+							<span id="399">399</span>
+						
+							<span id="400">400</span>
+						
+							<span id="401">401</span>
+						
+							<span id="402">402</span>
+						
+							<span id="403">403</span>
+						
+							<span id="404">404</span>
+						
+							<span id="405">405</span>
+						
+							<span id="406">406</span>
+						
+							<span id="407">407</span>
+						
+							<span id="408">408</span>
+						
+							<span id="409">409</span>
+						
+							<span id="410">410</span>
+						
+							<span id="411">411</span>
+						
+							<span id="412">412</span>
+						
+							<span id="413">413</span>
+						
+							<span id="414">414</span>
+						
+							<span id="415">415</span>
+						
+							<span id="416">416</span>
+						
+							<span id="417">417</span>
+						
+							<span id="418">418</span>
+						
+							<span id="419">419</span>
+						
+							<span id="420">420</span>
+						
+							<span id="421">421</span>
+						
+							<span id="422">422</span>
+						
+							<span id="423">423</span>
+						
+							<span id="424">424</span>
+						
+							<span id="425">425</span>
+						
+							<span id="426">426</span>
+						
+							<span id="427">427</span>
+						
+							<span id="428">428</span>
+						
+							<span id="429">429</span>
+						
+							<span id="430">430</span>
+						
+							<span id="431">431</span>
+						
+							<span id="432">432</span>
+						
+							<span id="433">433</span>
+						
+							<span id="434">434</span>
+						
+							<span id="435">435</span>
+						
+							<span id="436">436</span>
+						
+							<span id="437">437</span>
+						
+							<span id="438">438</span>
+						
+							<span id="439">439</span>
+						
+							<span id="440">440</span>
+						
+							<span id="441">441</span>
+						
+							<span id="442">442</span>
+						
+							<span id="443">443</span>
+						
+							<span id="444">444</span>
+						
+							<span id="445">445</span>
+						
+							<span id="446">446</span>
+						
+							<span id="447">447</span>
+						
+							<span id="448">448</span>
+						
+							<span id="449">449</span>
+						
+							<span id="450">450</span>
+						
+							<span id="451">451</span>
+						
+							<span id="452">452</span>
+						
+							<span id="453">453</span>
+						
+							<span id="454">454</span>
+						
+							<span id="455">455</span>
+						
+							<span id="456">456</span>
+						
+							<span id="457">457</span>
+						
+							<span id="458">458</span>
+						
+							<span id="459">459</span>
+						
+							<span id="460">460</span>
+						
+							<span id="461">461</span>
+						
+							<span id="462">462</span>
+						
+							<span id="463">463</span>
+						
+							<span id="464">464</span>
+						
+							<span id="465">465</span>
+						
+							<span id="466">466</span>
+						
+							<span id="467">467</span>
+						
+							<span id="468">468</span>
+						
+							<span id="469">469</span>
+						
+							<span id="470">470</span>
+						
+							<span id="471">471</span>
+						
+							<span id="472">472</span>
+						
+							<span id="473">473</span>
+						
+							<span id="474">474</span>
+						
+							<span id="475">475</span>
+						
+							<span id="476">476</span>
+						
+							<span id="477">477</span>
+						
+							<span id="478">478</span>
+						
+							<span id="479">479</span>
+						
+							<span id="480">480</span>
+						
+							<span id="481">481</span>
+						
+							<span id="482">482</span>
+						
+							<span id="483">483</span>
+						
+							<span id="484">484</span>
+						
+							<span id="485">485</span>
+						
+							<span id="486">486</span>
+						
+							<span id="487">487</span>
+						
+							<span id="488">488</span>
+						
+							<span id="489">489</span>
+						
+							<span id="490">490</span>
+						
+							<span id="491">491</span>
+						
+							<span id="492">492</span>
+						
+							<span id="493">493</span>
+						
+							<span id="494">494</span>
+						
+							<span id="495">495</span>
+						
+							<span id="496">496</span>
+						
+							<span id="497">497</span>
+						
+							<span id="498">498</span>
+						
+							<span id="499">499</span>
+						
+							<span id="500">500</span>
+						
+							<span id="501">501</span>
+						
+							<span id="502">502</span>
+						
+							<span id="503">503</span>
+						
+							<span id="504">504</span>
+						
+							<span id="505">505</span>
+						
+							<span id="506">506</span>
+						
+							<span id="507">507</span>
+						
+							<span id="508">508</span>
+						
+							<span id="509">509</span>
+						
+							<span id="510">510</span>
+						
+							<span id="511">511</span>
+						
+							<span id="512">512</span>
+						
+							<span id="513">513</span>
+						
+							<span id="514">514</span>
+						
+							<span id="515">515</span>
+						
+							<span id="516">516</span>
+						
+							<span id="517">517</span>
+						
+							<span id="518">518</span>
+						
+							<span id="519">519</span>
+						
+							<span id="520">520</span>
+						
+							<span id="521">521</span>
+						
+							<span id="522">522</span>
+						
+							<span id="523">523</span>
+						
+							<span id="524">524</span>
+						
+							<span id="525">525</span>
+						
+							<span id="526">526</span>
+						
+							<span id="527">527</span>
+						
+							<span id="528">528</span>
+						
+							<span id="529">529</span>
+						
+							<span id="530">530</span>
+						
+							<span id="531">531</span>
+						
+							<span id="532">532</span>
+						
+							<span id="533">533</span>
+						
+							<span id="534">534</span>
+						
+							<span id="535">535</span>
+						
+							<span id="536">536</span>
+						
+							<span id="537">537</span>
+						
+							<span id="538">538</span>
+						
+							<span id="539">539</span>
+						
+							<span id="540">540</span>
+						
+							<span id="541">541</span>
+						
+							<span id="542">542</span>
+						
+							<span id="543">543</span>
+						
+							<span id="544">544</span>
+						
+							<span id="545">545</span>
+						
+							<span id="546">546</span>
+						
+							<span id="547">547</span>
+						
+							<span id="548">548</span>
+						
+							<span id="549">549</span>
+						
+							<span id="550">550</span>
+						
+							<span id="551">551</span>
+						
+							<span id="552">552</span>
+						
+							<span id="553">553</span>
+						
+							<span id="554">554</span>
+						
+							<span id="555">555</span>
+						
+							<span id="556">556</span>
+						
+							<span id="557">557</span>
+						
+							<span id="558">558</span>
+						
+							<span id="559">559</span>
+						
+							<span id="560">560</span>
+						
+							<span id="561">561</span>
+						
+							<span id="562">562</span>
+						
+							<span id="563">563</span>
+						
+							<span id="564">564</span>
+						
+							<span id="565">565</span>
+						
+							<span id="566">566</span>
+						
+							<span id="567">567</span>
+						
+							<span id="568">568</span>
+						
+							<span id="569">569</span>
+						
+							<span id="570">570</span>
+						
+							<span id="571">571</span>
+						
+							<span id="572">572</span>
+						
+							<span id="573">573</span>
+						
+							<span id="574">574</span>
+						
+							<span id="575">575</span>
+						
+							<span id="576">576</span>
+						
+							<span id="577">577</span>
+						
+							<span id="578">578</span>
+						
+							<span id="579">579</span>
+						
+							<span id="580">580</span>
+						
+							<span id="581">581</span>
+						
+							<span id="582">582</span>
+						
+							<span id="583">583</span>
+						
+							<span id="584">584</span>
+						
+							<span id="585">585</span>
+						
+							<span id="586">586</span>
+						
+							<span id="587">587</span>
+						
+							<span id="588">588</span>
+						
+							<span id="589">589</span>
+						
+							<span id="590">590</span>
+						
+							<span id="591">591</span>
+						
+							<span id="592">592</span>
+						
+							<span id="593">593</span>
+						
+							<span id="594">594</span>
+						
+							<span id="595">595</span>
+						
+							<span id="596">596</span>
+						
+							<span id="597">597</span>
+						
+							<span id="598">598</span>
+						
+							<span id="599">599</span>
+						
+							<span id="600">600</span>
+						
+							<span id="601">601</span>
+						
+							<span id="602">602</span>
+						
+							<span id="603">603</span>
+						
+							<span id="604">604</span>
+						
+							<span id="605">605</span>
+						
+							<span id="606">606</span>
+						
+							<span id="607">607</span>
+						
+							<span id="608">608</span>
+						
+							<span id="609">609</span>
+						
+							<span id="610">610</span>
+						
+							<span id="611">611</span>
+						
+							<span id="612">612</span>
+						
+							<span id="613">613</span>
+						
+							<span id="614">614</span>
+						
+							<span id="615">615</span>
+						
+							<span id="616">616</span>
+						
+							<span id="617">617</span>
+						
+							<span id="618">618</span>
+						
+							<span id="619">619</span>
+						
+							<span id="620">620</span>
+						
+							<span id="621">621</span>
+						
+							<span id="622">622</span>
+						
+							<span id="623">623</span>
+						
+							<span id="624">624</span>
+						
+							<span id="625">625</span>
+						
+							<span id="626">626</span>
+						
+							<span id="627">627</span>
+						
+							<span id="628">628</span>
+						
+							<span id="629">629</span>
+						
+							<span id="630">630</span>
+						
+							<span id="631">631</span>
+						
+							<span id="632">632</span>
+						
+							<span id="633">633</span>
+						
+							<span id="634">634</span>
+						
+							<span id="635">635</span>
+						
+							<span id="636">636</span>
+						
+							<span id="637">637</span>
+						
+							<span id="638">638</span>
+						
+							<span id="639">639</span>
+						
+							<span id="640">640</span>
+						
+							<span id="641">641</span>
+						
+							<span id="642">642</span>
+						
+							<span id="643">643</span>
+						
+							<span id="644">644</span>
+						
+							<span id="645">645</span>
+						
+							<span id="646">646</span>
+						
+							<span id="647">647</span>
+						
+							<span id="648">648</span>
+						
+							<span id="649">649</span>
+						
+							<span id="650">650</span>
+						
+							<span id="651">651</span>
+						
+							<span id="652">652</span>
+						
+							<span id="653">653</span>
+						
+							<span id="654">654</span>
+						
+							<span id="655">655</span>
+						
+							<span id="656">656</span>
+						
+							<span id="657">657</span>
+						
+							<span id="658">658</span>
+						
+							<span id="659">659</span>
+						
+							<span id="660">660</span>
+						
+							<span id="661">661</span>
+						
+							<span id="662">662</span>
+						
+							<span id="663">663</span>
+						
+							<span id="664">664</span>
+						
+							<span id="665">665</span>
+						
+							<span id="666">666</span>
+						
+							<span id="667">667</span>
+						
+							<span id="668">668</span>
+						
+							<span id="669">669</span>
+						
+							<span id="670">670</span>
+						
+							<span id="671">671</span>
+						
+							<span id="672">672</span>
+						
+							<span id="673">673</span>
+						
+							<span id="674">674</span>
+						
+							<span id="675">675</span>
+						
+							<span id="676">676</span>
+						
+							<span id="677">677</span>
+						
+							<span id="678">678</span>
+						
+							<span id="679">679</span>
+						
+							<span id="680">680</span>
+						
+							<span id="681">681</span>
+						
+							<span id="682">682</span>
+						
+							<span id="683">683</span>
+						
+							<span id="684">684</span>
+						
+							<span id="685">685</span>
+						
+							<span id="686">686</span>
+						
+							<span id="687">687</span>
+						
+							<span id="688">688</span>
+						
+							<span id="689">689</span>
+						
+							<span id="690">690</span>
+						
+							<span id="691">691</span>
+						
+							<span id="692">692</span>
+						
+							<span id="693">693</span>
+						
+							<span id="694">694</span>
+						
+							<span id="695">695</span>
+						
+							<span id="696">696</span>
+						
+							<span id="697">697</span>
+						
+							<span id="698">698</span>
+						
+							<span id="699">699</span>
+						
+							<span id="700">700</span>
+						
+							<span id="701">701</span>
+						
+							<span id="702">702</span>
+						
+							<span id="703">703</span>
+						
+							<span id="704">704</span>
+						
+							<span id="705">705</span>
+						
+							<span id="706">706</span>
+						
+							<span id="707">707</span>
+						
+							<span id="708">708</span>
+						
+							<span id="709">709</span>
+						
+							<span id="710">710</span>
+						
+							<span id="711">711</span>
+						
+							<span id="712">712</span>
+						
+							<span id="713">713</span>
+						
+							<span id="714">714</span>
+						
+							<span id="715">715</span>
+						
+							<span id="716">716</span>
+						
+							<span id="717">717</span>
+						
+							<span id="718">718</span>
+						
+							<span id="719">719</span>
+						
+							<span id="720">720</span>
+						
+							<span id="721">721</span>
+						
+							<span id="722">722</span>
+						
+							<span id="723">723</span>
+						
+							<span id="724">724</span>
+						
+							<span id="725">725</span>
+						
+							<span id="726">726</span>
+						
+							<span id="727">727</span>
+						
+							<span id="728">728</span>
+						
+							<span id="729">729</span>
+						
+							<span id="730">730</span>
+						
+							<span id="731">731</span>
+						
+							<span id="732">732</span>
+						
+							<span id="733">733</span>
+						
+							<span id="734">734</span>
+						
+							<span id="735">735</span>
+						
+							<span id="736">736</span>
+						
+							<span id="737">737</span>
+						
+							<span id="738">738</span>
+						
+							<span id="739">739</span>
+						
+							<span id="740">740</span>
+						
+							<span id="741">741</span>
+						
+							<span id="742">742</span>
+						
+							<span id="743">743</span>
+						
+							<span id="744">744</span>
+						
+							<span id="745">745</span>
+						
+							<span id="746">746</span>
+						
+							<span id="747">747</span>
+						
+							<span id="748">748</span>
+						
+							<span id="749">749</span>
+						
+							<span id="750">750</span>
+						
+							<span id="751">751</span>
+						
+							<span id="752">752</span>
+						
+							<span id="753">753</span>
+						
+							<span id="754">754</span>
+						
+							<span id="755">755</span>
+						
+							<span id="756">756</span>
+						
+							<span id="757">757</span>
+						
+							<span id="758">758</span>
+											</div>
+					<pre><code># Parse an xml file into a canvas group element
+#
+# @param group    The canvas.Group instance to append the parsed elements to
+# @param path     The path of the svg file (absolute or relative to FG_ROOT)
+# @param options  Optional hash of options
+#                 font-mapper  func
+#                 parse_images bool
+var parsesvg = func(group, path, options = nil)
+{
+  if( !isa(group, Group) )
+    die(&#34;Invalid argument group (type != Group)&#34;);
+
+  if( options == nil )
+    options = {};
+
+  if (!ishash(options)) {
+    die(&#34;Options need to be of type hash!&#34;);
+  }
+
+  # resolve paths using standard SimGear logic
+  var file_path = resolvepath(path);
+  if (file_path == &#34;&#34;)
+    die(&#34;File not found: &#34;~path);
+  path = file_path;
+
+  
+  var logpr = func(level, msg)
+  {
+    logprint(level, &#34;parsesvg: &#34;~msg~&#34; [path=&#39;&#34;~ path~&#34;&#39;]&#34;);
+  };
+
+  # Helper to get number without unit (eg. px)
+  var evalCSSNum = func(css_num)
+  {
+    if( css_num.ends_with(&#34;px&#34;) )
+      return substr(css_num, 0, size(css_num) - 2);
+    else if( css_num.ends_with(&#34;%&#34;) )
+      return substr(css_num, 0, size(css_num) - 1) / 100;
+
+    return css_num;
+  }
+
+  var level = 0;
+  var skip  = 0;
+  var stack = [group];
+  var close_stack = []; # helper for check tag closing
+
+  var defs_stack = [];
+
+  var text = nil;
+  var tspans = nil;
+
+  # lookup table for element ids (for &#60;use&#62; element)
+  var id_dict = {};
+
+  # lookup table for mask and clipPath element ids
+  var clip_dict = {};
+  var cur_clip = nil;
+
+  # ----------------------------------------------------------------------------
+  # Create a new child an push it onto the stack
+  var pushElement = func(type, id = nil)
+  {
+    append(stack, stack[-1].createChild(type, id));
+    append(close_stack, level);
+
+    if (isscalar(id) and size(id)) {
+      id_dict[ id ] = stack[-1];
+    }
+
+    if( cur_clip != nil )
+    {
+      if(cur_clip[&#39;x&#39;] != nil and cur_clip[&#39;y&#39;] != nil
+         and cur_clip[&#39;width&#39;] != nil and cur_clip[&#39;height&#39;] != nil ) {
+        stack[-1].setClipByBoundingBox(cur_clip[&#39;x&#39;], cur_clip[&#39;y&#39;],
+           cur_clip[&#39;x&#39;] + cur_clip[&#39;width&#39;], cur_clip[&#39;y&#39;] + cur_clip[&#39;height&#39;]);
+      }
+      else {
+        logpr(LOG_WARN, &#34;Invalid or unsupported clip for element &#39;&#34; ~ id ~ &#34;&#39;&#34;);
+      }
+      cur_clip = nil;
+    }
+  }
+
+  # ----------------------------------------------------------------------------
+  # Remove the topmost element from the stack
+  var popElement = func
+  {
+    stack[-1].updateCenter();
+    # Create rotation matrix after all SVG defined transformations
+    stack[-1].set(&#34;tf-rot-index&#34;, stack[-1].createTransform()._node.getIndex());
+
+    pop(stack);
+    pop(close_stack);
+  }
+
+  # ----------------------------------------------------------------------------
+  # Parse a transformation (matrix)
+  # http://www.w3.org/TR/SVG/coords.html#TransformAttribute
+  var parseTransform = func(tf)
+  {
+    if( tf == nil )
+      return;
+
+    var end = 0;
+    while(1)
+    {
+      var start_type = tf.find_first_not_of(&#34;\t\n &#34;, end);
+      if( start_type &#60; 0 )
+        break;
+
+      var end_type = tf.find_first_of(&#34;(\t\n &#34;, start_type + 1);
+      if( end_type &#60; 0 )
+        break;
+
+      var start_args = tf.find(&#39;(&#39;, end_type);
+      if( start_args &#60; 0 )
+        break;
+
+      var values = [];
+      end = start_args + 1;
+      while(1)
+      {
+        var start_num = tf.find_first_not_of(&#34;,\t\n &#34;, end);
+        if( start_num &#60; 0 )
+          break;
+        if( tf[start_num] == `)` )
+          break;
+
+        end = tf.find_first_of(&#34;),\t\n &#34;, start_num + 1);
+        if( end &#60; 0 )
+          break;
+        append(values, substr(tf, start_num, end - start_num));
+      }
+
+      if( end &#62; 0 )
+        end += 1;
+
+      var type = substr(tf, start_type, end_type - start_type);
+
+      # TODO should we warn if to much/wrong number of arguments given?
+      if( type == &#34;translate&#34; )
+      {
+        # translate(&#60;tx&#62; [&#60;ty&#62;]), which specifies a translation by tx and ty. If
+        # &#60;ty&#62; is not provided, it is assumed to be zero.
+        stack[-1].createTransform().setTranslation
+        (
+          values[0],
+          size(values) &#62; 1 ? values[1] : 0,
+        );
+      }
+      else if( type == &#34;scale&#34; )
+      {
+        # scale(&#60;sx&#62; [&#60;sy&#62;]), which specifies a scale operation by sx and sy. If
+        # &#60;sy&#62; is not provided, it is assumed to be equal to &#60;sx&#62;.
+        stack[-1].createTransform().setScale(values);
+      }
+      else if( type == &#34;rotate&#34; )
+      {
+        # rotate(&#60;rotate-angle&#62; [&#60;cx&#62; &#60;cy&#62;]), which specifies a rotation by
+        # &#60;rotate-angle&#62; degrees about a given point.
+        stack[-1].createTransform().setRotation
+        (
+          values[0] * D2R, # internal functions use rad
+          size(values) &#62; 1 ? values[1:] : nil
+        );
+      }
+      else if( type == &#34;matrix&#34; )
+      {
+        if( size(values) == 6 )
+          stack[-1].createTransform(values);
+        else
+          logpr(LOG_WARN,
+            &#34;Invalid arguments to matrix transform: &#34; ~ debug.string(values, 0)
+          );
+      }
+      else
+        logpr(LOG_WARN, &#34;Unknown transform type: &#39;&#34; ~ type ~ &#34;&#39;&#34;);
+    }
+  };
+
+  # ----------------------------------------------------------------------------
+  # Parse a path
+  # http://www.w3.org/TR/SVG/paths.html#PathData
+
+  # map svg commands OpenVG commands
+  var cmd_map = {
+    z: Path.VG_CLOSE_PATH,
+    m: Path.VG_MOVE_TO,
+    l: Path.VG_LINE_TO,
+    h: Path.VG_HLINE_TO,
+    v: Path.VG_VLINE_TO,
+    q: Path.VG_QUAD_TO,
+    c: Path.VG_CUBIC_TO,
+    t: Path.VG_SQUAD_TO,
+    s: Path.VG_SCUBIC_TO
+  };
+
+  var parsePath = func(path_data)
+  {
+    if( path_data == nil )
+      return;
+
+    var pos = 0;
+    var cmds = [];
+    var coords = [];
+
+    while(1)
+    {
+      # skip leading spaces
+      pos = path_data.find_first_not_of(&#34;\t\n &#34;, pos);
+      if( pos &#60; 0 )
+        break;
+
+      # get command (single character);
+      var cmd = substr(path_data, pos, 1);
+      pos += 1;
+
+      # and get all following arguments
+      # the &#39;-&#39; is kind of hard, it belongs to a number, might appear twice in 
+      # one arg (e.g. -2e-3) and some SVG do not separate args starting with &#39;-&#39;
+      # so the &#39;-&#39; is the separator as well in this case.
+      # SVG samples (cut)
+      # 1: m 547.56916,962.17731 c 10e-6,25.66886 -20.80872,46.47759 -46.47758,46.47759 -25.66886,0 ...
+      # 2: M831,144.861c-0.236,0.087-0.423,0.255-0.629,0.39c-1.169,0.765-2.333,1.536-3.499,2.305   c-0.019,0.013-0.041, ...
+      var args = [];
+      #skip non-argument spaces and separator
+      pos = path_data.find_first_not_of(&#34;,\t\n &#34;, pos);
+      var start_num = pos;
+      while(1)
+      {
+        pos = path_data.find_first_not_of(&#34;,\t\n &#34;, pos);
+        if (pos &#60; 0) break;
+        start_num = pos;        
+        while (1) {
+          var chr1 = substr(path_data, pos, 1);
+          if (chr1 == &#34;-&#34;)
+            pos = path_data.find_first_not_of(&#34;e.0123456789&#34;, pos + 1);
+          else 
+            pos = path_data.find_first_not_of(&#34;e.0123456789&#34;, pos);
+          #check for e- (e.g. 42e-6)
+          if (pos &#62; 0 and substr(path_data, pos - 1, 1) == &#34;e&#34; 
+                      and substr(path_data, pos, 1) == &#34;-&#34;)
+            continue;
+          else 
+            break;
+        }
+        if (start_num == pos) break;
+
+        append(args, substr( path_data,
+                             start_num,
+                             pos &#62; 0 ? pos - start_num : nil ));
+      }
+
+      # now execute the command
+      var rel = string.islower(cmd[0]);
+      var cmd = string.lc(cmd);
+      if( cmd == &#39;a&#39; )
+      {
+        for(var i = 0; i + 7 &#60;= size(args); i += 7)
+        {
+          # SVG: (rx ry x-axis-rotation large-arc-flag sweep-flag x y)+
+          # OpenVG: rh,rv,rot,x0,y0
+          if( args[i + 3] )
+            var cmd_vg = args[i + 4] ? Path.VG_LCCWARC_TO : Path.VG_LCWARC_TO;
+          else
+            var cmd_vg = args[i + 4] ? Path.VG_SCCWARC_TO : Path.VG_SCWARC_TO;
+          append(cmds, rel ? cmd_vg + 1: cmd_vg);
+          append(coords, args[i],
+                         args[i + 1],
+                         args[i + 2],
+                         args[i + 5],
+                         args[i + 6] );
+        }
+
+        if( math.mod(size(args), 7) &#62; 0 ) {
+          logpr(LOG_WARN, &#34;Invalid number of coords for cmd &#39;a&#39; (&#34;~
+            size(args)~&#34; mod 7 != 0)&#34;);
+        }
+      }
+      else
+      {
+        var cmd_vg = cmd_map[cmd];
+        if( cmd_vg == nil )
+        {
+          logpr(LOG_WARN, &#34;command not found: &#39;&#34; ~ cmd ~ &#34;&#39;&#34;);
+          continue;
+        }
+
+        var num_coords = Path.num_coords[int(cmd_vg)];
+        if( num_coords == 0 )
+          append(cmds, cmd_vg);
+        else
+        {
+          for(var i = 0; i + num_coords &#60;= size(args); i += num_coords)
+          {
+            append(cmds, rel ? cmd_vg + 1: cmd_vg);
+            for(var j = i; j &#60; i + num_coords; j += 1)
+              append(coords, args[j]);
+
+            # If a moveto is followed by multiple pairs of coordinates, the
+            # subsequent pairs are treated as implicit lineto commands.
+            if( cmd == &#39;m&#39; )
+              cmd_vg = cmd_map[&#39;l&#39;];
+          }
+
+          if( math.mod(size(args), num_coords) &#62; 0 )
+            logpr(LOG_WARN,&#34;Invalid number of coords for cmd &#39;&#34; ~ cmd ~ &#34;&#39; (&#34;
+              ~size(args)~&#34; mod &#34;~num_coords~&#34; != 0)&#34;
+            );
+        }
+      }
+    }
+
+    stack[-1].setData(cmds, coords);
+  };
+
+  # ----------------------------------------------------------------------------
+  # Parse text styles (and apply them to the topmost element)
+  var parseTextStyles = func(style)
+  {
+    # http://www.w3.org/TR/SVG/text.html#TextAnchorProperty
+    var h_align = style[&#34;text-anchor&#34;];
+    if( h_align != nil )
+    {
+      if( h_align == &#34;end&#34; )
+        h_align = &#34;right&#34;;
+      else if( h_align == &#34;middle&#34; )
+        h_align = &#34;center&#34;;
+      else # &#34;start&#34;
+        h_align = &#34;left&#34;;
+      stack[-1].set(&#34;alignment&#34;, h_align ~ &#34;-baseline&#34;);
+    }
+    # TODO vertical align
+
+    var fill = style[&#39;fill&#39;];
+    if( fill != nil )
+      stack[-1].set(&#34;fill&#34;, fill);
+
+    var font_family = style[&#34;font-family&#34;];
+    var font_weight = style[&#34;font-weight&#34;];
+    var font_style = style[&#34;font-style&#34;];
+    if( font_family != nil or font_weight != nil or font_style != nil )
+      stack[-1].set(&#34;font&#34;, font_mapper(font_family, font_weight, font_style, options));
+
+    var font_size = style[&#34;font-size&#34;];
+    if( font_size != nil )
+      stack[-1].setDouble(&#34;character-size&#34;, evalCSSNum(font_size));
+
+    var line_height = style[&#34;line-height&#34;];
+    if( line_height != nil )
+      stack[-1].setDouble(&#34;line-height&#34;, evalCSSNum(line_height));
+  }
+
+  # ----------------------------------------------------------------------------
+  # Parse a css style attribute
+  var parseStyle = func(style)
+  {
+    if( style == nil )
+      return {};
+
+    var styles = {};
+    foreach(var part; split(&#39;;&#39;, style))
+    {
+      if( !size(part = string.trim(part)) )
+        continue;
+      if( size(part = split(&#39;:&#39;,part)) != 2 )
+        continue;
+
+      var key = string.trim(part[0]);
+      if( !size(key) )
+        continue;
+
+      var value = string.trim(part[1]);
+      if( !size(value) )
+        continue;
+
+      styles[key] = value;
+    }
+
+    return styles;
+  }
+
+  # ----------------------------------------------------------------------------
+  # Parse a css color
+  var parseColor = func(s)
+  {
+    var color = [0, 0, 0];
+    if( s == nil )
+      return color;
+
+    if( size(s) == 7 and substr(s, 0, 1) == &#39;#&#39; )
+    {
+      return [ std.stoul(substr(s, 1, 2), 16) / 255,
+                std.stoul(substr(s, 3, 2), 16) / 255,
+                std.stoul(substr(s, 5, 2), 16) / 255 ];
+    }
+
+    return color;
+  };
+
+  # ----------------------------------------------------------------------------
+  # XML parsers element open callback
+  var start = func(name, attr)
+  {
+    level += 1;
+
+    if( skip )
+      return;
+
+    if( level == 1 )
+    {
+      if( name != &#39;svg&#39; )
+        die(&#34;Not an svg file (root=&#34; ~ name ~ &#34;)&#34;);
+      else
+        return;
+    }
+
+    if( size(defs_stack) &#62; 0 )
+    {
+      if( name == &#34;mask&#34; or name == &#34;clipPath&#34; )
+      {
+        append(defs_stack, {&#39;type&#39;: name, &#39;id&#39;: attr[&#39;id&#39;]});
+      }
+      else if( ishash(defs_stack[-1]) and name == &#34;rect&#34; )
+      {
+        foreach(var p; [&#34;x&#34;, &#34;y&#34;, &#34;width&#34;, &#34;height&#34;])
+          defs_stack[-1][p] = evalCSSNum(attr[p]);
+        skip = level;
+      }
+      else
+      {
+        logpr(LOG_INFO, &#34;Skipping unknown element in &#60;defs&#62;: &#60;&#34; ~ name ~ &#34;&#62;&#34;);
+        skip = level;
+      }
+      return;
+    }
+
+    var style = parseStyle(attr[&#39;style&#39;]);
+
+    var clip_id = attr[&#39;clip-path&#39;] or attr[&#39;mask&#39;];
+    if( clip_id != nil and clip_id != &#34;none&#34; )
+    {
+      if(     clip_id.starts_with(&#34;url(#&#34;)
+          and clip_id[-1] == `)` )
+        clip_id = substr(clip_id, 5, size(clip_id) - 5 - 1);
+
+      cur_clip = clip_dict[clip_id];
+      if( cur_clip == nil )
+        logpr(LOG_WARN, &#34;Clip not found: &#39;&#34; ~ clip_id ~ &#34;&#39;&#34;);
+    }
+
+    if( style[&#39;display&#39;] == &#39;none&#39; )
+    {
+      skip = level;
+      return;
+    }
+    else if( name == &#34;g&#34; )
+    {
+      pushElement(&#39;group&#39;, attr[&#39;id&#39;]);
+    }
+    else if( name == &#34;text&#34; )
+    {
+      text = {
+        &#34;attr&#34;: attr,
+        &#34;style&#34;: style,
+        &#34;text&#34;: &#34;&#34;
+      };
+      tspans = [];
+      return;
+    }
+    else if( name == &#34;tspan&#34; )
+    {
+      append(tspans, {
+        &#34;attr&#34;: attr,
+        &#34;style&#34;: style,
+        &#34;text&#34;: &#34;&#34;
+      });
+      return;
+    }
+    else if( name == &#34;path&#34; or name == &#34;rect&#34; or name == &#34;circle&#34; or name == &#34;ellipse&#34;)
+    {
+      pushElement(&#39;path&#39;, attr[&#39;id&#39;]);
+
+      if( name == &#34;rect&#34; )
+      {
+        var width = evalCSSNum(attr[&#39;width&#39;]);
+        var height = evalCSSNum(attr[&#39;height&#39;]);
+        var x = evalCSSNum(attr[&#39;x&#39;]);
+        var y = evalCSSNum(attr[&#39;y&#39;]);
+        var rx = attr[&#39;rx&#39;];
+        var ry = attr[&#39;ry&#39;];
+
+        if( ry == nil )
+          ry = rx;
+        else if( rx == nil )
+          rx = ry;
+
+        var cfg = {};
+        if( rx != nil )
+          cfg[&#34;border-radius&#34;] = [evalCSSNum(rx), evalCSSNum(ry)];
+
+        stack[-1].rect(x, y, width, height, cfg);
+      }
+      if (name == &#34;circle&#34;) {
+        var cx = evalCSSNum(attr[&#39;cx&#39;]);
+        var cy = evalCSSNum(attr[&#39;cy&#39;]);
+        var r = evalCSSNum(attr[&#39;r&#39;]);
+        stack[-1].circle(r, cx, cy);
+      }
+      if (name == &#34;ellipse&#34;) {
+        var cx = evalCSSNum(attr[&#39;cx&#39;]);
+        var cy = evalCSSNum(attr[&#39;cy&#39;]);
+        var rx = evalCSSNum(attr[&#39;rx&#39;]);
+        var ry = evalCSSNum(attr[&#39;ry&#39;]);
+        stack[-1].ellipse(rx, ry, cx, cy);
+      }
+      if (name == &#34;path&#34;) {
+        parsePath(attr[&#39;d&#39;]);
+      }
+
+      var fill = style[&#39;fill&#39;];
+      if( fill != nil )
+        stack[-1].set(&#39;fill&#39;, fill);
+
+      var fill_opacity = style[&#39;fill-opacity&#39;];
+      if( fill_opacity != nil)
+        stack[-1].setDouble(&#39;fill-opacity&#39;, fill_opacity);
+
+      var stroke = style[&#39;stroke&#39;];
+      if( stroke != nil )
+        stack[-1].set(&#39;stroke&#39;, stroke);
+
+      var stroke_opacity = style[&#39;stroke-opacity&#39;];
+      if( stroke_opacity != nil)
+        stack[-1].setDouble(&#39;stroke-opacity&#39;, stroke_opacity);
+
+      var w = style[&#39;stroke-width&#39;];
+      stack[-1].setStrokeLineWidth( w != nil ? evalCSSNum(w) : 1 );
+
+      var linecap = style[&#39;stroke-linecap&#39;];
+      if( linecap != nil )
+        stack[-1].setStrokeLineCap(style[&#39;stroke-linecap&#39;]);
+
+      var linejoin = style[&#39;stroke-linejoin&#39;];
+      if( linejoin != nil )
+        stack[-1].setStrokeLineJoin(style[&#39;stroke-linejoin&#39;]);
+
+      # http://www.w3.org/TR/SVG/painting.html#StrokeDasharrayProperty
+      var dash = style[&#39;stroke-dasharray&#39;];
+      if( dash and size(dash) &#62; 3 )
+        # at least 2 comma separated values...
+        stack[-1].setStrokeDashArray(split(&#39;,&#39;, dash));
+    } #end path/rect/ellipse/circle
+    else if( name == &#34;use&#34; )
+    {
+      var ref = attr[&#34;xlink:href&#34;];
+      if( ref == nil or size(ref) &#60; 2 or ref[0] != `#` )
+        return logpr(LOG_WARN, &#34;Invalid or missing href: &#39;&#34; ~ ref ~ &#34;&#39;&#34;);
+
+      var el_src = id_dict[ substr(ref, 1) ];
+      if( el_src == nil )
+        return logpr(LOG_WARN, &#34;Reference to unknown element &#39;&#34; ~ ref ~ &#34;&#39;&#34;);
+
+      # Create new element and copy sub branch from source node
+      pushElement(el_src._node.getName(), attr[&#39;id&#39;]);
+      props.copy(el_src._node, stack[-1]._node);
+
+      # copying also overrides the id so we need to set it again
+      stack[-1]._node.getNode(&#34;id&#34;).setValue(attr[&#39;id&#39;]);
+    }
+    else if( name == &#34;defs&#34; )
+    {
+      append(defs_stack, &#34;defs&#34;);
+      return;
+    }
+    else if (name == &#34;image&#34; and options[&#34;parse_images&#34;])
+    {
+      var ref = attr[&#34;xlink:href&#34;];
+      # ref must not be missing and shall not contain Windows path separator
+      # find(&#34;\\&#34;) is correct, backslash is control character and must be escaped
+      # by adding another backslash - otherwise parse error anywhere below 
+      if (ref == nil or find(&#34;\\&#34;, ref) &#62; -1)
+      {
+        return logpr(LOG_WARN, &#34;Invalid or missing href in image tag: &#39;&#34; ~ ref ~ &#34;&#39;&#34;);
+      }
+      if (substr(ref, 0, 5) == &#34;data:&#34;) {
+        return logpr(LOG_WARN, &#34;Unsupported embedded image&#34;);
+      }
+      elsif (substr(ref, 0, 5) != &#34;file:&#34;) {
+        # absolute paths seem to start with &#34;file:&#34;
+        # prepend relative paths with the path of SVG file and hope the image is there
+        # file access limitations apply
+        ref = io.dirname(path) ~ ref;
+      }
+      pushElement(&#34;image&#34;, attr[&#34;id&#34;]);
+
+      if (attr[&#34;x&#34;] != nil and attr[&#34;y&#34;] != nil) {
+        stack[-1].createTransform().setTranslation(attr[&#34;x&#34;], attr[&#34;y&#34;]);
+      }
+      if (attr[&#34;width&#34;] != nil and attr[&#34;height&#34;] != nil) {
+        stack[-1].setSize(attr[&#34;width&#34;], attr[&#34;height&#34;]);
+      }
+      stack[-1].setFile(ref);
+    }
+    else
+    {
+      logpr(LOG_INFO, &#34;Skipping unknown element &#39;&#34; ~ name ~ &#34;&#39;&#34;);
+      skip = level;
+      return;
+    }
+
+    parseTransform(attr[&#39;transform&#39;]);
+
+    var cx = attr[&#39;inkscape:transform-center-x&#39;];
+    if( cx != nil and cx != 0 )
+      stack[-1].setDouble(&#34;center-offset-x&#34;, evalCSSNum(cx));
+
+    var cy = attr[&#39;inkscape:transform-center-y&#39;];
+    if( cy != nil and cy != 0 )
+      stack[-1].setDouble(&#34;center-offset-y&#34;, -evalCSSNum(cy));
+  };
+
+  # XML parsers element close callback
+  var end = func(name)
+  {
+    level -= 1;
+
+    if( skip )
+    {
+      if( level &#60; skip )
+        skip = 0;
+      return;
+    }
+
+    if( size(defs_stack) &#62; 0 )
+    {
+      if( name != &#34;defs&#34; )
+      {
+        var type = defs_stack[-1][&#39;type&#39;];
+        if( type == &#34;mask&#34; or type == &#34;clipPath&#34; )
+          clip_dict[defs_stack[-1][&#39;id&#39;]] = defs_stack[-1];
+      }
+
+      pop(defs_stack);
+      return;
+    }
+
+    if( size(close_stack) and (level + 1) == close_stack[-1] )
+      popElement();
+
+    if( name == &#34;text&#34; )
+    {
+      # Inkscape/SVG text is a bit complicated. If we only got a single tspan
+      # or text without tspan we create just a single canvas.Text, otherwise
+      # we create a canvas.Group with a canvas.Text as child for each tspan.
+      # We need to take care to apply the transform attribute of the text
+      # element to the correct canvas element, and also correctly inherit
+      # the style properties.
+      var character_size = 24;
+      if( size(tspans) &#62; 1 )
+      {
+        pushElement(&#39;group&#39;, text.attr[&#39;id&#39;]);
+        parseTextStyles(text.style);
+        parseTransform(text.attr[&#39;transform&#39;]);
+
+        character_size = stack[-1].get(&#34;character-size&#34;, character_size);
+      }
+
+      # Helper for getting first number in space separated list of numbers.
+      var first_num = func(str)
+      {
+        if( str == nil )
+          return 0;
+        var end = str.find_first_of(&#34; \n\t&#34;);
+        if( end &#60; 0 )
+          return str;
+        else
+          return substr(str, 0, end);
+      }
+
+      var line = 0;
+      foreach(var tspan; tspans)
+      {
+        # Always take first number and ignore individual character placment
+        var x = first_num(tspan.attr[&#39;x&#39;] or text.attr[&#39;x&#39;]);
+        var y = first_num(tspan.attr[&#39;y&#39;] or text.attr[&#39;y&#39;]);
+
+        # Sometimes Inkscape forgets writing x and y coordinates and instead
+        # just indicates a multiline text with sodipodi:role=&#34;line&#34;.
+        if( tspan.attr[&#39;y&#39;] == nil and tspan.attr[&#39;sodipodi:role&#39;] == &#34;line&#34; )
+          # TODO should we combine multiple lines into a single text separated
+          #      with newline characters?
+          y += line
+             * stack[-1].get(&#34;line-height&#34;, 1.25)
+             * stack[-1].get(&#34;character-size&#34;, character_size);
+
+        # Use id of text element with single tspan child, fall back to id of
+        # tspan if text has no id.
+        var id = text.attr[&#39;id&#39;];
+        if( id == nil or size(tspans) &#62; 1 )
+          id = tspan.attr[&#39;id&#39;];
+
+        pushElement(&#39;text&#39;, id);
+        stack[-1].setText(tspan.text);
+
+        if( x != 0 or y != 0 )
+          stack[-1].createTransform().setTranslation(x, y);
+
+        if( size(tspans) == 1 )
+        {
+          parseTextStyles(text.style);
+          parseTransform(text.attr[&#39;transform&#39;]);
+        }
+
+        parseTextStyles(tspan.style);
+        popElement();
+
+        line += 1;
+      }
+
+      if( size(tspans) &#62; 1 )
+        popElement();
+
+      text = nil;
+      tspans = nil;
+    }
+  }; #end()
+
+  # XML parsers element data callback
+  var data = func(data)
+  {
+    if( skip )
+      return;
+
+    if( size(data) and tspans != nil )
+    {
+      if( size(tspans) == 0 )
+        # If no tspan is found use text element itself
+        append(tspans, text);
+
+      # If text contains xml entities it gets split at each entity. So let&#39;s
+      # glue it back into a single text...
+      tspans[-1][&#34;text&#34;] ~= data;
+    }
+  };
+
+  call(func parsexml(path, start, end, data), nil, var err = []);
+  if( size(err) )
+  {
+    logpr(LOG_ALERT, &#34;parse XML failed&#34;);
+    debug.printerror(err);
+    return 0;
+  }
+
+  return 1;
+}
+</code></pre>
+				</div>
+					</main>
+	</body>
+</html>

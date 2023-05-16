@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Source modules/canvas_efis/efis-framework.nas</title>
+
+		<meta name="color-scheme" content="dark light" />
+		
+			<meta
+				name="description"
+				content="Source file modules/canvas_efis/efis-framework.nas in globals."
+			/>
+				<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		
+			<meta
+				name="og:description"
+				content="Source file modules/canvas_efis/efis-framework.nas in globals."
+			/>
+				<meta name="og:image" content="../../../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta
+			name="og:title"
+			content="Source modules/canvas_efis/efis-framework.nas"
+		/>
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../../../style.css" />
+
+		<link rel="apple-touch-icon" href="../../../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../../../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../../../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../../../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../../../list.html">All items</a></li>
+				<li><a href="../../../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Sources</h3>
+				<ul class="flex" id="tree">
+					
+						
+											
+						
+							<li style="--indent: 0;">
+																Autopush/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/Autopush/autopush.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		autopush.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/Autopush/driver.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		driver.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/Autopush/dynarr.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		dynarr.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/Autopush/route.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		route.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																FailureMgr/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/FailureMgr/private.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		private.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/FailureMgr/public.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		public.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																canvas/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																PFD/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/DataEntryElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DataEntryElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/GroupElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		GroupElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/HighlightElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/HighlightTimer.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightTimer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/PointerElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		PointerElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/RotatingElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		RotatingElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/ScrollElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		ScrollElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/TextElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		TextElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/PFD/UIElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		UIElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																api/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/canvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/colors.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/element.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		element.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/group.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		group.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/helpers.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		helpers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/image.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		image.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/map.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/path.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		path.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/svgcanvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		svgcanvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/text.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		text.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/api/transform.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																draw/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/draw/compass.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		compass.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/draw/draw.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/draw/scales.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		scales.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/draw/transform.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																gui/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																dialogs/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/dialogs/AircraftCenter.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		AircraftCenter.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/dialogs/InputDialog.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		InputDialog.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/dialogs/MessageBox.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		MessageBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																styles/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/styles/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/gui/styles/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																widgets/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/widgets/Button.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Button.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/widgets/CdlgWidgets.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CdlgWidgets.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/widgets/CheckBox.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CheckBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/widgets/Label.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Label.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/widgets/LineEdit.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		LineEdit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../src/canvas/gui/widgets/ScrollArea.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		ScrollArea.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/gui/Config.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/gui/Style.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Style.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/canvas/gui/Widget.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Widget.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/MFD_Generic.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MFD_Generic.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/MapDrivers.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapDrivers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/MapStructure.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapStructure.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/PropertyElement.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		PropertyElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/api.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		api.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/draw.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/gui.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/map.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/svg.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		svg.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/canvas/tooltip.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		tooltip.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																console/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/console/repl.nas.html">
+									
+										<span class="hidden">console/</span>
+																		repl.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																debug/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/debug/emesary.deb.nas.html">
+									
+										<span class="hidden">debug/</span>
+																		emesary.deb.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																input_helpers/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/input_helpers/goflight.nas.html">
+									
+										<span class="hidden">input_helpers/</span>
+																		goflight.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/jetways/jetways.nas.html">
+									
+										<span class="hidden">jetways/</span>
+																		jetways.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways_edit/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/jetways_edit/jetways_edit.nas.html">
+									
+										<span class="hidden">jetways_edit/</span>
+																		jetways_edit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																local_weather/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/local_weather/cloud_definitions.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_definitions.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/local_weather/cloud_placement_lowlevel.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_placement_lowlevel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/local_weather/compat_layer.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		compat_layer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/local_weather/local_weather.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		local_weather.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/local_weather/sea_colors.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		sea_colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/local_weather/weather_dynamics.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_dynamics.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/local_weather/weather_tile_management.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tile_management.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/local_weather/weather_tiles.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tiles.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																modules/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">modules/</span>
+																canvas_efis/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/modules/canvas_efis/display-unit.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		display-unit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/modules/canvas_efis/efis-canvas.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/modules/canvas_efis/efis-framework.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-framework.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/modules/canvas_efis/efis.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/modules/canvas_efis/eicas-message-sys.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		eicas-message-sys.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../src/modules/canvas_efis/main.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		main.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/modules/dummy.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		dummy.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/modules/repair_config.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		repair_config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																performance_monitor/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/performance_monitor/monitor.nas.html">
+									
+										<span class="hidden">performance_monitor/</span>
+																		monitor.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																std/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/std/Vector.nas.html">
+									
+										<span class="hidden">std/</span>
+																		Vector.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/std/hash.nas.html">
+									
+										<span class="hidden">std/</span>
+																		hash.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/std/string.nas.html">
+									
+										<span class="hidden">std/</span>
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																towing/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/towing/hitch.nas.html">
+									
+										<span class="hidden">towing/</span>
+																		hitch.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																tutorial/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../src/tutorial/tutorial.nas.html">
+									
+										<span class="hidden">tutorial/</span>
+																		tutorial.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/addons.nas.html">
+																		addons.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/aircraft.nas.html">
+																		aircraft.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/aurora.nas.html">
+																		aurora.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/bits.nas.html">
+																		bits.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/checklist.nas.html">
+																		checklist.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/contrail.nas.html">
+																		contrail.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/controls.nas.html">
+																		controls.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/debug.nas.html">
+																		debug.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/dynamic_view.nas.html">
+																		dynamic_view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/earthview.nas.html">
+																		earthview.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/emesary.nas.html">
+																		emesary.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/emesary_mp_bridge.nas.html">
+																		emesary_mp_bridge.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/emexec.nas.html">
+																		emexec.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/environment.nas.html">
+																		environment.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/events.nas.html">
+																		events.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/frame_utils.nas.html">
+																		frame_utils.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/fuel.nas.html">
+																		fuel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/geo.nas.html">
+																		geo.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/glide_slope_tunnel.nas.html">
+																		glide_slope_tunnel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/globals.nas.html">
+																		globals.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/gui.nas.html">
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/io.nas.html">
+																		io.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/joystick.nas.html">
+																		joystick.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/lag_adjust.nas.html">
+																		lag_adjust.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/local_weather_auto_init.nas.html">
+																		local_weather_auto_init.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/material.nas.html">
+																		material.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/math.nas.html">
+																		math.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/modules.nas.html">
+																		modules.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/mp_broadcast.nas.html">
+																		mp_broadcast.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/multikey.nas.html">
+																		multikey.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/multiplayer.nas.html">
+																		multiplayer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/notifications.nas.html">
+																		notifications.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/orbital_target.nas.html">
+																		orbital_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/prop_key_handler.nas.html">
+																		prop_key_handler.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/props.nas.html">
+																		props.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/redout.nas.html">
+																		redout.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/route_manager.nas.html">
+																		route_manager.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/scenery.nas.html">
+																		scenery.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/screen.nas.html">
+																		screen.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/seaport.nas.html">
+																		seaport.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/std.nas.html">
+																		std.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/string.nas.html">
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/tanker.nas.html">
+																		tanker.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/track_target.nas.html">
+																		track_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/video.nas.html">
+																		video.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/view.nas.html">
+																		view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/volcano.nas.html">
+																		volcano.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/weather_scenario.nas.html">
+																		weather_scenario.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/wildfire.nas.html">
+																		wildfire.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../src/windsock.nas.html">
+																		windsock.nas
+								</a>
+							</li>
+															</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Source</span>
+					
+						<span>modules</span>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+					
+						<span>canvas_efis</span>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+										<span>efis-framework.nas</span>
+							</h1>
+
+			
+				<div id="source">
+					<div>
+						
+							<span id="1">1</span>
+						
+							<span id="2">2</span>
+						
+							<span id="3">3</span>
+						
+							<span id="4">4</span>
+						
+							<span id="5">5</span>
+						
+							<span id="6">6</span>
+						
+							<span id="7">7</span>
+						
+							<span id="8">8</span>
+						
+							<span id="9">9</span>
+						
+							<span id="10">10</span>
+											</div>
+					<pre><code>#------------------------------------------
+# efis-framework.nas - Canvas EFIS framework
+# author:       jsb
+#------------------------------------------
+var EFIS_root_node = props.getNode(&#34;/efis&#34;, 1);
+
+io.include(&#34;display-unit.nas&#34;);
+io.include(&#34;efis.nas&#34;);
+io.include(&#34;efis-canvas.nas&#34;);
+</code></pre>
+				</div>
+					</main>
+	</body>
+</html>

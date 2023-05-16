@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Class globals.notifications.PropertySyncNotificationBase</title>
+
+		<meta name="color-scheme" content="dark light" />
+		<meta name="description" content="
+PropertySyncNotificationBase is a wrapper class for allow properties to be synchronized between
+modules. This can replace (or augment) the properties that are normally transmitted by multiplayer
+It is reasonably efficient with the MP2017.2
+
+Usage example - this can all go into one Nasal module somewhere.
+-----------
+var PropertySyncNotification =
+{
+new: func(_ident=&#34;none&#34;, _name=&#34;&#34;, _kind=0, _secondary_kind=0)
+{
+var new_class = PropertySyncNotificationBase.new(_ident, _name, _kind, _secondary_kind);
+
+new_class.addIntProperty(&#34;consumables/fuel/total-fuel-lbs&#34;, 1);
+new_class.addIntProperty(&#34;controls/fuel/dump-valve&#34;, 1);
+new_class.addIntProperty(&#34;engines/engine[0]/augmentation-burner&#34;, 1);
+new_class.addIntProperty(&#34;engines/engine[0]/n1&#34;, 1);
+new_class.addIntProperty(&#34;engines/engine[0]/n2&#34;, 1);
+new_class.addNormProperty(&#34;surface-positions/wing-pos-norm&#34;, 2);
+return new_class;
+}
+};
+
+var routedNotifications = [notifications.PropertySyncNotification.new(nil), notifications.GeoEventNotification.new(nil)];
+
+var bridgedTransmitter = emesary.Transmitter.new(&#34;outgoingBridge&#34;);
+var outgoingBridge = emesary_mp_bridge.OutgoingMPBridge.new(&#34;F-14mp&#34;,routedNotifications, 19, &#34;&#34;, bridgedTransmitter);
+var incomingBridge = emesary_mp_bridge.IncomingMPBridge.startMPBridge(routedNotifications);
+var f14_aircraft_notification = notifications.PropertySyncNotification.new(&#34;F-14&#34;~getprop(&#34;/sim/multiplay/callsign&#34;));
+-----------
+
+That&#39;s all that is required to ship properties between multiplayer modules via emesary.
+property /sim/multiplay/transmit-filter-property-base can be set to 1 to turn off all of the standard properties and only send generics.
+this will give a packet size of 280 bytes; leaving lots of space for notifications.
+The F-14 packet size is around 53 bytes on 2017.2 compared to over 1100 bytes with the traditional method.
+property /sim/multiplay/transmit-filter-property-base can be set to a number greater than 1 (e.g. 12000) to only transmit properties
+where the ID is greater than the value in the property. This can further reduce packet size by only transmitting the emesary bridge data
+
+The other advantage with this method of transferring data is that the model is in full control of what is
+sent, and also when it is sent. This works on a per notification basis so less important properties could be
+transmitted on a less frequent schedule; however this will require an instance of the notification for each one.
+
+PropertySyncNotificationBase is a shortcut notification; as it doesn&#39;t need to received and all
+of the properties are simply set when the notification is unpacked over MP.
+So although the notification will be transmitted
+" />
+		<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		<meta name="og:description" content="
+PropertySyncNotificationBase is a wrapper class for allow properties to be synchronized between
+modules. This can replace (or augment) the properties that are normally transmitted by multiplayer
+It is reasonably efficient with the MP2017.2
+
+Usage example - this can all go into one Nasal module somewhere.
+-----------
+var PropertySyncNotification =
+{
+new: func(_ident=&#34;none&#34;, _name=&#34;&#34;, _kind=0, _secondary_kind=0)
+{
+var new_class = PropertySyncNotificationBase.new(_ident, _name, _kind, _secondary_kind);
+
+new_class.addIntProperty(&#34;consumables/fuel/total-fuel-lbs&#34;, 1);
+new_class.addIntProperty(&#34;controls/fuel/dump-valve&#34;, 1);
+new_class.addIntProperty(&#34;engines/engine[0]/augmentation-burner&#34;, 1);
+new_class.addIntProperty(&#34;engines/engine[0]/n1&#34;, 1);
+new_class.addIntProperty(&#34;engines/engine[0]/n2&#34;, 1);
+new_class.addNormProperty(&#34;surface-positions/wing-pos-norm&#34;, 2);
+return new_class;
+}
+};
+
+var routedNotifications = [notifications.PropertySyncNotification.new(nil), notifications.GeoEventNotification.new(nil)];
+
+var bridgedTransmitter = emesary.Transmitter.new(&#34;outgoingBridge&#34;);
+var outgoingBridge = emesary_mp_bridge.OutgoingMPBridge.new(&#34;F-14mp&#34;,routedNotifications, 19, &#34;&#34;, bridgedTransmitter);
+var incomingBridge = emesary_mp_bridge.IncomingMPBridge.startMPBridge(routedNotifications);
+var f14_aircraft_notification = notifications.PropertySyncNotification.new(&#34;F-14&#34;~getprop(&#34;/sim/multiplay/callsign&#34;));
+-----------
+
+That&#39;s all that is required to ship properties between multiplayer modules via emesary.
+property /sim/multiplay/transmit-filter-property-base can be set to 1 to turn off all of the standard properties and only send generics.
+this will give a packet size of 280 bytes; leaving lots of space for notifications.
+The F-14 packet size is around 53 bytes on 2017.2 compared to over 1100 bytes with the traditional method.
+property /sim/multiplay/transmit-filter-property-base can be set to a number greater than 1 (e.g. 12000) to only transmit properties
+where the ID is greater than the value in the property. This can further reduce packet size by only transmitting the emesary bridge data
+
+The other advantage with this method of transferring data is that the model is in full control of what is
+sent, and also when it is sent. This works on a per notification basis so less important properties could be
+transmitted on a less frequent schedule; however this will require an instance of the notification for each one.
+
+PropertySyncNotificationBase is a shortcut notification; as it doesn&#39;t need to received and all
+of the properties are simply set when the notification is unpacked over MP.
+So although the notification will be transmitted
+" />
+		<meta name="og:image" content="../../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta name="og:title" content="Class globals.notifications.PropertySyncNotificationBase" />
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../../style.css" />
+
+		<link rel="apple-touch-icon" href="../../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../../list.html">All items</a></li>
+				<li><a href="../../src.html">Sources</a></li> <!-- FIXME: SOURCES -->
+			</ul>
+
+			<div class="flex">
+				<h3>Class</h3>
+				<ul class="flex">
+					<li><a href="#description">Description</a></li>
+					
+												 <li><a href="#funcs">Functions</a></li> 															</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				<span>Class</span>
+				
+					<a href="../../index.html">
+						globals
+					</a>
+					<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+				
+					<a href="../index.html">
+						notifications
+					</a>
+					<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+								<span>PropertySyncNotificationBase</span>
+			</h1>
+
+			
+				<p><a href="../../src/notifications.nas.html#81">
+					View source
+				</a></p>
+			
+			<div id="description"><pre>
+PropertySyncNotificationBase is a wrapper class for allow properties to be synchronized between
+modules. This can replace (or augment) the properties that are normally transmitted by multiplayer
+It is reasonably efficient with the MP2017.2
+
+Usage example - this can all go into one Nasal module somewhere.
+-----------
+var PropertySyncNotification =
+{
+new: func(_ident="none", _name="", _kind=0, _secondary_kind=0)
+{
+var new_class = PropertySyncNotificationBase.new(_ident, _name, _kind, _secondary_kind);
+
+new_class.addIntProperty("consumables/fuel/total-fuel-lbs", 1);
+new_class.addIntProperty("controls/fuel/dump-valve", 1);
+new_class.addIntProperty("engines/engine[0]/augmentation-burner", 1);
+new_class.addIntProperty("engines/engine[0]/n1", 1);
+new_class.addIntProperty("engines/engine[0]/n2", 1);
+new_class.addNormProperty("surface-positions/wing-pos-norm", 2);
+return new_class;
+}
+};
+
+var routedNotifications = [notifications.PropertySyncNotification.new(nil), notifications.GeoEventNotification.new(nil)];
+
+var bridgedTransmitter = emesary.Transmitter.new("outgoingBridge");
+var outgoingBridge = emesary_mp_bridge.OutgoingMPBridge.new("F-14mp",routedNotifications, 19, "", bridgedTransmitter);
+var incomingBridge = emesary_mp_bridge.IncomingMPBridge.startMPBridge(routedNotifications);
+var f14_aircraft_notification = notifications.PropertySyncNotification.new("F-14"~getprop("/sim/multiplay/callsign"));
+-----------
+
+That's all that is required to ship properties between multiplayer modules via emesary.
+property /sim/multiplay/transmit-filter-property-base can be set to 1 to turn off all of the standard properties and only send generics.
+this will give a packet size of 280 bytes; leaving lots of space for notifications.
+The F-14 packet size is around 53 bytes on 2017.2 compared to over 1100 bytes with the traditional method.
+property /sim/multiplay/transmit-filter-property-base can be set to a number greater than 1 (e.g. 12000) to only transmit properties
+where the ID is greater than the value in the property. This can further reduce packet size by only transmitting the emesary bridge data
+
+The other advantage with this method of transferring data is that the model is in full control of what is
+sent, and also when it is sent. This works on a per notification basis so less important properties could be
+transmitted on a less frequent schedule; however this will require an instance of the notification for each one.
+
+PropertySyncNotificationBase is a shortcut notification; as it doesn't need to received and all
+of the properties are simply set when the notification is unpacked over MP.
+So although the notification will be transmitted
+</pre></div>
+
+			
+				
+				
+					<h2 id="funcs">Functions</h2>
+
+					
+						<div class="flex">
+							<h3><a href="func.new.html">new</a></h3>
+													</div>
+									
+									</main>
+	</body>
+</html>

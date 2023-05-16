@@ -1,0 +1,2654 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Source canvas/MFD_Generic.nas</title>
+
+		<meta name="color-scheme" content="dark light" />
+		
+			<meta
+				name="description"
+				content="Source file canvas/MFD_Generic.nas in globals."
+			/>
+				<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		
+			<meta
+				name="og:description"
+				content="Source file canvas/MFD_Generic.nas in globals."
+			/>
+				<meta name="og:image" content="../../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta
+			name="og:title"
+			content="Source canvas/MFD_Generic.nas"
+		/>
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../../style.css" />
+
+		<link rel="apple-touch-icon" href="../../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../../list.html">All items</a></li>
+				<li><a href="../../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Sources</h3>
+				<ul class="flex" id="tree">
+					
+						
+											
+						
+							<li style="--indent: 0;">
+																Autopush/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/Autopush/autopush.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		autopush.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/Autopush/driver.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		driver.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/Autopush/dynarr.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		dynarr.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/Autopush/route.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		route.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																FailureMgr/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/FailureMgr/private.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		private.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/FailureMgr/public.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		public.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																canvas/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																PFD/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/DataEntryElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DataEntryElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/GroupElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		GroupElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/HighlightElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/HighlightTimer.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightTimer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/PointerElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		PointerElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/RotatingElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		RotatingElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/ScrollElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		ScrollElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/TextElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		TextElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/PFD/UIElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		UIElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																api/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/canvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/colors.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/element.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		element.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/group.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		group.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/helpers.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		helpers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/image.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		image.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/map.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/path.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		path.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/svgcanvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		svgcanvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/text.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		text.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/api/transform.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																draw/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/draw/compass.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		compass.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/draw/draw.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/draw/scales.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		scales.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/draw/transform.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																gui/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																dialogs/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/dialogs/AircraftCenter.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		AircraftCenter.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/dialogs/InputDialog.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		InputDialog.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/dialogs/MessageBox.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		MessageBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																styles/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/styles/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/gui/styles/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																widgets/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/Button.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Button.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/CdlgWidgets.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CdlgWidgets.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/CheckBox.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CheckBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/Label.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Label.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/LineEdit.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		LineEdit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../src/canvas/gui/widgets/ScrollArea.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		ScrollArea.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/gui/Config.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/gui/Style.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Style.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/canvas/gui/Widget.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Widget.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/MFD_Generic.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MFD_Generic.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/MapDrivers.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapDrivers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/MapStructure.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapStructure.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/PropertyElement.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		PropertyElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/api.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		api.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/draw.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/gui.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/map.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/svg.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		svg.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/canvas/tooltip.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		tooltip.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																console/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/console/repl.nas.html">
+									
+										<span class="hidden">console/</span>
+																		repl.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																debug/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/debug/emesary.deb.nas.html">
+									
+										<span class="hidden">debug/</span>
+																		emesary.deb.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																input_helpers/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/input_helpers/goflight.nas.html">
+									
+										<span class="hidden">input_helpers/</span>
+																		goflight.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/jetways/jetways.nas.html">
+									
+										<span class="hidden">jetways/</span>
+																		jetways.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways_edit/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/jetways_edit/jetways_edit.nas.html">
+									
+										<span class="hidden">jetways_edit/</span>
+																		jetways_edit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																local_weather/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/cloud_definitions.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_definitions.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/cloud_placement_lowlevel.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_placement_lowlevel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/compat_layer.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		compat_layer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/local_weather.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		local_weather.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/sea_colors.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		sea_colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/weather_dynamics.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_dynamics.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/weather_tile_management.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tile_management.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/local_weather/weather_tiles.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tiles.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																modules/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">modules/</span>
+																canvas_efis/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/display-unit.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		display-unit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/efis-canvas.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/efis-framework.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-framework.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/efis.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/eicas-message-sys.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		eicas-message-sys.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../src/modules/canvas_efis/main.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		main.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/modules/dummy.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		dummy.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/modules/repair_config.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		repair_config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																performance_monitor/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/performance_monitor/monitor.nas.html">
+									
+										<span class="hidden">performance_monitor/</span>
+																		monitor.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																std/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/std/Vector.nas.html">
+									
+										<span class="hidden">std/</span>
+																		Vector.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/std/hash.nas.html">
+									
+										<span class="hidden">std/</span>
+																		hash.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/std/string.nas.html">
+									
+										<span class="hidden">std/</span>
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																towing/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/towing/hitch.nas.html">
+									
+										<span class="hidden">towing/</span>
+																		hitch.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																tutorial/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../src/tutorial/tutorial.nas.html">
+									
+										<span class="hidden">tutorial/</span>
+																		tutorial.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/addons.nas.html">
+																		addons.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/aircraft.nas.html">
+																		aircraft.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/aurora.nas.html">
+																		aurora.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/bits.nas.html">
+																		bits.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/checklist.nas.html">
+																		checklist.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/contrail.nas.html">
+																		contrail.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/controls.nas.html">
+																		controls.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/debug.nas.html">
+																		debug.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/dynamic_view.nas.html">
+																		dynamic_view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/earthview.nas.html">
+																		earthview.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/emesary.nas.html">
+																		emesary.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/emesary_mp_bridge.nas.html">
+																		emesary_mp_bridge.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/emexec.nas.html">
+																		emexec.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/environment.nas.html">
+																		environment.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/events.nas.html">
+																		events.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/frame_utils.nas.html">
+																		frame_utils.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/fuel.nas.html">
+																		fuel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/geo.nas.html">
+																		geo.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/glide_slope_tunnel.nas.html">
+																		glide_slope_tunnel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/globals.nas.html">
+																		globals.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/gui.nas.html">
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/io.nas.html">
+																		io.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/joystick.nas.html">
+																		joystick.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/lag_adjust.nas.html">
+																		lag_adjust.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/local_weather_auto_init.nas.html">
+																		local_weather_auto_init.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/material.nas.html">
+																		material.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/math.nas.html">
+																		math.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/modules.nas.html">
+																		modules.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/mp_broadcast.nas.html">
+																		mp_broadcast.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/multikey.nas.html">
+																		multikey.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/multiplayer.nas.html">
+																		multiplayer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/notifications.nas.html">
+																		notifications.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/orbital_target.nas.html">
+																		orbital_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/prop_key_handler.nas.html">
+																		prop_key_handler.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/props.nas.html">
+																		props.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/redout.nas.html">
+																		redout.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/route_manager.nas.html">
+																		route_manager.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/scenery.nas.html">
+																		scenery.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/screen.nas.html">
+																		screen.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/seaport.nas.html">
+																		seaport.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/std.nas.html">
+																		std.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/string.nas.html">
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/tanker.nas.html">
+																		tanker.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/track_target.nas.html">
+																		track_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/video.nas.html">
+																		video.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/view.nas.html">
+																		view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/volcano.nas.html">
+																		volcano.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/weather_scenario.nas.html">
+																		weather_scenario.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/wildfire.nas.html">
+																		wildfire.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../src/windsock.nas.html">
+																		windsock.nas
+								</a>
+							</li>
+															</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Source</span>
+					
+						<span>canvas</span>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+										<span>MFD_Generic.nas</span>
+							</h1>
+
+			
+				<div id="source">
+					<div>
+						
+							<span id="1">1</span>
+						
+							<span id="2">2</span>
+						
+							<span id="3">3</span>
+						
+							<span id="4">4</span>
+						
+							<span id="5">5</span>
+						
+							<span id="6">6</span>
+						
+							<span id="7">7</span>
+						
+							<span id="8">8</span>
+						
+							<span id="9">9</span>
+						
+							<span id="10">10</span>
+						
+							<span id="11">11</span>
+						
+							<span id="12">12</span>
+						
+							<span id="13">13</span>
+						
+							<span id="14">14</span>
+						
+							<span id="15">15</span>
+						
+							<span id="16">16</span>
+						
+							<span id="17">17</span>
+						
+							<span id="18">18</span>
+						
+							<span id="19">19</span>
+						
+							<span id="20">20</span>
+						
+							<span id="21">21</span>
+						
+							<span id="22">22</span>
+						
+							<span id="23">23</span>
+						
+							<span id="24">24</span>
+						
+							<span id="25">25</span>
+						
+							<span id="26">26</span>
+						
+							<span id="27">27</span>
+						
+							<span id="28">28</span>
+						
+							<span id="29">29</span>
+						
+							<span id="30">30</span>
+						
+							<span id="31">31</span>
+						
+							<span id="32">32</span>
+						
+							<span id="33">33</span>
+						
+							<span id="34">34</span>
+						
+							<span id="35">35</span>
+						
+							<span id="36">36</span>
+						
+							<span id="37">37</span>
+						
+							<span id="38">38</span>
+						
+							<span id="39">39</span>
+						
+							<span id="40">40</span>
+						
+							<span id="41">41</span>
+						
+							<span id="42">42</span>
+						
+							<span id="43">43</span>
+						
+							<span id="44">44</span>
+						
+							<span id="45">45</span>
+						
+							<span id="46">46</span>
+						
+							<span id="47">47</span>
+						
+							<span id="48">48</span>
+						
+							<span id="49">49</span>
+						
+							<span id="50">50</span>
+						
+							<span id="51">51</span>
+						
+							<span id="52">52</span>
+						
+							<span id="53">53</span>
+						
+							<span id="54">54</span>
+						
+							<span id="55">55</span>
+						
+							<span id="56">56</span>
+						
+							<span id="57">57</span>
+						
+							<span id="58">58</span>
+						
+							<span id="59">59</span>
+						
+							<span id="60">60</span>
+						
+							<span id="61">61</span>
+						
+							<span id="62">62</span>
+						
+							<span id="63">63</span>
+						
+							<span id="64">64</span>
+						
+							<span id="65">65</span>
+						
+							<span id="66">66</span>
+						
+							<span id="67">67</span>
+						
+							<span id="68">68</span>
+						
+							<span id="69">69</span>
+						
+							<span id="70">70</span>
+						
+							<span id="71">71</span>
+						
+							<span id="72">72</span>
+						
+							<span id="73">73</span>
+						
+							<span id="74">74</span>
+						
+							<span id="75">75</span>
+						
+							<span id="76">76</span>
+						
+							<span id="77">77</span>
+						
+							<span id="78">78</span>
+						
+							<span id="79">79</span>
+						
+							<span id="80">80</span>
+						
+							<span id="81">81</span>
+						
+							<span id="82">82</span>
+						
+							<span id="83">83</span>
+						
+							<span id="84">84</span>
+						
+							<span id="85">85</span>
+						
+							<span id="86">86</span>
+						
+							<span id="87">87</span>
+						
+							<span id="88">88</span>
+						
+							<span id="89">89</span>
+						
+							<span id="90">90</span>
+						
+							<span id="91">91</span>
+						
+							<span id="92">92</span>
+						
+							<span id="93">93</span>
+						
+							<span id="94">94</span>
+						
+							<span id="95">95</span>
+						
+							<span id="96">96</span>
+						
+							<span id="97">97</span>
+						
+							<span id="98">98</span>
+						
+							<span id="99">99</span>
+						
+							<span id="100">100</span>
+						
+							<span id="101">101</span>
+						
+							<span id="102">102</span>
+						
+							<span id="103">103</span>
+						
+							<span id="104">104</span>
+						
+							<span id="105">105</span>
+						
+							<span id="106">106</span>
+						
+							<span id="107">107</span>
+						
+							<span id="108">108</span>
+						
+							<span id="109">109</span>
+						
+							<span id="110">110</span>
+						
+							<span id="111">111</span>
+						
+							<span id="112">112</span>
+						
+							<span id="113">113</span>
+						
+							<span id="114">114</span>
+						
+							<span id="115">115</span>
+						
+							<span id="116">116</span>
+						
+							<span id="117">117</span>
+						
+							<span id="118">118</span>
+						
+							<span id="119">119</span>
+						
+							<span id="120">120</span>
+						
+							<span id="121">121</span>
+						
+							<span id="122">122</span>
+						
+							<span id="123">123</span>
+						
+							<span id="124">124</span>
+						
+							<span id="125">125</span>
+						
+							<span id="126">126</span>
+						
+							<span id="127">127</span>
+						
+							<span id="128">128</span>
+						
+							<span id="129">129</span>
+						
+							<span id="130">130</span>
+						
+							<span id="131">131</span>
+						
+							<span id="132">132</span>
+						
+							<span id="133">133</span>
+						
+							<span id="134">134</span>
+						
+							<span id="135">135</span>
+						
+							<span id="136">136</span>
+						
+							<span id="137">137</span>
+						
+							<span id="138">138</span>
+						
+							<span id="139">139</span>
+						
+							<span id="140">140</span>
+						
+							<span id="141">141</span>
+						
+							<span id="142">142</span>
+						
+							<span id="143">143</span>
+						
+							<span id="144">144</span>
+						
+							<span id="145">145</span>
+						
+							<span id="146">146</span>
+						
+							<span id="147">147</span>
+						
+							<span id="148">148</span>
+						
+							<span id="149">149</span>
+						
+							<span id="150">150</span>
+						
+							<span id="151">151</span>
+						
+							<span id="152">152</span>
+						
+							<span id="153">153</span>
+						
+							<span id="154">154</span>
+						
+							<span id="155">155</span>
+						
+							<span id="156">156</span>
+						
+							<span id="157">157</span>
+						
+							<span id="158">158</span>
+						
+							<span id="159">159</span>
+						
+							<span id="160">160</span>
+						
+							<span id="161">161</span>
+						
+							<span id="162">162</span>
+						
+							<span id="163">163</span>
+						
+							<span id="164">164</span>
+						
+							<span id="165">165</span>
+						
+							<span id="166">166</span>
+						
+							<span id="167">167</span>
+						
+							<span id="168">168</span>
+						
+							<span id="169">169</span>
+						
+							<span id="170">170</span>
+						
+							<span id="171">171</span>
+						
+							<span id="172">172</span>
+						
+							<span id="173">173</span>
+						
+							<span id="174">174</span>
+						
+							<span id="175">175</span>
+						
+							<span id="176">176</span>
+						
+							<span id="177">177</span>
+						
+							<span id="178">178</span>
+						
+							<span id="179">179</span>
+						
+							<span id="180">180</span>
+						
+							<span id="181">181</span>
+						
+							<span id="182">182</span>
+						
+							<span id="183">183</span>
+						
+							<span id="184">184</span>
+						
+							<span id="185">185</span>
+						
+							<span id="186">186</span>
+						
+							<span id="187">187</span>
+						
+							<span id="188">188</span>
+						
+							<span id="189">189</span>
+						
+							<span id="190">190</span>
+						
+							<span id="191">191</span>
+						
+							<span id="192">192</span>
+						
+							<span id="193">193</span>
+						
+							<span id="194">194</span>
+						
+							<span id="195">195</span>
+						
+							<span id="196">196</span>
+						
+							<span id="197">197</span>
+						
+							<span id="198">198</span>
+						
+							<span id="199">199</span>
+						
+							<span id="200">200</span>
+						
+							<span id="201">201</span>
+						
+							<span id="202">202</span>
+						
+							<span id="203">203</span>
+						
+							<span id="204">204</span>
+						
+							<span id="205">205</span>
+						
+							<span id="206">206</span>
+						
+							<span id="207">207</span>
+						
+							<span id="208">208</span>
+						
+							<span id="209">209</span>
+						
+							<span id="210">210</span>
+						
+							<span id="211">211</span>
+						
+							<span id="212">212</span>
+						
+							<span id="213">213</span>
+						
+							<span id="214">214</span>
+						
+							<span id="215">215</span>
+						
+							<span id="216">216</span>
+						
+							<span id="217">217</span>
+						
+							<span id="218">218</span>
+						
+							<span id="219">219</span>
+						
+							<span id="220">220</span>
+						
+							<span id="221">221</span>
+						
+							<span id="222">222</span>
+						
+							<span id="223">223</span>
+						
+							<span id="224">224</span>
+						
+							<span id="225">225</span>
+						
+							<span id="226">226</span>
+						
+							<span id="227">227</span>
+						
+							<span id="228">228</span>
+						
+							<span id="229">229</span>
+						
+							<span id="230">230</span>
+						
+							<span id="231">231</span>
+						
+							<span id="232">232</span>
+						
+							<span id="233">233</span>
+						
+							<span id="234">234</span>
+						
+							<span id="235">235</span>
+						
+							<span id="236">236</span>
+						
+							<span id="237">237</span>
+						
+							<span id="238">238</span>
+						
+							<span id="239">239</span>
+						
+							<span id="240">240</span>
+						
+							<span id="241">241</span>
+						
+							<span id="242">242</span>
+						
+							<span id="243">243</span>
+						
+							<span id="244">244</span>
+						
+							<span id="245">245</span>
+						
+							<span id="246">246</span>
+						
+							<span id="247">247</span>
+						
+							<span id="248">248</span>
+						
+							<span id="249">249</span>
+						
+							<span id="250">250</span>
+						
+							<span id="251">251</span>
+						
+							<span id="252">252</span>
+						
+							<span id="253">253</span>
+						
+							<span id="254">254</span>
+						
+							<span id="255">255</span>
+						
+							<span id="256">256</span>
+						
+							<span id="257">257</span>
+						
+							<span id="258">258</span>
+						
+							<span id="259">259</span>
+						
+							<span id="260">260</span>
+						
+							<span id="261">261</span>
+						
+							<span id="262">262</span>
+						
+							<span id="263">263</span>
+						
+							<span id="264">264</span>
+						
+							<span id="265">265</span>
+						
+							<span id="266">266</span>
+						
+							<span id="267">267</span>
+						
+							<span id="268">268</span>
+						
+							<span id="269">269</span>
+						
+							<span id="270">270</span>
+						
+							<span id="271">271</span>
+						
+							<span id="272">272</span>
+						
+							<span id="273">273</span>
+						
+							<span id="274">274</span>
+						
+							<span id="275">275</span>
+						
+							<span id="276">276</span>
+						
+							<span id="277">277</span>
+						
+							<span id="278">278</span>
+						
+							<span id="279">279</span>
+						
+							<span id="280">280</span>
+						
+							<span id="281">281</span>
+						
+							<span id="282">282</span>
+						
+							<span id="283">283</span>
+						
+							<span id="284">284</span>
+						
+							<span id="285">285</span>
+						
+							<span id="286">286</span>
+						
+							<span id="287">287</span>
+						
+							<span id="288">288</span>
+						
+							<span id="289">289</span>
+						
+							<span id="290">290</span>
+						
+							<span id="291">291</span>
+						
+							<span id="292">292</span>
+						
+							<span id="293">293</span>
+						
+							<span id="294">294</span>
+						
+							<span id="295">295</span>
+						
+							<span id="296">296</span>
+						
+							<span id="297">297</span>
+						
+							<span id="298">298</span>
+						
+							<span id="299">299</span>
+						
+							<span id="300">300</span>
+						
+							<span id="301">301</span>
+						
+							<span id="302">302</span>
+						
+							<span id="303">303</span>
+						
+							<span id="304">304</span>
+						
+							<span id="305">305</span>
+						
+							<span id="306">306</span>
+						
+							<span id="307">307</span>
+						
+							<span id="308">308</span>
+						
+							<span id="309">309</span>
+						
+							<span id="310">310</span>
+						
+							<span id="311">311</span>
+						
+							<span id="312">312</span>
+						
+							<span id="313">313</span>
+						
+							<span id="314">314</span>
+						
+							<span id="315">315</span>
+						
+							<span id="316">316</span>
+						
+							<span id="317">317</span>
+						
+							<span id="318">318</span>
+						
+							<span id="319">319</span>
+						
+							<span id="320">320</span>
+						
+							<span id="321">321</span>
+						
+							<span id="322">322</span>
+						
+							<span id="323">323</span>
+						
+							<span id="324">324</span>
+						
+							<span id="325">325</span>
+						
+							<span id="326">326</span>
+						
+							<span id="327">327</span>
+						
+							<span id="328">328</span>
+						
+							<span id="329">329</span>
+						
+							<span id="330">330</span>
+						
+							<span id="331">331</span>
+						
+							<span id="332">332</span>
+						
+							<span id="333">333</span>
+						
+							<span id="334">334</span>
+						
+							<span id="335">335</span>
+						
+							<span id="336">336</span>
+						
+							<span id="337">337</span>
+						
+							<span id="338">338</span>
+						
+							<span id="339">339</span>
+						
+							<span id="340">340</span>
+						
+							<span id="341">341</span>
+						
+							<span id="342">342</span>
+						
+							<span id="343">343</span>
+						
+							<span id="344">344</span>
+						
+							<span id="345">345</span>
+						
+							<span id="346">346</span>
+						
+							<span id="347">347</span>
+						
+							<span id="348">348</span>
+						
+							<span id="349">349</span>
+						
+							<span id="350">350</span>
+						
+							<span id="351">351</span>
+						
+							<span id="352">352</span>
+						
+							<span id="353">353</span>
+						
+							<span id="354">354</span>
+						
+							<span id="355">355</span>
+						
+							<span id="356">356</span>
+						
+							<span id="357">357</span>
+						
+							<span id="358">358</span>
+						
+							<span id="359">359</span>
+						
+							<span id="360">360</span>
+						
+							<span id="361">361</span>
+						
+							<span id="362">362</span>
+						
+							<span id="363">363</span>
+						
+							<span id="364">364</span>
+						
+							<span id="365">365</span>
+						
+							<span id="366">366</span>
+						
+							<span id="367">367</span>
+						
+							<span id="368">368</span>
+						
+							<span id="369">369</span>
+						
+							<span id="370">370</span>
+						
+							<span id="371">371</span>
+						
+							<span id="372">372</span>
+						
+							<span id="373">373</span>
+						
+							<span id="374">374</span>
+						
+							<span id="375">375</span>
+						
+							<span id="376">376</span>
+						
+							<span id="377">377</span>
+						
+							<span id="378">378</span>
+						
+							<span id="379">379</span>
+						
+							<span id="380">380</span>
+						
+							<span id="381">381</span>
+						
+							<span id="382">382</span>
+						
+							<span id="383">383</span>
+						
+							<span id="384">384</span>
+						
+							<span id="385">385</span>
+						
+							<span id="386">386</span>
+						
+							<span id="387">387</span>
+						
+							<span id="388">388</span>
+						
+							<span id="389">389</span>
+						
+							<span id="390">390</span>
+						
+							<span id="391">391</span>
+						
+							<span id="392">392</span>
+						
+							<span id="393">393</span>
+						
+							<span id="394">394</span>
+						
+							<span id="395">395</span>
+						
+							<span id="396">396</span>
+						
+							<span id="397">397</span>
+						
+							<span id="398">398</span>
+						
+							<span id="399">399</span>
+						
+							<span id="400">400</span>
+						
+							<span id="401">401</span>
+						
+							<span id="402">402</span>
+						
+							<span id="403">403</span>
+						
+							<span id="404">404</span>
+						
+							<span id="405">405</span>
+						
+							<span id="406">406</span>
+						
+							<span id="407">407</span>
+						
+							<span id="408">408</span>
+						
+							<span id="409">409</span>
+						
+							<span id="410">410</span>
+						
+							<span id="411">411</span>
+						
+							<span id="412">412</span>
+						
+							<span id="413">413</span>
+						
+							<span id="414">414</span>
+						
+							<span id="415">415</span>
+						
+							<span id="416">416</span>
+						
+							<span id="417">417</span>
+						
+							<span id="418">418</span>
+						
+							<span id="419">419</span>
+						
+							<span id="420">420</span>
+						
+							<span id="421">421</span>
+						
+							<span id="422">422</span>
+						
+							<span id="423">423</span>
+						
+							<span id="424">424</span>
+						
+							<span id="425">425</span>
+						
+							<span id="426">426</span>
+						
+							<span id="427">427</span>
+						
+							<span id="428">428</span>
+						
+							<span id="429">429</span>
+						
+							<span id="430">430</span>
+						
+							<span id="431">431</span>
+						
+							<span id="432">432</span>
+						
+							<span id="433">433</span>
+						
+							<span id="434">434</span>
+						
+							<span id="435">435</span>
+						
+							<span id="436">436</span>
+						
+							<span id="437">437</span>
+						
+							<span id="438">438</span>
+						
+							<span id="439">439</span>
+						
+							<span id="440">440</span>
+						
+							<span id="441">441</span>
+						
+							<span id="442">442</span>
+						
+							<span id="443">443</span>
+						
+							<span id="444">444</span>
+						
+							<span id="445">445</span>
+						
+							<span id="446">446</span>
+						
+							<span id="447">447</span>
+						
+							<span id="448">448</span>
+						
+							<span id="449">449</span>
+						
+							<span id="450">450</span>
+						
+							<span id="451">451</span>
+						
+							<span id="452">452</span>
+											</div>
+					<pre><code># Generic Page switching cockpit display device.
+# ---------------------------
+# Richard Harrison: 2015-10-17 : rjh@zaretto.com
+# ---------------------------
+# I&#39;m calling this a PFD as in Programmable Function Display.
+# ---------------------------
+# documentation: see http://wiki.flightgear.org/Canvas_MFD_Framework
+# See FGAddon/Aircraft/F-15/Nasal/MPCD/MPCD_main.nas for an example usage
+# ---------------------------
+# This is but a straightforwards wrapper to provide the core logic that page switching displays require.
+# Examples of Page switching displays
+# * MFD
+# * PFD
+# * FMCS
+# * F-15 MPCD
+
+#
+# Menu Item. There is a list of these for each page changing button per display page
+# Parameters:
+# menu_id   : page change event id for this menu item. e.g. button number
+# title      : Title Text (for display on the device)
+# page       : Instance of page usually returned from PFD.addPage
+# callbackfn : Function to call when menu item is selected
+# displayfn  : Function to call when the menu item is displayed.  Used to enable
+#              highlighting of menu items, for example.
+
+var PFD_MenuItem =
+{
+    new : func (menu_id, title, page, callbackfn=nil, displayfn=nil)
+    {
+		var obj = {parents : [PFD_MenuItem] };
+        obj.page = page;
+        obj.menu_id = menu_id;
+        obj.callbackfn = callbackfn;
+        obj.displayfn = displayfn;
+        obj.title = title;
+        return obj;
+    },
+        };
+
+#
+#
+# Create a new PFD Page
+# - related svg
+# - Title: Page title
+# - SVG element for the page
+# - Device to attach the page to
+
+var PFD_Page =
+{
+	new : func (svg, title, layer_id, device)
+    {
+		var obj = {parents : [PFD_Page] };
+        obj.title = title;
+        obj.device = device;
+        obj.layer_id = layer_id;
+        obj.menus = [];
+        obj.svg = svg.getElementById(layer_id);
+        if(obj.svg == nil)
+            printf(&#34;PFD_Device: Error loading %s: svg layer %s &#34;,title, layer_id);
+
+        return obj;
+    },
+
+    #
+    # Makes a page visible.
+    # It is the responsibility of the caller to manage the visibility of pages - i.e. to
+    # make a page that is currenty visible not visible before making a new page visible,
+    # however more than one page could be visible - but only one set of menu buttons can be active
+    # so if two pages are visible (e.g. an overlay) then when the overlay removed it would be necessary
+    # to call setVisible on the base page to ensure that the menus are setup
+    setVisible : func(vis)
+    {
+        if(me.svg != nil)
+            me.svg.setVisible(vis);
+
+        if (vis)
+            me.ondisplay();
+        else
+            me.offdisplay();
+    },
+
+    # Standard callback for buttons, causing the appropriate page to be displayed
+    std_callbackfn : func (device, me, mi)
+    {
+      device.selectPage(mi.page);
+    },
+
+    # Standard display function for buttons, displaying the text and making visible
+    std_displayfn : func(svg_element, menuitem)
+    {
+      svg_element.setText(menuitem.title);
+      svg_element.setVisible(1);
+      #me.buttons[mi.menu_id].setText(mi.title);
+      #me.buttons[mi.menu_id].setVisible(1);
+    },
+
+    #
+    # Perform action when button is pushed
+    notifyButton : func(button_id)
+    {        foreach(var mi; me.menus)
+             {
+                 if (mi.menu_id == button_id)
+                 {
+                     if (mi.callbackfn != nil) mi.callbackfn(me.device, me, mi);
+                     break;
+                 }
+             }
+    },
+
+    #
+    # Add an item to a menu
+    # Params:
+    #  menu button id (that is set in controls/PFD/button-pressed by the model)
+    #  title of the menu for the label
+    #  page that will be selected when pressed
+    #
+    # The corresponding menu for the selected page will automatically be loaded
+    addMenuItem : func(menu_id, title, page, callbackfn=nil, displayfn=nil)
+    {
+        if (callbackfn == nil) callbackfn = me.std_callbackfn;
+        if (displayfn == nil) displayfn = me.std_displayfn;
+        var nm = PFD_MenuItem.new(menu_id, title, page, callbackfn, displayfn);
+        append(me.menus, nm);
+        return nm;
+    },
+
+    #
+    # Clear all items from the menu.  Use-case is where they may be a hierarchy
+    # of menus within the same page.
+    #
+    clearMenu : func()
+    {
+      me.menus = [];
+    },
+
+    # base method for update; this can be overridden per page instance to provide update of the
+    # elements on display (e.g. to display updated properties)
+    update : func(notification=nil)
+    {
+    },
+
+    #
+    # notify the page that it is being displayed. use to load any static framework or perform one
+    # time initialisation
+    ondisplay : func
+    {
+    },
+
+    #
+    # notify the page that it is going off display; use to clean up any created elements or perform
+    # any other required functions
+    offdisplay : func
+    {
+    },
+};
+
+
+#
+# Container device for pages.
+var PFD_Device =
+{
+# - svg is the page elements from the svg.
+# - num_menu_buttons is the Number of menu buttons; starting from the bottom left then right, then top, then left.
+# - button prefix (e.g MI_) is the prefix of the labels in the SVG for the menu boxes.
+# - _canvas is the canvas group.
+# - designation (optional) is used for Emesary designation
+#NOTE:
+# This does not actually create the canvas elements, or parse the SVG, that would typically be done in
+# a higher level class that contains an instance of this class.
+# see: http://wiki.flightgear.org/Canvas_MFD_Framework
+    new : func(svg, num_menu_buttons, button_prefix, _canvas, designation=&#34;MFD&#34;)
+    {
+		var obj = {parents : [PFD_Device] };
+        obj.svg = svg;
+        obj.canvas = _canvas;
+        obj.current_page = nil;
+        obj.pages = [];
+        obj.page_index = {};
+        obj.buttons = setsize([], num_menu_buttons);
+        obj.transmitter = nil;
+
+        # change after creation if required
+        obj.device_id = 1;
+        obj.designation = designation;
+
+        for(var idx = 0; idx &#60; num_menu_buttons; idx += 1)
+        {
+            var label_name = sprintf(button_prefix~&#34;%d&#34;,idx);
+            var msvg = obj.svg.getElementById(label_name);
+            if (msvg == nil)
+                printf(&#34;PFD_Device: Failed to load  %s&#34;,label_name);
+            else
+            {
+                obj.buttons[idx] = msvg;
+                obj.buttons[idx].setText(sprintf(&#34;M%d&#34;,idx));
+            }
+        }
+        obj.Recipient = nil;
+        return obj;
+    },
+    #
+    # instead of using the direct call method this allows the use of Emesary (via a specified or default global transmitter)
+    # example to notify that a softkey has been used. The &#34;1&#34; in the line below is the device ID
+    # var notification = notifications.PFDEventNotification.new(me.designation, me.DeviceId, notifications.PFDEventNotification.SoftKeyPushed, me.mpcd_button_pushed);
+    # emesary.GlobalTransmitter.NotifyAll(notification);
+    # - currently supported is
+    # 1. setting menu text directly (after page has been loaded)
+    #    notifications.PFDEventNotification.new(me.designation, 1, notifications.PFDEventNotification.ChangeMenuText, [{ Id: 1, Text: &#34;NNN&#34;}]);
+    # 2. SoftKey selection.
+    #
+    # the device ID must match this device ID (to allow for multiple devices).
+    RegisterWithEmesary : func(transmitter = nil){
+        if (transmitter == nil)
+          transmitter = emesary.GlobalTransmitter;
+
+        if (me.Recipient == nil){
+            me.Recipient = emesary.Recipient.new(&#34;PFD_&#34;~me.designation);
+            var pfd_obj = me;
+            me.Recipient.Receive = func(notification)
+              {
+                  if (notification.NotificationType == notifications.PFDEventNotification.DefaultType and
+                      notification.Device_Id == pfd_obj.device_id) {
+                      if (notification.Event_Id == notifications.PFDEventNotification.SoftKeyPushed
+                          and notification.EventParameter != nil)
+                        {
+                            #printf(&#34;Button pressed &#34; ~ notification.EventParameter);
+                            pfd_obj.notifyButton(notification.EventParameter);
+                        }
+                      else if (notification.Event_Id == notifications.PFDEventNotification.ChangeMenuText
+                          and notification.EventParameter != nil)
+                        {
+                            foreach(var eventMenu; notification.EventParameter) {
+                                #printf(&#34;Menu Text changed : &#34; ~ eventMenu.Text);
+                                foreach (var mi ; pfd_obj.current_page.menus) {
+                                    if (pfd_obj.buttons[eventMenu.Id] != nil) {
+                                        pfd_obj.buttons[eventMenu.Id].setText(eventMenu.Text);
+                                    }
+                                    else
+                                      printf(&#34;PFD_device: Menu for button not found. Menu ID &#39;%s&#39;&#34;,mi.menu_id);
+                                }
+                            }
+                        }
+                      return emesary.Transmitter.ReceiptStatus_OK;
+                  }
+                  return emesary.Transmitter.ReceiptStatus_NotProcessed;
+              };
+            transmitter.Register(me.Recipient);
+            me.transmitter = transmitter;
+        }
+    },
+    DeRegisterWithEmesary : func(transmitter = nil){
+        # remove registration from transmitter; but keep the recipient once it is created.
+        if (me.transmitter != nil)
+          me.transmitter.DeRegister(me.Recipient);
+        me.transmitter = nil;
+    },
+    #
+    # called when a button is pushed - connecting the property to this method is implemented in the outer class
+    notifyButton : func(button_id)
+    {
+        #
+        # by convention the buttons we have are 0 based; however externally 0 is used
+        # to indicate no button pushed.
+        if (button_id &#62; 0)
+        {
+            button_id = button_id - 1;
+            if (me.current_page != nil)
+            {
+                me.current_page.notifyButton(button_id);
+            }
+            else
+                printf(&#34;PFD_Device: Could not locate page for button &#34;,button_id);
+        }
+    },
+    #
+    #
+    # add a page to the device.
+    # - page title.
+    # - svg element id
+    addPage : func(title, layer_id)
+    {
+        var np = PFD_Page.new(me.svg, title, layer_id, me);
+        append(me.pages, np);
+        me.page_index[layer_id] = np;
+        np.setVisible(0);
+        return np;
+    },
+    #
+    # Get a named page
+    #
+    getPage : func(title)
+    {
+      foreach(var p; me.pages) {
+        if (p.title == title) return p;
+      }
+
+      return nil;
+    },
+    #
+    # manage the update of the currently selected page
+    update : func(notification=nil)
+    {
+        if (me.current_page != nil)
+            me.current_page.update(notification);
+    },
+    #
+    # Change to display the selected page.
+    # - the page object method controls the visibility
+    selectPage : func(p)
+    {
+        if (me.current_page == p) return;
+
+        if (me.current_page != nil)
+            me.current_page.setVisible(0);
+        if (me.buttons != nil)
+        {
+            foreach(var mb ; me.buttons)
+                if (mb != nil)
+                    mb.setVisible(0);
+
+            foreach(var mi ; p.menus)
+            {
+                if (me.buttons[mi.menu_id] != nil)
+                {
+                  mi.displayfn(me.buttons[mi.menu_id], mi);
+                }
+                else
+                    printf(&#34;PFD_device: Menu for button not found. Menu ID &#39;%s&#39;&#34;,mi.menu_id);
+            }
+        }
+        p.setVisible(1);
+        me.current_page = p;
+    },
+
+    # Return the current selected page.
+    getCurrentPage : func()
+    {
+      return me.current_page;
+    },
+
+    #
+    # ensure that the menus are display correctly for the current page.
+    updateMenus : func
+    {
+        foreach(var mb ; me.buttons)
+          if (mb != nil)
+            mb.setVisible(0);
+
+        if (me.current_page == nil) return;
+
+        foreach(var mi ; me.current_page.menus)
+        {
+            if (me.buttons[mi.menu_id] != nil)
+            {
+                mi.displayfn(me.buttons[mi.menu_id], mi);
+            }
+            else
+                printf(&#34;No corresponding item &#39;%s&#39;&#34;,mi.menu_id);
+        }
+    },
+};
+
+var PFD_NavDisplay =
+{
+#
+# Instantiate parameters:
+# 1. pfd_device (instance of PFD_Device)
+# 2. instrument display ident (e.g. mfd-map, or mfd-map-left mfd-map-right for multiple displays)
+#    (this is used to map to the property tree)
+# 3. layer_id: main layer  in the SVG
+# 4. nd_group_ident : group (usually within the main layer) to place the NavDisplay
+# 5. switches - used to connect the property tree to the nav display. see the canvas nav display
+#    documentation
+	new : func (pfd_device, title, instrument_ident, layer_id, nd_group_ident, switches=nil, map_style=&#34;Boeing&#34;)
+    {
+		var obj = pfd_device.addPage(title, layer_id);
+
+        # if no switches given then use a default set.
+        if (switches != nil)
+            obj.switches = switches;
+        else
+            obj.switches = {
+                &#39;toggle_range&#39;:         { path: &#39;/inputs/range-nm&#39;,    value: 50,    type: &#39;INT&#39; },
+                &#39;toggle_weather&#39;:       { path: &#39;/inputs/wxr&#39;,         value: 0,     type: &#39;BOOL&#39; },
+                &#39;toggle_airports&#39;:      { path: &#39;/inputs/arpt&#39;,        value: 1,     type: &#39;BOOL&#39; },
+                &#39;toggle_stations&#39;:      { path: &#39;/inputs/sta&#39;,         value: 1,     type: &#39;BOOL&#39; },
+                &#39;toggle_waypoints&#39;:     { path: &#39;/inputs/wpt&#39;,         value: 1,     type: &#39;BOOL&#39; },
+                &#39;toggle_position&#39;:      { path: &#39;/inputs/pos&#39;,         value: 0,     type: &#39;BOOL&#39; },
+                &#39;toggle_data&#39;:          { path: &#39;/inputs/data&#39;,        value: 0,     type: &#39;BOOL&#39; },
+                &#39;toggle_terrain&#39;:       { path: &#39;/inputs/terr&#39;,        value: 0,     type: &#39;BOOL&#39; },
+                &#39;toggle_traffic&#39;:       { path: &#39;/inputs/tfc&#39;,         value: 1,     type: &#39;BOOL&#39; },
+                &#39;toggle_centered&#39;:      { path: &#39;/inputs/nd-centered&#39;, value: 1,     type: &#39;BOOL&#39; },
+                &#39;toggle_lh_vor_adf&#39;:    { path: &#39;/inputs/lh-vor-adf&#39;,  value: 1,     type: &#39;INT&#39; },
+                &#39;toggle_rh_vor_adf&#39;:    { path: &#39;/inputs/rh-vor-adf&#39;,  value: 1,     type: &#39;INT&#39; },
+                &#39;toggle_display_mode&#39;:  { path: &#39;/mfd/display-mode&#39;,   value: &#39;MAP&#39;, type: &#39;STRING&#39; },
+                &#39;toggle_display_type&#39;:  { path: &#39;/mfd/display-type&#39;,   value: &#39;LCD&#39;, type: &#39;STRING&#39; },
+                &#39;toggle_true_north&#39;:    { path: &#39;/mfd/true-north&#39;,     value: 0,     type: &#39;BOOL&#39; },
+                &#39;toggle_rangearc&#39;:      { path: &#39;/mfd/rangearc&#39;,       value: 0,     type: &#39;BOOL&#39; },
+                &#39;toggle_track_heading&#39;: { path: &#39;/hdg-trk-selected&#39;,   value: 1,     type: &#39;BOOL&#39; },
+            };
+
+        obj.nd_initialised = 0;
+        obj.nd_placeholder_ident = nd_group_ident;
+        obj.nd_ident = instrument_ident;
+        obj.pfd_device = pfd_device;
+
+        obj.nd_init = func
+        {
+            me.ND = canvas.NavDisplay;
+            if (!me.nd_initialised)
+            {
+                me.nd_initialised = 1;
+
+                me.NDCpt = me.ND.new(&#34;instrumentation/&#34;~me.nd_ident, me.switches,map_style);
+
+                me.group = me.pfd_device.svg.getElementById(me.nd_placeholder_ident);
+                me.group.setScale(0.39,0.45);
+                me.group.setTranslation(45,0);
+                me.NDCpt.newMFD(me.group, pfd_device.canvas);
+            }
+            me.NDCpt.update();
+        };
+        #
+        # Method overrides
+        #-----------------------------------------------
+        # Called when the page goes on display - need to delay initialization of the NavDisplay until later (it fails
+        # if done too early).
+        # NOTE: This causes a display &#34;wobble&#34; the first time on display as resizing happens. I&#39;ve seen similar things
+        #       happen on real avionics (when switched on) so it&#39;s not necessarily unrealistic -)
+        obj.ondisplay = func
+        {
+            if (!me.nd_initialised)
+                me.nd_init();
+            #2018.2 - manage the timer so that the nav display is only updated when visibile
+            me.NDCpt.onDisplay();
+        };
+        obj.offdisplay = func
+        {
+            #2018.2 - manage the timer so that the nav display is only updated when visibile
+            if (me.nd_initialised)
+              me.NDCpt.offDisplay();
+        };
+        #
+        # most updates performed by the canvas nav display directly.
+        obj.update = func
+        {
+        };
+        return obj;
+    },
+};
+</code></pre>
+				</div>
+					</main>
+	</body>
+</html>

@@ -1,0 +1,2666 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Source canvas/gui/styles/DefaultStyle.nas</title>
+
+		<meta name="color-scheme" content="dark light" />
+		
+			<meta
+				name="description"
+				content="Source file canvas/gui/styles/DefaultStyle.nas in globals."
+			/>
+				<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		
+			<meta
+				name="og:description"
+				content="Source file canvas/gui/styles/DefaultStyle.nas in globals."
+			/>
+				<meta name="og:image" content="../../../../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta
+			name="og:title"
+			content="Source canvas/gui/styles/DefaultStyle.nas"
+		/>
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../../../../style.css" />
+
+		<link rel="apple-touch-icon" href="../../../../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../../../../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../../../../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../../../../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../../../../list.html">All items</a></li>
+				<li><a href="../../../../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Sources</h3>
+				<ul class="flex" id="tree">
+					
+						
+											
+						
+							<li style="--indent: 0;">
+																Autopush/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/Autopush/autopush.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		autopush.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/Autopush/driver.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		driver.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/Autopush/dynarr.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		dynarr.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/Autopush/route.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		route.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																FailureMgr/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/FailureMgr/private.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		private.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/FailureMgr/public.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		public.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																canvas/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																PFD/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/DataEntryElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DataEntryElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/GroupElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		GroupElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/HighlightElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/HighlightTimer.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightTimer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/PointerElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		PointerElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/RotatingElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		RotatingElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/ScrollElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		ScrollElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/TextElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		TextElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/PFD/UIElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		UIElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																api/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/canvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/colors.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/element.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		element.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/group.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		group.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/helpers.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		helpers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/image.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		image.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/map.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/path.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		path.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/svgcanvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		svgcanvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/text.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		text.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/api/transform.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																draw/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/draw/compass.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		compass.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/draw/draw.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/draw/scales.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		scales.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/draw/transform.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																gui/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																dialogs/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/dialogs/AircraftCenter.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		AircraftCenter.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/dialogs/InputDialog.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		InputDialog.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/dialogs/MessageBox.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		MessageBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																styles/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/styles/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/gui/styles/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																widgets/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/widgets/Button.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Button.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/widgets/CdlgWidgets.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CdlgWidgets.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/widgets/CheckBox.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CheckBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/widgets/Label.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Label.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/widgets/LineEdit.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		LineEdit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../../../../src/canvas/gui/widgets/ScrollArea.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		ScrollArea.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/gui/Config.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/gui/Style.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Style.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/canvas/gui/Widget.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Widget.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/MFD_Generic.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MFD_Generic.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/MapDrivers.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapDrivers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/MapStructure.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapStructure.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/PropertyElement.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		PropertyElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/api.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		api.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/draw.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/gui.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/map.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/svg.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		svg.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/canvas/tooltip.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		tooltip.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																console/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/console/repl.nas.html">
+									
+										<span class="hidden">console/</span>
+																		repl.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																debug/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/debug/emesary.deb.nas.html">
+									
+										<span class="hidden">debug/</span>
+																		emesary.deb.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																input_helpers/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/input_helpers/goflight.nas.html">
+									
+										<span class="hidden">input_helpers/</span>
+																		goflight.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/jetways/jetways.nas.html">
+									
+										<span class="hidden">jetways/</span>
+																		jetways.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways_edit/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/jetways_edit/jetways_edit.nas.html">
+									
+										<span class="hidden">jetways_edit/</span>
+																		jetways_edit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																local_weather/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/local_weather/cloud_definitions.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_definitions.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/local_weather/cloud_placement_lowlevel.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_placement_lowlevel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/local_weather/compat_layer.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		compat_layer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/local_weather/local_weather.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		local_weather.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/local_weather/sea_colors.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		sea_colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/local_weather/weather_dynamics.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_dynamics.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/local_weather/weather_tile_management.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tile_management.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/local_weather/weather_tiles.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tiles.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																modules/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">modules/</span>
+																canvas_efis/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/modules/canvas_efis/display-unit.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		display-unit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/modules/canvas_efis/efis-canvas.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/modules/canvas_efis/efis-framework.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-framework.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/modules/canvas_efis/efis.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/modules/canvas_efis/eicas-message-sys.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		eicas-message-sys.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../../../../src/modules/canvas_efis/main.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		main.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/modules/dummy.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		dummy.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/modules/repair_config.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		repair_config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																performance_monitor/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/performance_monitor/monitor.nas.html">
+									
+										<span class="hidden">performance_monitor/</span>
+																		monitor.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																std/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/std/Vector.nas.html">
+									
+										<span class="hidden">std/</span>
+																		Vector.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/std/hash.nas.html">
+									
+										<span class="hidden">std/</span>
+																		hash.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/std/string.nas.html">
+									
+										<span class="hidden">std/</span>
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																towing/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/towing/hitch.nas.html">
+									
+										<span class="hidden">towing/</span>
+																		hitch.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																tutorial/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../../../../src/tutorial/tutorial.nas.html">
+									
+										<span class="hidden">tutorial/</span>
+																		tutorial.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/addons.nas.html">
+																		addons.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/aircraft.nas.html">
+																		aircraft.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/aurora.nas.html">
+																		aurora.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/bits.nas.html">
+																		bits.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/checklist.nas.html">
+																		checklist.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/contrail.nas.html">
+																		contrail.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/controls.nas.html">
+																		controls.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/debug.nas.html">
+																		debug.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/dynamic_view.nas.html">
+																		dynamic_view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/earthview.nas.html">
+																		earthview.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/emesary.nas.html">
+																		emesary.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/emesary_mp_bridge.nas.html">
+																		emesary_mp_bridge.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/emexec.nas.html">
+																		emexec.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/environment.nas.html">
+																		environment.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/events.nas.html">
+																		events.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/frame_utils.nas.html">
+																		frame_utils.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/fuel.nas.html">
+																		fuel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/geo.nas.html">
+																		geo.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/glide_slope_tunnel.nas.html">
+																		glide_slope_tunnel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/globals.nas.html">
+																		globals.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/gui.nas.html">
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/io.nas.html">
+																		io.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/joystick.nas.html">
+																		joystick.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/lag_adjust.nas.html">
+																		lag_adjust.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/local_weather_auto_init.nas.html">
+																		local_weather_auto_init.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/material.nas.html">
+																		material.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/math.nas.html">
+																		math.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/modules.nas.html">
+																		modules.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/mp_broadcast.nas.html">
+																		mp_broadcast.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/multikey.nas.html">
+																		multikey.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/multiplayer.nas.html">
+																		multiplayer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/notifications.nas.html">
+																		notifications.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/orbital_target.nas.html">
+																		orbital_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/prop_key_handler.nas.html">
+																		prop_key_handler.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/props.nas.html">
+																		props.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/redout.nas.html">
+																		redout.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/route_manager.nas.html">
+																		route_manager.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/scenery.nas.html">
+																		scenery.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/screen.nas.html">
+																		screen.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/seaport.nas.html">
+																		seaport.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/std.nas.html">
+																		std.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/string.nas.html">
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/tanker.nas.html">
+																		tanker.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/track_target.nas.html">
+																		track_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/video.nas.html">
+																		video.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/view.nas.html">
+																		view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/volcano.nas.html">
+																		volcano.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/weather_scenario.nas.html">
+																		weather_scenario.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/wildfire.nas.html">
+																		wildfire.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../../../../src/windsock.nas.html">
+																		windsock.nas
+								</a>
+							</li>
+															</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Source</span>
+					
+						<span>canvas</span>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+					
+						<span>gui</span>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+					
+						<span>styles</span>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+										<span>DefaultStyle.nas</span>
+							</h1>
+
+			
+				<div id="source">
+					<div>
+						
+							<span id="1">1</span>
+						
+							<span id="2">2</span>
+						
+							<span id="3">3</span>
+						
+							<span id="4">4</span>
+						
+							<span id="5">5</span>
+						
+							<span id="6">6</span>
+						
+							<span id="7">7</span>
+						
+							<span id="8">8</span>
+						
+							<span id="9">9</span>
+						
+							<span id="10">10</span>
+						
+							<span id="11">11</span>
+						
+							<span id="12">12</span>
+						
+							<span id="13">13</span>
+						
+							<span id="14">14</span>
+						
+							<span id="15">15</span>
+						
+							<span id="16">16</span>
+						
+							<span id="17">17</span>
+						
+							<span id="18">18</span>
+						
+							<span id="19">19</span>
+						
+							<span id="20">20</span>
+						
+							<span id="21">21</span>
+						
+							<span id="22">22</span>
+						
+							<span id="23">23</span>
+						
+							<span id="24">24</span>
+						
+							<span id="25">25</span>
+						
+							<span id="26">26</span>
+						
+							<span id="27">27</span>
+						
+							<span id="28">28</span>
+						
+							<span id="29">29</span>
+						
+							<span id="30">30</span>
+						
+							<span id="31">31</span>
+						
+							<span id="32">32</span>
+						
+							<span id="33">33</span>
+						
+							<span id="34">34</span>
+						
+							<span id="35">35</span>
+						
+							<span id="36">36</span>
+						
+							<span id="37">37</span>
+						
+							<span id="38">38</span>
+						
+							<span id="39">39</span>
+						
+							<span id="40">40</span>
+						
+							<span id="41">41</span>
+						
+							<span id="42">42</span>
+						
+							<span id="43">43</span>
+						
+							<span id="44">44</span>
+						
+							<span id="45">45</span>
+						
+							<span id="46">46</span>
+						
+							<span id="47">47</span>
+						
+							<span id="48">48</span>
+						
+							<span id="49">49</span>
+						
+							<span id="50">50</span>
+						
+							<span id="51">51</span>
+						
+							<span id="52">52</span>
+						
+							<span id="53">53</span>
+						
+							<span id="54">54</span>
+						
+							<span id="55">55</span>
+						
+							<span id="56">56</span>
+						
+							<span id="57">57</span>
+						
+							<span id="58">58</span>
+						
+							<span id="59">59</span>
+						
+							<span id="60">60</span>
+						
+							<span id="61">61</span>
+						
+							<span id="62">62</span>
+						
+							<span id="63">63</span>
+						
+							<span id="64">64</span>
+						
+							<span id="65">65</span>
+						
+							<span id="66">66</span>
+						
+							<span id="67">67</span>
+						
+							<span id="68">68</span>
+						
+							<span id="69">69</span>
+						
+							<span id="70">70</span>
+						
+							<span id="71">71</span>
+						
+							<span id="72">72</span>
+						
+							<span id="73">73</span>
+						
+							<span id="74">74</span>
+						
+							<span id="75">75</span>
+						
+							<span id="76">76</span>
+						
+							<span id="77">77</span>
+						
+							<span id="78">78</span>
+						
+							<span id="79">79</span>
+						
+							<span id="80">80</span>
+						
+							<span id="81">81</span>
+						
+							<span id="82">82</span>
+						
+							<span id="83">83</span>
+						
+							<span id="84">84</span>
+						
+							<span id="85">85</span>
+						
+							<span id="86">86</span>
+						
+							<span id="87">87</span>
+						
+							<span id="88">88</span>
+						
+							<span id="89">89</span>
+						
+							<span id="90">90</span>
+						
+							<span id="91">91</span>
+						
+							<span id="92">92</span>
+						
+							<span id="93">93</span>
+						
+							<span id="94">94</span>
+						
+							<span id="95">95</span>
+						
+							<span id="96">96</span>
+						
+							<span id="97">97</span>
+						
+							<span id="98">98</span>
+						
+							<span id="99">99</span>
+						
+							<span id="100">100</span>
+						
+							<span id="101">101</span>
+						
+							<span id="102">102</span>
+						
+							<span id="103">103</span>
+						
+							<span id="104">104</span>
+						
+							<span id="105">105</span>
+						
+							<span id="106">106</span>
+						
+							<span id="107">107</span>
+						
+							<span id="108">108</span>
+						
+							<span id="109">109</span>
+						
+							<span id="110">110</span>
+						
+							<span id="111">111</span>
+						
+							<span id="112">112</span>
+						
+							<span id="113">113</span>
+						
+							<span id="114">114</span>
+						
+							<span id="115">115</span>
+						
+							<span id="116">116</span>
+						
+							<span id="117">117</span>
+						
+							<span id="118">118</span>
+						
+							<span id="119">119</span>
+						
+							<span id="120">120</span>
+						
+							<span id="121">121</span>
+						
+							<span id="122">122</span>
+						
+							<span id="123">123</span>
+						
+							<span id="124">124</span>
+						
+							<span id="125">125</span>
+						
+							<span id="126">126</span>
+						
+							<span id="127">127</span>
+						
+							<span id="128">128</span>
+						
+							<span id="129">129</span>
+						
+							<span id="130">130</span>
+						
+							<span id="131">131</span>
+						
+							<span id="132">132</span>
+						
+							<span id="133">133</span>
+						
+							<span id="134">134</span>
+						
+							<span id="135">135</span>
+						
+							<span id="136">136</span>
+						
+							<span id="137">137</span>
+						
+							<span id="138">138</span>
+						
+							<span id="139">139</span>
+						
+							<span id="140">140</span>
+						
+							<span id="141">141</span>
+						
+							<span id="142">142</span>
+						
+							<span id="143">143</span>
+						
+							<span id="144">144</span>
+						
+							<span id="145">145</span>
+						
+							<span id="146">146</span>
+						
+							<span id="147">147</span>
+						
+							<span id="148">148</span>
+						
+							<span id="149">149</span>
+						
+							<span id="150">150</span>
+						
+							<span id="151">151</span>
+						
+							<span id="152">152</span>
+						
+							<span id="153">153</span>
+						
+							<span id="154">154</span>
+						
+							<span id="155">155</span>
+						
+							<span id="156">156</span>
+						
+							<span id="157">157</span>
+						
+							<span id="158">158</span>
+						
+							<span id="159">159</span>
+						
+							<span id="160">160</span>
+						
+							<span id="161">161</span>
+						
+							<span id="162">162</span>
+						
+							<span id="163">163</span>
+						
+							<span id="164">164</span>
+						
+							<span id="165">165</span>
+						
+							<span id="166">166</span>
+						
+							<span id="167">167</span>
+						
+							<span id="168">168</span>
+						
+							<span id="169">169</span>
+						
+							<span id="170">170</span>
+						
+							<span id="171">171</span>
+						
+							<span id="172">172</span>
+						
+							<span id="173">173</span>
+						
+							<span id="174">174</span>
+						
+							<span id="175">175</span>
+						
+							<span id="176">176</span>
+						
+							<span id="177">177</span>
+						
+							<span id="178">178</span>
+						
+							<span id="179">179</span>
+						
+							<span id="180">180</span>
+						
+							<span id="181">181</span>
+						
+							<span id="182">182</span>
+						
+							<span id="183">183</span>
+						
+							<span id="184">184</span>
+						
+							<span id="185">185</span>
+						
+							<span id="186">186</span>
+						
+							<span id="187">187</span>
+						
+							<span id="188">188</span>
+						
+							<span id="189">189</span>
+						
+							<span id="190">190</span>
+						
+							<span id="191">191</span>
+						
+							<span id="192">192</span>
+						
+							<span id="193">193</span>
+						
+							<span id="194">194</span>
+						
+							<span id="195">195</span>
+						
+							<span id="196">196</span>
+						
+							<span id="197">197</span>
+						
+							<span id="198">198</span>
+						
+							<span id="199">199</span>
+						
+							<span id="200">200</span>
+						
+							<span id="201">201</span>
+						
+							<span id="202">202</span>
+						
+							<span id="203">203</span>
+						
+							<span id="204">204</span>
+						
+							<span id="205">205</span>
+						
+							<span id="206">206</span>
+						
+							<span id="207">207</span>
+						
+							<span id="208">208</span>
+						
+							<span id="209">209</span>
+						
+							<span id="210">210</span>
+						
+							<span id="211">211</span>
+						
+							<span id="212">212</span>
+						
+							<span id="213">213</span>
+						
+							<span id="214">214</span>
+						
+							<span id="215">215</span>
+						
+							<span id="216">216</span>
+						
+							<span id="217">217</span>
+						
+							<span id="218">218</span>
+						
+							<span id="219">219</span>
+						
+							<span id="220">220</span>
+						
+							<span id="221">221</span>
+						
+							<span id="222">222</span>
+						
+							<span id="223">223</span>
+						
+							<span id="224">224</span>
+						
+							<span id="225">225</span>
+						
+							<span id="226">226</span>
+						
+							<span id="227">227</span>
+						
+							<span id="228">228</span>
+						
+							<span id="229">229</span>
+						
+							<span id="230">230</span>
+						
+							<span id="231">231</span>
+						
+							<span id="232">232</span>
+						
+							<span id="233">233</span>
+						
+							<span id="234">234</span>
+						
+							<span id="235">235</span>
+						
+							<span id="236">236</span>
+						
+							<span id="237">237</span>
+						
+							<span id="238">238</span>
+						
+							<span id="239">239</span>
+						
+							<span id="240">240</span>
+						
+							<span id="241">241</span>
+						
+							<span id="242">242</span>
+						
+							<span id="243">243</span>
+						
+							<span id="244">244</span>
+						
+							<span id="245">245</span>
+						
+							<span id="246">246</span>
+						
+							<span id="247">247</span>
+						
+							<span id="248">248</span>
+						
+							<span id="249">249</span>
+						
+							<span id="250">250</span>
+						
+							<span id="251">251</span>
+						
+							<span id="252">252</span>
+						
+							<span id="253">253</span>
+						
+							<span id="254">254</span>
+						
+							<span id="255">255</span>
+						
+							<span id="256">256</span>
+						
+							<span id="257">257</span>
+						
+							<span id="258">258</span>
+						
+							<span id="259">259</span>
+						
+							<span id="260">260</span>
+						
+							<span id="261">261</span>
+						
+							<span id="262">262</span>
+						
+							<span id="263">263</span>
+						
+							<span id="264">264</span>
+						
+							<span id="265">265</span>
+						
+							<span id="266">266</span>
+						
+							<span id="267">267</span>
+						
+							<span id="268">268</span>
+						
+							<span id="269">269</span>
+						
+							<span id="270">270</span>
+						
+							<span id="271">271</span>
+						
+							<span id="272">272</span>
+						
+							<span id="273">273</span>
+						
+							<span id="274">274</span>
+						
+							<span id="275">275</span>
+						
+							<span id="276">276</span>
+						
+							<span id="277">277</span>
+						
+							<span id="278">278</span>
+						
+							<span id="279">279</span>
+						
+							<span id="280">280</span>
+						
+							<span id="281">281</span>
+						
+							<span id="282">282</span>
+						
+							<span id="283">283</span>
+						
+							<span id="284">284</span>
+						
+							<span id="285">285</span>
+						
+							<span id="286">286</span>
+						
+							<span id="287">287</span>
+						
+							<span id="288">288</span>
+						
+							<span id="289">289</span>
+						
+							<span id="290">290</span>
+						
+							<span id="291">291</span>
+						
+							<span id="292">292</span>
+						
+							<span id="293">293</span>
+						
+							<span id="294">294</span>
+						
+							<span id="295">295</span>
+						
+							<span id="296">296</span>
+						
+							<span id="297">297</span>
+						
+							<span id="298">298</span>
+						
+							<span id="299">299</span>
+						
+							<span id="300">300</span>
+						
+							<span id="301">301</span>
+						
+							<span id="302">302</span>
+						
+							<span id="303">303</span>
+						
+							<span id="304">304</span>
+						
+							<span id="305">305</span>
+						
+							<span id="306">306</span>
+						
+							<span id="307">307</span>
+						
+							<span id="308">308</span>
+						
+							<span id="309">309</span>
+						
+							<span id="310">310</span>
+						
+							<span id="311">311</span>
+						
+							<span id="312">312</span>
+						
+							<span id="313">313</span>
+						
+							<span id="314">314</span>
+						
+							<span id="315">315</span>
+						
+							<span id="316">316</span>
+						
+							<span id="317">317</span>
+						
+							<span id="318">318</span>
+						
+							<span id="319">319</span>
+						
+							<span id="320">320</span>
+						
+							<span id="321">321</span>
+						
+							<span id="322">322</span>
+						
+							<span id="323">323</span>
+						
+							<span id="324">324</span>
+						
+							<span id="325">325</span>
+						
+							<span id="326">326</span>
+						
+							<span id="327">327</span>
+						
+							<span id="328">328</span>
+						
+							<span id="329">329</span>
+						
+							<span id="330">330</span>
+						
+							<span id="331">331</span>
+						
+							<span id="332">332</span>
+						
+							<span id="333">333</span>
+						
+							<span id="334">334</span>
+						
+							<span id="335">335</span>
+						
+							<span id="336">336</span>
+						
+							<span id="337">337</span>
+						
+							<span id="338">338</span>
+						
+							<span id="339">339</span>
+						
+							<span id="340">340</span>
+						
+							<span id="341">341</span>
+						
+							<span id="342">342</span>
+						
+							<span id="343">343</span>
+						
+							<span id="344">344</span>
+						
+							<span id="345">345</span>
+						
+							<span id="346">346</span>
+						
+							<span id="347">347</span>
+						
+							<span id="348">348</span>
+						
+							<span id="349">349</span>
+						
+							<span id="350">350</span>
+						
+							<span id="351">351</span>
+						
+							<span id="352">352</span>
+						
+							<span id="353">353</span>
+						
+							<span id="354">354</span>
+						
+							<span id="355">355</span>
+						
+							<span id="356">356</span>
+						
+							<span id="357">357</span>
+						
+							<span id="358">358</span>
+						
+							<span id="359">359</span>
+						
+							<span id="360">360</span>
+						
+							<span id="361">361</span>
+						
+							<span id="362">362</span>
+						
+							<span id="363">363</span>
+						
+							<span id="364">364</span>
+						
+							<span id="365">365</span>
+						
+							<span id="366">366</span>
+						
+							<span id="367">367</span>
+						
+							<span id="368">368</span>
+						
+							<span id="369">369</span>
+						
+							<span id="370">370</span>
+						
+							<span id="371">371</span>
+						
+							<span id="372">372</span>
+						
+							<span id="373">373</span>
+						
+							<span id="374">374</span>
+						
+							<span id="375">375</span>
+						
+							<span id="376">376</span>
+						
+							<span id="377">377</span>
+						
+							<span id="378">378</span>
+						
+							<span id="379">379</span>
+						
+							<span id="380">380</span>
+						
+							<span id="381">381</span>
+						
+							<span id="382">382</span>
+						
+							<span id="383">383</span>
+						
+							<span id="384">384</span>
+						
+							<span id="385">385</span>
+						
+							<span id="386">386</span>
+						
+							<span id="387">387</span>
+						
+							<span id="388">388</span>
+						
+							<span id="389">389</span>
+						
+							<span id="390">390</span>
+						
+							<span id="391">391</span>
+						
+							<span id="392">392</span>
+						
+							<span id="393">393</span>
+						
+							<span id="394">394</span>
+						
+							<span id="395">395</span>
+						
+							<span id="396">396</span>
+						
+							<span id="397">397</span>
+						
+							<span id="398">398</span>
+						
+							<span id="399">399</span>
+						
+							<span id="400">400</span>
+						
+							<span id="401">401</span>
+						
+							<span id="402">402</span>
+						
+							<span id="403">403</span>
+						
+							<span id="404">404</span>
+						
+							<span id="405">405</span>
+						
+							<span id="406">406</span>
+						
+							<span id="407">407</span>
+						
+							<span id="408">408</span>
+						
+							<span id="409">409</span>
+						
+							<span id="410">410</span>
+						
+							<span id="411">411</span>
+						
+							<span id="412">412</span>
+						
+							<span id="413">413</span>
+						
+							<span id="414">414</span>
+						
+							<span id="415">415</span>
+						
+							<span id="416">416</span>
+						
+							<span id="417">417</span>
+						
+							<span id="418">418</span>
+						
+							<span id="419">419</span>
+						
+							<span id="420">420</span>
+						
+							<span id="421">421</span>
+						
+							<span id="422">422</span>
+						
+							<span id="423">423</span>
+						
+							<span id="424">424</span>
+						
+							<span id="425">425</span>
+						
+							<span id="426">426</span>
+						
+							<span id="427">427</span>
+						
+							<span id="428">428</span>
+						
+							<span id="429">429</span>
+						
+							<span id="430">430</span>
+						
+							<span id="431">431</span>
+						
+							<span id="432">432</span>
+						
+							<span id="433">433</span>
+						
+							<span id="434">434</span>
+						
+							<span id="435">435</span>
+						
+							<span id="436">436</span>
+						
+							<span id="437">437</span>
+						
+							<span id="438">438</span>
+						
+							<span id="439">439</span>
+						
+							<span id="440">440</span>
+						
+							<span id="441">441</span>
+						
+							<span id="442">442</span>
+						
+							<span id="443">443</span>
+						
+							<span id="444">444</span>
+						
+							<span id="445">445</span>
+						
+							<span id="446">446</span>
+						
+							<span id="447">447</span>
+						
+							<span id="448">448</span>
+						
+							<span id="449">449</span>
+						
+							<span id="450">450</span>
+						
+							<span id="451">451</span>
+						
+							<span id="452">452</span>
+						
+							<span id="453">453</span>
+						
+							<span id="454">454</span>
+											</div>
+					<pre><code>var DefaultStyle = {
+  new: func(name, name_icon_theme)
+  {
+    return {
+      parents: [ gui.Style.new(name, name_icon_theme),
+                 DefaultStyle ]
+    };
+  },
+  createWidget: func(parent, type, cfg)
+  {
+    var factory = me.widgets[type];
+    if( factory == nil )
+    {
+      debug.warn(&#34;DefaultStyle: unknown widget type (&#34; ~ type ~ &#34;)&#34;);
+      return nil;
+    }
+
+    var w = {
+      parents: [factory],
+      _style: me
+    };
+    call(factory.new, [parent, cfg], w);
+    return w;
+  },
+  widgets: {}
+};
+
+# A button
+DefaultStyle.widgets.button = {
+  new: func(parent, cfg)
+  {
+    me._root = parent.createChild(&#34;group&#34;, &#34;button&#34;);
+    me._bg =
+      me._root.createChild(&#34;path&#34;);
+    me._border =
+      me._root.createChild(&#34;image&#34;, &#34;button&#34;)
+              .set(&#34;slice&#34;, &#34;10 12&#34;); #&#34;7&#34;)
+    me._label =
+      me._root.createChild(&#34;text&#34;)
+              .set(&#34;font&#34;, &#34;LiberationFonts/LiberationSans-Regular.ttf&#34;)
+              .set(&#34;character-size&#34;, 14)
+              .set(&#34;alignment&#34;, &#34;center-baseline&#34;);
+  },
+  setSize: func(model, w, h)
+  {
+    me._bg.reset()
+          .rect(3, 3, w - 6, h - 6, {&#34;border-radius&#34;: 5});
+    me._border.setSize(w, h);
+  },
+  setText: func(model, text)
+  {
+    me._label.setText(text);
+
+    var min_width = math.max(80, me._label.maxWidth() + 16);
+    model.setLayoutMinimumSize([min_width, 16]);
+    model.setLayoutSizeHint([min_width, 28]);
+
+    return me;
+  },
+  update: func(model)
+  {
+    var backdrop = !model._windowFocus();
+    var (w, h) = model._size;
+    var file = me._style._dir_widgets ~ &#34;/&#34;;
+
+    # TODO unify color names with image names
+    var bg_color_name = &#34;button_bg_color&#34;;
+    if( backdrop )
+      bg_color_name = &#34;button_backdrop_bg_color&#34;;
+    else if( !model._enabled )
+      bg_color_name = &#34;button_bg_color_insensitive&#34;;
+    else if( model._down )
+      bg_color_name = &#34;button_bg_color_down&#34;;
+    else if( model._hover )
+      bg_color_name = &#34;button_bg_color_hover&#34;;
+    me._bg.set(&#34;fill&#34;, me._style.getColor(bg_color_name));
+
+    if( backdrop )
+    {
+      file ~= &#34;backdrop-&#34;;
+      me._label.set(&#34;fill&#34;, me._style.getColor(&#34;backdrop_fg_color&#34;));
+    }
+    else
+      me._label.set(&#34;fill&#34;, me._style.getColor(&#34;fg_color&#34;));
+    file ~= &#34;button&#34;;
+
+    if( model._down )
+    {
+      file ~= &#34;-active&#34;;
+      me._label.setTranslation(w / 2 + 1, h / 2 + 6);
+    }
+    else
+      me._label.setTranslation(w / 2, h / 2 + 5);
+
+    if( model._enabled )
+    {
+      if( model._focused and !backdrop )
+        file ~= &#34;-focused&#34;;
+
+      if( model._hover and !model._down )
+        file ~= &#34;-hover&#34;;
+    }
+    else
+      file ~= &#34;-disabled&#34;;
+
+    me._border.set(&#34;src&#34;, file ~ &#34;.png&#34;);
+  }
+};
+
+# A checkbox
+DefaultStyle.widgets.checkbox = {
+  new: func(parent, cfg)
+  {
+    me._root = parent.createChild(&#34;group&#34;, &#34;checkbox&#34;);
+    me._icon =
+      me._root.createChild(&#34;image&#34;, &#34;checkbox-icon&#34;)
+              .setSize(18, 18);
+    me._label =
+      me._root.createChild(&#34;text&#34;)
+              .set(&#34;font&#34;, &#34;LiberationFonts/LiberationSans-Regular.ttf&#34;)
+              .set(&#34;character-size&#34;, 14)
+              .set(&#34;alignment&#34;, &#34;left-center&#34;);
+  },
+  setSize: func(model, w, h)
+  {
+    me._icon.setTranslation(0, int((h - 18) / 2));
+    me._label.setTranslation(24, int(h / 2) + 1);
+
+    return me;
+  },
+  setText: func(model, text)
+  {
+    me._label.setText(text);
+
+    var min_width = me._label.maxWidth() + 24;
+    model.setLayoutMinimumSize([min_width, 18]);
+    model.setLayoutSizeHint([min_width, 24]);
+
+    return me;
+  },
+  update: func(model)
+  {
+    var backdrop = !model._windowFocus();
+    var (w, h) = model._size;
+    var file = me._style._dir_widgets ~ &#34;/&#34;;
+
+    if( backdrop )
+    {
+      file ~= &#34;backdrop-&#34;;
+      me._label.set(&#34;fill&#34;, me._style.getColor(&#34;backdrop_fg_color&#34;));
+    }
+    else
+      me._label.set(&#34;fill&#34;, me._style.getColor(&#34;fg_color&#34;));
+    file ~= &#34;check&#34;;
+
+    if( model._down )
+      file ~= &#34;-selected&#34;;
+    else
+      file ~= &#34;-unselected&#34;;
+
+    if( model._enabled )
+    {
+      if( model._hover )
+        file ~= &#34;-hover&#34;;
+    }
+    else
+      file ~= &#34;-disabled&#34;;
+
+    me._icon.set(&#34;src&#34;, file ~ &#34;.png&#34;);
+  }
+};
+
+# A label
+DefaultStyle.widgets.label = {
+  new: func(parent, cfg)
+  {
+    me._root = parent.createChild(&#34;group&#34;, &#34;label&#34;);
+  },
+  setSize: func(model, w, h)
+  {
+    if( me[&#39;_bg&#39;] != nil )
+      me._bg.reset().rect(0, 0, w, h);
+    if( me[&#39;_img&#39;] != nil )
+      me._img.set(&#34;size[0]&#34;, w)
+             .set(&#34;size[1]&#34;, h);
+    if( me[&#39;_text&#39;] != nil )
+    {
+      # TODO different alignment
+      me._text.setTranslation(2, 2 + h / 2);
+      me._text.set(
+        &#34;max-width&#34;,
+        model._cfg.get(&#34;wordWrap&#34;, 0) ? (w - 4) : 0
+      );
+    }
+    return me;
+  },
+  setText: func(model, text)
+  {
+    if( text == nil or size(text) == 0 )
+    {
+      model.setHeightForWidthFunc(nil);
+      return me._deleteElement(&#39;text&#39;);
+    }
+
+    me._createElement(&#34;text&#34;, &#34;text&#34;)
+      .setText(text);
+
+    var hfw_func = nil;
+    var min_width = me._text.maxWidth() + 4;
+    var width_hint = min_width;
+
+    if( model._cfg.get(&#34;wordWrap&#34;, 0) )
+    {
+      var m = me;
+      hfw_func = func(w) m.heightForWidth(w);
+      min_width = math.min(32, min_width);
+
+      # prefer approximately quadratic text blocks
+      if( width_hint &#62; 24 )
+        width_hint = int(math.sqrt(width_hint * 24));
+    }
+
+    model.setHeightForWidthFunc(hfw_func);
+    model.setLayoutMinimumSize([min_width, 14]);
+    model.setLayoutSizeHint([width_hint, 24]);
+
+    return me.update(model);
+  },
+  setImage: func(model, img)
+  {
+    if( img == nil or size(img) == 0 )
+      return me._deleteElement(&#39;img&#39;);
+
+    me._createElement(&#34;img&#34;, &#34;image&#34;)
+      .set(&#34;src&#34;, img)
+      .set(&#34;preserveAspectRatio&#34;, &#34;xMidYMid slice&#34;);
+
+    return me;
+  },
+  # @param bg CSS color or &#39;none&#39;
+  setBackground: func(model, bg)
+  {
+    if( bg == nil or bg == &#34;none&#34; )
+      return me._deleteElement(&#34;bg&#34;);
+
+    me._createElement(&#34;bg&#34;, &#34;path&#34;)
+      .set(&#34;fill&#34;, bg);
+
+    me.setSize(model, model._size[0], model._size[1]);
+    return me;
+  },
+  heightForWidth: func(w)
+  {
+    if( me[&#39;_text&#39;] == nil )
+      return -1;
+
+    return math.max(14, me._text.heightForWidth(w - 4));
+  },
+  update: func(model)
+  {
+    if( me[&#39;_text&#39;] != nil )
+    {
+      var color_name = model._windowFocus() ? &#34;fg_color&#34; : &#34;backdrop_fg_color&#34;;
+      me._text.set(&#34;fill&#34;, me._style.getColor(color_name));
+    }
+  },
+# protected:
+  _createElement: func(name, type)
+  {
+    var mem = &#39;_&#39; ~ name;
+    if( me[ mem ] == nil )
+    {
+      me[ mem ] = me._root.createChild(type, &#34;label-&#34; ~ name);
+
+      if( type == &#34;text&#34; )
+      {
+         me[ mem ].set(&#34;font&#34;, &#34;LiberationFonts/LiberationSans-Regular.ttf&#34;)
+                  .set(&#34;character-size&#34;, 14)
+                  .set(&#34;alignment&#34;, &#34;left-center&#34;);
+      }
+    }
+    return me[ mem ];
+  },
+  _deleteElement: func(name)
+  {
+    name = &#39;_&#39; ~ name;
+    if( me[ name ] != nil )
+    {
+      me[ name ].del();
+      me[ name ] = nil;
+    }
+    return me;
+  }
+};
+
+# A one line text input field
+DefaultStyle.widgets[&#34;line-edit&#34;] = {
+  new: func(parent, cfg)
+  {
+    me._hpadding = cfg.get(&#34;hpadding&#34;, 8);
+
+    me._root = parent.createChild(&#34;group&#34;, &#34;line-edit&#34;);
+    me._border =
+      me._root.createChild(&#34;image&#34;, &#34;border&#34;)
+              .set(&#34;slice&#34;, &#34;10 12&#34;); #&#34;7&#34;)
+    me._text =
+      me._root.createChild(&#34;text&#34;, &#34;input&#34;)
+              .set(&#34;font&#34;, &#34;LiberationFonts/LiberationSans-Regular.ttf&#34;)
+              .set(&#34;character-size&#34;, 14)
+              .set(&#34;alignment&#34;, &#34;left-baseline&#34;)
+              .set(&#34;clip-frame&#34;, Element.PARENT);
+    me._cursor =
+      me._root.createChild(&#34;path&#34;, &#34;cursor&#34;)
+              .set(&#34;stroke&#34;, &#34;#333&#34;)
+              .set(&#34;stroke-width&#34;, 1)
+              .moveTo(me._hpadding, 5)
+              .vert(10);
+    me._hscroll = 0;
+  },
+  setSize: func(model, w, h)
+  {
+    me._border.setSize(w, h);
+    me._text.set(
+      &#34;clip&#34;,
+      &#34;rect(0, &#34; ~ (w - me._hpadding) ~ &#34;, &#34; ~ h ~ &#34;, &#34; ~ me._hpadding ~ &#34;)&#34;
+    );
+    me._cursor.setDouble(&#34;coord[2]&#34;, h - 10);
+
+    return me.update(model);
+  },
+  setText: func(model, text)
+  {
+    me._text.setText(text);
+    model._onStateChange();
+  },
+  update: func(model)
+  {
+    var backdrop = !model._windowFocus();
+    var file = me._style._dir_widgets ~ &#34;/&#34;;
+
+    if( backdrop )
+      file ~= &#34;backdrop-&#34;;
+
+    file ~= &#34;entry&#34;;
+
+    if( !model._enabled )
+      file ~= &#34;-disabled&#34;;
+    else if( model._focused and !backdrop )
+      file ~= &#34;-focused&#34;;
+
+    me._border.set(&#34;src&#34;, file ~ &#34;.png&#34;);
+
+    var color_name = backdrop ? &#34;backdrop_fg_color&#34; : &#34;fg_color&#34;;
+    me._text.set(&#34;fill&#34;, me._style.getColor(color_name));
+
+    me._cursor.setVisible(model._enabled and model._focused and !backdrop);
+
+    var width = model._size[0] - 2 * me._hpadding;
+    var cursor_pos = me._text.getCursorPos(0, model._cursor)[0];
+    var text_width = me._text.getCursorPos(0, me._text.lineLength(0))[0];
+
+    if( text_width &#60;= width )
+      # fit -&#62; align left (TODO handle different alignment)
+      me._hscroll = 0;
+    else if( me._hscroll + cursor_pos &#62; width )
+      # does not fit, cursor to the right
+      me._hscroll = width - cursor_pos;
+    else if( me._hscroll + cursor_pos &#60; 0 )
+      # does not fit, cursor to the left
+      me._hscroll = -cursor_pos;
+    else if( me._hscroll + text_width &#60; width )
+      # does not fit, limit scroll to align with right side
+      me._hscroll = width - text_width;
+
+    var text_pos = me._hscroll + me._hpadding;
+
+    me._text
+      .setTranslation(text_pos, model._size[1] / 2 + 5)
+      .update();
+    me._cursor
+      .setDouble(&#34;coord[0]&#34;, text_pos + cursor_pos)
+      .update();
+  }
+};
+
+# ScrollArea
+DefaultStyle.widgets[&#34;scroll-area&#34;] = {
+  new: func(parent, cfg)
+  {
+    me._root = parent.createChild(&#34;group&#34;, &#34;scroll-area&#34;);
+
+    me._bg     = me._root.createChild(&#34;path&#34;, &#34;background&#34;)
+                         .set(&#34;fill&#34;, &#34;#e0e0e0&#34;);
+    me.content = me._root.createChild(&#34;group&#34;, &#34;scroll-content&#34;)
+                         .set(&#34;clip-frame&#34;, Element.PARENT);
+    me.vert  = me._newScroll(me._root, &#34;vert&#34;);
+    me.horiz = me._newScroll(me._root, &#34;horiz&#34;);
+  },
+  setColorBackground: func
+  {
+    if( size(arg) == 1 )
+    	  var arg = arg[0];
+    	me._bg.setColorFill(arg);
+  },
+  update: func(model)
+  {
+    me.horiz.reset();
+    if( model._max_scroll[0] &#62; 1 )
+      # only show scroll bar if horizontally scrollable
+      me.horiz.moveTo( model._scroller_offset[0] + model._scroller_pos[0],
+                       model._size[1] - 2 )
+              .horiz(model._scroller_size[0]);
+
+    me.vert.reset();
+    if( model._max_scroll[1] &#62; 1 )
+      # only show scroll bar if vertically scrollable
+      me.vert.moveTo( model._size[0] - 2,
+                      model._scroller_offset[1] + model._scroller_pos[1] )
+             .vert(model._scroller_size[1]);
+
+    me._bg.reset()
+          .rect(0, 0, model._size[0], model._size[1]);
+    me.content.set(
+      &#34;clip&#34;,
+      &#34;rect(0, &#34; ~ model._size[0] ~ &#34;, &#34; ~ model._size[1] ~ &#34;, 0)&#34;
+    );
+  },
+# private:
+  _newScroll: func(el, orient)
+  {
+    return el.createChild(&#34;path&#34;, &#34;scroll-&#34; ~ orient)
+             .set(&#34;stroke&#34;, &#34;#f07845&#34;)
+             .set(&#34;stroke-width&#34;, 4);
+  },
+  # Calculate size and limits of scroller
+  #
+  # @param model
+  # @param dir 0 for horizontal, 1 for vertical
+  # @return [scroller_size, min_pos, max_pos]
+  _updateScrollMetrics: func(model, dir)
+  {
+    if( model._content_size[dir] &#60;= model._size[dir] )
+      return;
+
+    model._scroller_size[dir] =
+      math.max(
+        12,
+        model._size[dir] * (model._size[dir] / model._content_size[dir])
+      );
+    model._scroller_offset[dir] = 0;
+    model._scroller_delta[dir] = model._size[dir] - model._scroller_size[dir];
+  }
+};
+</code></pre>
+				</div>
+					</main>
+	</body>
+</html>

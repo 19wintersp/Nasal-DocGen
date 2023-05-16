@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Namespace globals.geo</title>
+
+		<meta name="color-scheme" content="dark light" />
+		<meta name="description" content="geo functions
+-------------------------------------------------------------------------------------------------
+
+
+geo.Coord class
+-------------------------------------------------------------------------------------------------
+
+geo.Coord.new([&#60;coord&#62;])        ... class that holds and maintains geographical coordinates
+can be initialized with another geo.Coord instance
+
+SETTER METHODS:
+
+.set(&#60;coord&#62;)               ... sets coordinates from another geo.Coord instance
+
+.set_lat(&#60;num&#62;)             ... functions for setting latitude/longitude/altitude
+.set_lon(&#60;num&#62;)
+.set_alt(&#60;num&#62;)             ..this is in meters
+.set_latlon(&#60;num&#62;, &#60;num&#62; [, &#60;num&#62;])      (altitude (meters) is optional; default=0)
+
+.set_x(&#60;num&#62;)               ... functions for setting cartesian x/y/z coordinates
+.set_y(&#60;num&#62;)
+.set_z(&#60;num&#62;)
+.set_xyz(&#60;num&#62;, &#60;num&#62;, &#60;num&#62;)
+
+
+GETTER METHODS:
+
+.lat()
+.lon()                      ... functions for getting lat/lon/alt
+.alt()                          ... returns altitude in m
+.latlon()                       ... returns vector  [&#60;lat&#62;, &#60;lon&#62;, &#60;alt&#62;]
+
+.x()                        ... functions for reading cartesian coords (in m)
+.y()
+.z()
+.xyz()                          ... returns vector  [&#60;x&#62;, &#60;y&#62;, &#60;z&#62;]
+
+
+QUERY METHODS:
+
+.is_defined()               ... returns whether the coords are defined
+.dump()                     ... outputs coordinates
+.course_to(&#60;coord&#62;)         ... returns course to another geo.Coord instance (degree)
+.distance_to(&#60;coord&#62;)       ... returns distance in m along Earth curvature, ignoring altitudes
+useful for map distance
+.direct_distance_to(&#60;coord&#62;)      ...   distance in m direct, considers altitude,
+but cuts through Earth surface
+.greatcircle_distance_to(&#60;coord&#62;, &#60;coord&#62;)  ... returns distance to a great circle (in m along Earth curvature)
+defined by two points  
+.horizon()                  ... returns distance to the horizon in m along Earth curvature, ignoring altitudes
+
+
+MANIPULATION METHODS:
+
+.apply_course_distance(&#60;course&#62;, &#60;distance&#62;)       ... moves the coord distance in meters in course direction (true)
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
+geo.aircraft_position()         ... returns current aircraft position as geo.Coord
+geo.viewer_position()           ... returns viewer position as geo.Coord
+geo.click_position()            ... returns last click coords as geo.Coord or nil before first click
+
+geo.tile_path(&#60;lat&#62;, &#60;lon&#62;)     ... returns tile path string (e.g. &#34;w130n30/w123n37/942056.stg&#34;)
+geo.elevation(&#60;lat&#62;, &#60;lon&#62; [, &#60;top:10000&#62;])
+... returns elevation in meter for given lat/lon, or nil on error;
+&#60;top&#62; is the altitude at which the intersection test starts
+
+geo.normdeg(&#60;angle&#62;)            ... returns angle normalized to    0 &#60;= angle &#60; 360
+geo.normdeg180(&#60;angle&#62;)         ... returns angle normalized to -180 &#60; angle &#60;= 360
+
+geo.put_model(&#60;path&#62;, &#60;lat&#62;, &#60;lon&#62; [, &#60;elev:nil&#62; [, &#60;hdg:0&#62; [, &#60;pitch:0&#62; [, &#60;roll:0&#62;]]]]);
+... put model &#60;path&#62; at location &#60;lat&#62;/&#60;lon&#62; with given elevation
+(optional, default: surface). &#60;hdg&#62;/&#60;pitch&#62;/&#60;roll&#62; are optional
+and default to zero.
+geo.put_model(&#60;path&#62;, &#60;coord&#62; [, &#60;hdg:0&#62; [, &#60;pitch:0&#62; [, &#60;roll:0&#62;]]]);
+... same as above, but lat/lon/elev are taken from a Coord object
+" />
+		<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		<meta name="og:description" content="geo functions
+-------------------------------------------------------------------------------------------------
+
+
+geo.Coord class
+-------------------------------------------------------------------------------------------------
+
+geo.Coord.new([&#60;coord&#62;])        ... class that holds and maintains geographical coordinates
+can be initialized with another geo.Coord instance
+
+SETTER METHODS:
+
+.set(&#60;coord&#62;)               ... sets coordinates from another geo.Coord instance
+
+.set_lat(&#60;num&#62;)             ... functions for setting latitude/longitude/altitude
+.set_lon(&#60;num&#62;)
+.set_alt(&#60;num&#62;)             ..this is in meters
+.set_latlon(&#60;num&#62;, &#60;num&#62; [, &#60;num&#62;])      (altitude (meters) is optional; default=0)
+
+.set_x(&#60;num&#62;)               ... functions for setting cartesian x/y/z coordinates
+.set_y(&#60;num&#62;)
+.set_z(&#60;num&#62;)
+.set_xyz(&#60;num&#62;, &#60;num&#62;, &#60;num&#62;)
+
+
+GETTER METHODS:
+
+.lat()
+.lon()                      ... functions for getting lat/lon/alt
+.alt()                          ... returns altitude in m
+.latlon()                       ... returns vector  [&#60;lat&#62;, &#60;lon&#62;, &#60;alt&#62;]
+
+.x()                        ... functions for reading cartesian coords (in m)
+.y()
+.z()
+.xyz()                          ... returns vector  [&#60;x&#62;, &#60;y&#62;, &#60;z&#62;]
+
+
+QUERY METHODS:
+
+.is_defined()               ... returns whether the coords are defined
+.dump()                     ... outputs coordinates
+.course_to(&#60;coord&#62;)         ... returns course to another geo.Coord instance (degree)
+.distance_to(&#60;coord&#62;)       ... returns distance in m along Earth curvature, ignoring altitudes
+useful for map distance
+.direct_distance_to(&#60;coord&#62;)      ...   distance in m direct, considers altitude,
+but cuts through Earth surface
+.greatcircle_distance_to(&#60;coord&#62;, &#60;coord&#62;)  ... returns distance to a great circle (in m along Earth curvature)
+defined by two points  
+.horizon()                  ... returns distance to the horizon in m along Earth curvature, ignoring altitudes
+
+
+MANIPULATION METHODS:
+
+.apply_course_distance(&#60;course&#62;, &#60;distance&#62;)       ... moves the coord distance in meters in course direction (true)
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
+geo.aircraft_position()         ... returns current aircraft position as geo.Coord
+geo.viewer_position()           ... returns viewer position as geo.Coord
+geo.click_position()            ... returns last click coords as geo.Coord or nil before first click
+
+geo.tile_path(&#60;lat&#62;, &#60;lon&#62;)     ... returns tile path string (e.g. &#34;w130n30/w123n37/942056.stg&#34;)
+geo.elevation(&#60;lat&#62;, &#60;lon&#62; [, &#60;top:10000&#62;])
+... returns elevation in meter for given lat/lon, or nil on error;
+&#60;top&#62; is the altitude at which the intersection test starts
+
+geo.normdeg(&#60;angle&#62;)            ... returns angle normalized to    0 &#60;= angle &#60; 360
+geo.normdeg180(&#60;angle&#62;)         ... returns angle normalized to -180 &#60; angle &#60;= 360
+
+geo.put_model(&#60;path&#62;, &#60;lat&#62;, &#60;lon&#62; [, &#60;elev:nil&#62; [, &#60;hdg:0&#62; [, &#60;pitch:0&#62; [, &#60;roll:0&#62;]]]]);
+... put model &#60;path&#62; at location &#60;lat&#62;/&#60;lon&#62; with given elevation
+(optional, default: surface). &#60;hdg&#62;/&#60;pitch&#62;/&#60;roll&#62; are optional
+and default to zero.
+geo.put_model(&#60;path&#62;, &#60;coord&#62; [, &#60;hdg:0&#62; [, &#60;pitch:0&#62; [, &#60;roll:0&#62;]]]);
+... same as above, but lat/lon/elev are taken from a Coord object
+" />
+		<meta name="og:image" content="../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta name="og:title" content="Namespace globals.geo" />
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../style.css" />
+
+		<link rel="apple-touch-icon" href="../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../list.html">All items</a></li>
+				<li><a href="../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Namespace</h3>
+				<ul class="flex">
+					<li><a href="#description">Description</a></li>
+										 <li><a href="#classes">Classes</a></li> 					 <li><a href="#funcs">Functions</a></li> 					 <li><a href="#vars">Variables</a></li> 				</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Namespace</span>
+					
+						<a href="../index.html">
+							globals
+						</a>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+										<span>geo</span>
+							</h1>
+
+			
+				<p><a href="../src/geo.nas.html#1">
+					View source
+				</a></p>
+			
+			<div id="description"><pre>geo functions
+-------------------------------------------------------------------------------------------------
+
+
+geo.Coord class
+-------------------------------------------------------------------------------------------------
+
+geo.Coord.new([&#60;coord&#62;])        ... class that holds and maintains geographical coordinates
+can be initialized with another geo.Coord instance
+
+SETTER METHODS:
+
+.set(&#60;coord&#62;)               ... sets coordinates from another geo.Coord instance
+
+.set_lat(&#60;num&#62;)             ... functions for setting latitude/longitude/altitude
+.set_lon(&#60;num&#62;)
+.set_alt(&#60;num&#62;)             ..this is in meters
+.set_latlon(&#60;num&#62;, &#60;num&#62; [, &#60;num&#62;])      (altitude (meters) is optional; default=0)
+
+.set_x(&#60;num&#62;)               ... functions for setting cartesian x/y/z coordinates
+.set_y(&#60;num&#62;)
+.set_z(&#60;num&#62;)
+.set_xyz(&#60;num&#62;, &#60;num&#62;, &#60;num&#62;)
+
+
+GETTER METHODS:
+
+.lat()
+.lon()                      ... functions for getting lat/lon/alt
+.alt()                          ... returns altitude in m
+.latlon()                       ... returns vector  [&#60;lat&#62;, &#60;lon&#62;, &#60;alt&#62;]
+
+.x()                        ... functions for reading cartesian coords (in m)
+.y()
+.z()
+.xyz()                          ... returns vector  [&#60;x&#62;, &#60;y&#62;, &#60;z&#62;]
+
+
+QUERY METHODS:
+
+.is_defined()               ... returns whether the coords are defined
+.dump()                     ... outputs coordinates
+.course_to(&#60;coord&#62;)         ... returns course to another geo.Coord instance (degree)
+.distance_to(&#60;coord&#62;)       ... returns distance in m along Earth curvature, ignoring altitudes
+useful for map distance
+.direct_distance_to(&#60;coord&#62;)      ...   distance in m direct, considers altitude,
+but cuts through Earth surface
+.greatcircle_distance_to(&#60;coord&#62;, &#60;coord&#62;)  ... returns distance to a great circle (in m along Earth curvature)
+defined by two points  
+.horizon()                  ... returns distance to the horizon in m along Earth curvature, ignoring altitudes
+
+
+MANIPULATION METHODS:
+
+.apply_course_distance(&#60;course&#62;, &#60;distance&#62;)       ... moves the coord distance in meters in course direction (true)
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
+geo.aircraft_position()         ... returns current aircraft position as geo.Coord
+geo.viewer_position()           ... returns viewer position as geo.Coord
+geo.click_position()            ... returns last click coords as geo.Coord or nil before first click
+
+geo.tile_path(&#60;lat&#62;, &#60;lon&#62;)     ... returns tile path string (e.g. "w130n30/w123n37/942056.stg")
+geo.elevation(&#60;lat&#62;, &#60;lon&#62; [, &#60;top:10000&#62;])
+... returns elevation in meter for given lat/lon, or nil on error;
+&#60;top&#62; is the altitude at which the intersection test starts
+
+geo.normdeg(&#60;angle&#62;)            ... returns angle normalized to    0 &#60;= angle &#60; 360
+geo.normdeg180(&#60;angle&#62;)         ... returns angle normalized to -180 &#60; angle &#60;= 360
+
+geo.put_model(&#60;path&#62;, &#60;lat&#62;, &#60;lon&#62; [, &#60;elev:nil&#62; [, &#60;hdg:0&#62; [, &#60;pitch:0&#62; [, &#60;roll:0&#62;]]]]);
+... put model &#60;path&#62; at location &#60;lat&#62;/&#60;lon&#62; with given elevation
+(optional, default: surface). &#60;hdg&#62;/&#60;pitch&#62;/&#60;roll&#62; are optional
+and default to zero.
+geo.put_model(&#60;path&#62;, &#60;coord&#62; [, &#60;hdg:0&#62; [, &#60;pitch:0&#62; [, &#60;roll:0&#62;]]]);
+... same as above, but lat/lon/elev are taken from a Coord object
+</pre></div>
+
+			
+			
+				<h2 id="classes">Classes</h2>
+
+				
+					<div class="flex">
+						<h3><a href="Coord/index.html">Coord</a></h3>
+						 <p>class that maintains one set of geographical coordinates
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="PositionedSearch/index.html">PositionedSearch</a></h3>
+						 <p>A object to handle differential positioned searches:
+searchCmd executes and returns the actual search,
+onAdded and onRemoved are callbacks,
+and obj is a &#34;me&#34; reference (defaults to &#34;me&#34; in the
+caller&#39;s namespace). If searchCmd returns nil, nothing
+happens, i.e. the diff is cancelled.
+</p> 					</div>
+							
+			
+				<h2 id="funcs">Functions</h2>
+
+				
+					<div class="flex">
+						<h3><a href="func.aircraft_position.html">aircraft_position</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.click_position.html">click_position</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.elevation.html">elevation</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.format.html">format</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.normdeg.html">normdeg</a></h3>
+						 <p>normalize degree to 0 &#60;= angle &#60; 360
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.normdeg180.html">normdeg180</a></h3>
+						 <p>normalize degree to -180 &#60; angle &#60;= 180
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.put_model.html">put_model</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.tile_index.html">tile_index</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.tile_path.html">tile_path</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.viewer_position.html">viewer_position</a></h3>
+											</div>
+							
+			
+				<h2 id="vars">Variables</h2>
+
+				
+					<div class="flex">
+						<h3><a href="var.EPSILON.html">EPSILON</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.ERAD.html">ERAD</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.click_coord.html">click_coord</a></h3>
+											</div>
+									</main>
+	</body>
+</html>

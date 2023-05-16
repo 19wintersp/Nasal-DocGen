@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Class globals.screen.display</title>
+
+		<meta name="color-scheme" content="dark light" />
+		<meta name="description" content="screen.display
+------------------------------------------------------------------------------
+Class that manages a dialog, which displays an arbitrary number of properties
+periodically updating the values. Property names are abbreviated to the
+shortest possible unique part.
+
+Example:
+
+var dpy = screen.display.new(20, 10);    # x/y coordinate
+dpy.setcolor(1, 0, 1);                   # magenta (default: white)
+dpy.setfont(&#34;SANS_12B&#34;,12);              # see $FG_ROOT/gui/styles/*.xml
+
+dpy.add(&#34;/position/latitude-deg&#34;, &#34;/position/longitude-deg&#34;);
+dpy.add(props.globals.getNode(&#34;/orientation&#34;).getChildren());
+
+
+The add() method takes one or more property paths or props.Nodes, or a vector
+containing those, or a hash with properties, or vectors with properties, etc.
+Internal &#34;public&#34; parameters may be set directly:
+
+dpy.interval = 0;                        # update every frame
+dpy.format = &#34;%.3g&#34;;                     # max. 3 digits fractional part
+dpy.tagformat = &#34;%-12s&#34;;                 # align prop names to 12 spaces
+dpy.redraw();                            # pick up new settings
+
+
+The open() method should only be used to undo a close() call. In all other
+cases this is done implicitly. redraw() is automatically called by an add(),
+but can be used to let the dialog pick up new settings of internal variables.
+
+
+Methods add(), setfont() and setcolor() can be appended to the new()
+constructor (-&#62; show big yellow frame rate counter in upper right corner):
+
+screen.display.new(-15, -5, 0).setfont(&#34;TIMES_24&#34;).setcolor(1, 0.9, 0).add(&#34;/sim/frame-rate&#34;);
+
+" />
+		<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		<meta name="og:description" content="screen.display
+------------------------------------------------------------------------------
+Class that manages a dialog, which displays an arbitrary number of properties
+periodically updating the values. Property names are abbreviated to the
+shortest possible unique part.
+
+Example:
+
+var dpy = screen.display.new(20, 10);    # x/y coordinate
+dpy.setcolor(1, 0, 1);                   # magenta (default: white)
+dpy.setfont(&#34;SANS_12B&#34;,12);              # see $FG_ROOT/gui/styles/*.xml
+
+dpy.add(&#34;/position/latitude-deg&#34;, &#34;/position/longitude-deg&#34;);
+dpy.add(props.globals.getNode(&#34;/orientation&#34;).getChildren());
+
+
+The add() method takes one or more property paths or props.Nodes, or a vector
+containing those, or a hash with properties, or vectors with properties, etc.
+Internal &#34;public&#34; parameters may be set directly:
+
+dpy.interval = 0;                        # update every frame
+dpy.format = &#34;%.3g&#34;;                     # max. 3 digits fractional part
+dpy.tagformat = &#34;%-12s&#34;;                 # align prop names to 12 spaces
+dpy.redraw();                            # pick up new settings
+
+
+The open() method should only be used to undo a close() call. In all other
+cases this is done implicitly. redraw() is automatically called by an add(),
+but can be used to let the dialog pick up new settings of internal variables.
+
+
+Methods add(), setfont() and setcolor() can be appended to the new()
+constructor (-&#62; show big yellow frame rate counter in upper right corner):
+
+screen.display.new(-15, -5, 0).setfont(&#34;TIMES_24&#34;).setcolor(1, 0.9, 0).add(&#34;/sim/frame-rate&#34;);
+
+" />
+		<meta name="og:image" content="../../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta name="og:title" content="Class globals.screen.display" />
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../../style.css" />
+
+		<link rel="apple-touch-icon" href="../../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../../list.html">All items</a></li>
+				<li><a href="../../src.html">Sources</a></li> <!-- FIXME: SOURCES -->
+			</ul>
+
+			<div class="flex">
+				<h3>Class</h3>
+				<ul class="flex">
+					<li><a href="#description">Description</a></li>
+					
+												 <li><a href="#funcs">Functions</a></li> 						 <li><a href="#vars">Properties</a></li> 									</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				<span>Class</span>
+				
+					<a href="../../index.html">
+						globals
+					</a>
+					<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+				
+					<a href="../index.html">
+						screen
+					</a>
+					<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+								<span>display</span>
+			</h1>
+
+			
+				<p><a href="../../src/screen.nas.html#239">
+					View source
+				</a></p>
+			
+			<div id="description"><pre>screen.display
+------------------------------------------------------------------------------
+Class that manages a dialog, which displays an arbitrary number of properties
+periodically updating the values. Property names are abbreviated to the
+shortest possible unique part.
+
+Example:
+
+var dpy = screen.display.new(20, 10);    # x/y coordinate
+dpy.setcolor(1, 0, 1);                   # magenta (default: white)
+dpy.setfont("SANS_12B",12);              # see $FG_ROOT/gui/styles/*.xml
+
+dpy.add("/position/latitude-deg", "/position/longitude-deg");
+dpy.add(props.globals.getNode("/orientation").getChildren());
+
+
+The add() method takes one or more property paths or props.Nodes, or a vector
+containing those, or a hash with properties, or vectors with properties, etc.
+Internal "public" parameters may be set directly:
+
+dpy.interval = 0;                        # update every frame
+dpy.format = "%.3g";                     # max. 3 digits fractional part
+dpy.tagformat = "%-12s";                 # align prop names to 12 spaces
+dpy.redraw();                            # pick up new settings
+
+
+The open() method should only be used to undo a close() call. In all other
+cases this is done implicitly. redraw() is automatically called by an add(),
+but can be used to let the dialog pick up new settings of internal variables.
+
+
+Methods add(), setfont() and setcolor() can be appended to the new()
+constructor (-&#62; show big yellow frame rate counter in upper right corner):
+
+screen.display.new(-15, -5, 0).setfont("TIMES_24").setcolor(1, 0.9, 0).add("/sim/frame-rate");
+
+</pre></div>
+
+			
+				
+				
+					<h2 id="funcs">Functions</h2>
+
+					
+						<div class="flex">
+							<h3><a href="func.add.html">add</a></h3>
+													</div>
+					
+						<div class="flex">
+							<h3><a href="func.close.html">close</a></h3>
+													</div>
+					
+						<div class="flex">
+							<h3><a href="func.nameof.html">nameof</a></h3>
+													</div>
+					
+						<div class="flex">
+							<h3><a href="func.new.html">new</a></h3>
+													</div>
+					
+						<div class="flex">
+							<h3><a href="func.open.html">open</a></h3>
+							 <p>add() opens already, so call open() explicitly only after close()!
+</p> 						</div>
+					
+						<div class="flex">
+							<h3><a href="func.redraw.html">redraw</a></h3>
+													</div>
+					
+						<div class="flex">
+							<h3><a href="func.reset.html">reset</a></h3>
+													</div>
+					
+						<div class="flex">
+							<h3><a href="func.setcolor.html">setcolor</a></h3>
+													</div>
+					
+						<div class="flex">
+							<h3><a href="func.setfont.html">setfont</a></h3>
+													</div>
+					
+						<div class="flex">
+							<h3><a href="func.toggle.html">toggle</a></h3>
+													</div>
+					
+						<div class="flex">
+							<h3><a href="func.update.html">update</a></h3>
+													</div>
+									
+				
+					<h2 id="vars">Variables</h2>
+
+					
+						<div class="flex">
+							<h3><a href="var.id.html">id</a></h3>
+													</div>
+														</main>
+	</body>
+</html>

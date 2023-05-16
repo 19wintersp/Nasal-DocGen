@@ -1,0 +1,59 @@
+{{#name=!}}
+	<h1>
+		Namespace
+		{{#parents}}<span>{{.}}</span>.{{/parents}}
+		<span>{{name}}</span>
+	</h1>
+{{/name=!}}
+
+{{#name=}}
+	<h1>Library</h1>
+{{/name=}}
+
+<p>Root: {{root}}</p>
+
+{{#source}}
+	<p>Source: {{file}}#{{line}}</p>
+{{/source}}
+
+{{desc}}
+
+{{#modules=!null}}
+	<h2>Sub-namespaces</h2>
+
+	<ul>
+		{{#modules}}
+			<li>{{name}} - {{desc}}</li>
+		{{/modules}}
+	</ul>
+{{/modules=!null}}
+
+{{#classes=!null}}
+	<h2>Classes</h2>
+
+	<ul>
+		{{#classes}}
+			<li>{{name}} - {{desc}}</li>
+		{{/classes}}
+	</ul>
+{{/classes=!null}}
+
+{{#funcs=!null}}
+	<h2>Functions</h2>
+
+	<ul>
+		{{#funcs}}
+			<li>{{name}} - {{desc}}</li>
+		{{/funcs}}
+	</ul>
+{{/funcs=!null}}
+
+{{#vars=!null}}
+	<h2>Variables</h2>
+
+	<ul>
+		{{#vars}}
+			<li>{{name}} - {{desc}}</li>
+		{{/vars}}
+	</ul>
+{{/vars=!null}}

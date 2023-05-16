@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Namespace globals.debug</title>
+
+		<meta name="color-scheme" content="dark light" />
+		<meta name="description" content="debug.nas -- debugging helpers
+------------------------------------------------------------------------------
+
+debug.dump(&#60;variable&#62;)               ... dumps contents of variable to terminal;
+abbreviation for print(debug.string(v))
+
+debug.local([&#60;frame:int&#62;])           ... dump local variables of current
+or given frame
+
+debug.backtrace([&#60;comment:string&#62;], [&#60;dump:bool=1&#62;], [&#60;skip_level:int=0&#62;]}
+... writes backtrace (similar to gdb&#39;s &#34;bt full)
+dump=0: only call stack 
+dump=1 (default): with local variables 
+skip_level: remove this many levels from 
+call stack
+
+debug.proptrace([&#60;property [, &#60;frames&#62;]]) ... trace property write/add/remove
+events under the &#60;property&#62; subtree for
+a number of frames. Defaults are &#34;/&#34; and
+2 frames (of which the first one is incomplete).
+
+debug.tree([&#60;property&#62; [, &#60;mode&#62;])   ... dump property tree under property path
+or props.Node hash (default: root). If
+&#60;mode&#62; is unset or 0, use flat mode
+(similar to props.dump()), otherwise
+use space indentation
+
+debug.bt()                           ... abbreviation for debug.backtrace()
+
+debug.string(&#60;variable&#62;)             ... returns contents of variable as string
+
+debug.attributes(&#60;property&#62; [, &#60;verb&#62;]) ... returns attribute string for a given property.
+&#60;verb&#62;ose is by default 1, and suppressed the
+node&#39;s refcounter if 0.
+
+debug.isnan()                            returns 1 if argument is an invalid number (NaN),
+0 if it&#39;s a valid number, and nil in all other cases
+
+debug.benchmark(&#60;label:string&#62;, &#60;func&#62; [, &#60;repeat:int&#62; [, &#60;output:vector&#62;]])
+... runs function &#60;repeat&#62; times (default: nil)
+and prints total execution time in seconds,
+prefixed with &#60;label&#62;, while adding results
+to &#60;output&#62;, or returning the only result
+if &#60;repeat&#62; is nil.
+
+debug.benchmark_time(&#60;func&#62; [, &#60;repeat:int&#62; [, &#60;output:vector&#62;]])
+... like debug.benchmark, but returns total
+execution time and does not print anything.
+
+debug.rank(&#60;list:vector&#62; [, &#60;repeat:int&#62;])
+... sorts the list of functions based on execution
+time over &#60;repeat&#62; samples (default: 1).
+
+debug.print_rank(&#60;result:vector&#62;, &#60;names:int&#62;)
+... prints the &#60;result&#62; of debug.rank with &#60;names&#62;
+(which can be a vector of [name, func] or
+[func, name], or a hash of name:func).
+
+debug.printerror(&#60;err-vector&#62;)       ... prints error vector as set by call()
+
+debug.warn(&#60;message&#62;, &#60;level&#62;)       ... generate debug message followed by caller stack trace
+skipping &#60;level&#62; caller levels (default: 0).
+
+debug.propify(&#60;variable&#62;)            ... turn about everything into a props.Node
+
+debug.Probe       class              ... base class to collect stats; details below
+debug.Breakpoint  class              ... conditional backtrace; details below
+
+debug.addProbeToFunc(label, func)    ... wraps a function with a probe 
+debug.findFunctions(ns, recursive=0) ... find all functions in a hash (namespace)
+
+debug.addProbesToNamespace(ns, label=&#34;&#34;, recursive=0) 
+... combines findFunctions and addProbeToFunc
+
+CAVE: this file makes extensive use of ANSI color codes. These are
+interpreted by UNIX shells and MS Windows with ANSI.SYS extension
+installed. If the color codes aren&#39;t interpreted correctly, then
+set property /sim/startup/terminal-ansi-colors=0
+
+" />
+		<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		<meta name="og:description" content="debug.nas -- debugging helpers
+------------------------------------------------------------------------------
+
+debug.dump(&#60;variable&#62;)               ... dumps contents of variable to terminal;
+abbreviation for print(debug.string(v))
+
+debug.local([&#60;frame:int&#62;])           ... dump local variables of current
+or given frame
+
+debug.backtrace([&#60;comment:string&#62;], [&#60;dump:bool=1&#62;], [&#60;skip_level:int=0&#62;]}
+... writes backtrace (similar to gdb&#39;s &#34;bt full)
+dump=0: only call stack 
+dump=1 (default): with local variables 
+skip_level: remove this many levels from 
+call stack
+
+debug.proptrace([&#60;property [, &#60;frames&#62;]]) ... trace property write/add/remove
+events under the &#60;property&#62; subtree for
+a number of frames. Defaults are &#34;/&#34; and
+2 frames (of which the first one is incomplete).
+
+debug.tree([&#60;property&#62; [, &#60;mode&#62;])   ... dump property tree under property path
+or props.Node hash (default: root). If
+&#60;mode&#62; is unset or 0, use flat mode
+(similar to props.dump()), otherwise
+use space indentation
+
+debug.bt()                           ... abbreviation for debug.backtrace()
+
+debug.string(&#60;variable&#62;)             ... returns contents of variable as string
+
+debug.attributes(&#60;property&#62; [, &#60;verb&#62;]) ... returns attribute string for a given property.
+&#60;verb&#62;ose is by default 1, and suppressed the
+node&#39;s refcounter if 0.
+
+debug.isnan()                            returns 1 if argument is an invalid number (NaN),
+0 if it&#39;s a valid number, and nil in all other cases
+
+debug.benchmark(&#60;label:string&#62;, &#60;func&#62; [, &#60;repeat:int&#62; [, &#60;output:vector&#62;]])
+... runs function &#60;repeat&#62; times (default: nil)
+and prints total execution time in seconds,
+prefixed with &#60;label&#62;, while adding results
+to &#60;output&#62;, or returning the only result
+if &#60;repeat&#62; is nil.
+
+debug.benchmark_time(&#60;func&#62; [, &#60;repeat:int&#62; [, &#60;output:vector&#62;]])
+... like debug.benchmark, but returns total
+execution time and does not print anything.
+
+debug.rank(&#60;list:vector&#62; [, &#60;repeat:int&#62;])
+... sorts the list of functions based on execution
+time over &#60;repeat&#62; samples (default: 1).
+
+debug.print_rank(&#60;result:vector&#62;, &#60;names:int&#62;)
+... prints the &#60;result&#62; of debug.rank with &#60;names&#62;
+(which can be a vector of [name, func] or
+[func, name], or a hash of name:func).
+
+debug.printerror(&#60;err-vector&#62;)       ... prints error vector as set by call()
+
+debug.warn(&#60;message&#62;, &#60;level&#62;)       ... generate debug message followed by caller stack trace
+skipping &#60;level&#62; caller levels (default: 0).
+
+debug.propify(&#60;variable&#62;)            ... turn about everything into a props.Node
+
+debug.Probe       class              ... base class to collect stats; details below
+debug.Breakpoint  class              ... conditional backtrace; details below
+
+debug.addProbeToFunc(label, func)    ... wraps a function with a probe 
+debug.findFunctions(ns, recursive=0) ... find all functions in a hash (namespace)
+
+debug.addProbesToNamespace(ns, label=&#34;&#34;, recursive=0) 
+... combines findFunctions and addProbeToFunc
+
+CAVE: this file makes extensive use of ANSI color codes. These are
+interpreted by UNIX shells and MS Windows with ANSI.SYS extension
+installed. If the color codes aren&#39;t interpreted correctly, then
+set property /sim/startup/terminal-ansi-colors=0
+
+" />
+		<meta name="og:image" content="../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta name="og:title" content="Namespace globals.debug" />
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../style.css" />
+
+		<link rel="apple-touch-icon" href="../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../list.html">All items</a></li>
+				<li><a href="../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Namespace</h3>
+				<ul class="flex">
+					<li><a href="#description">Description</a></li>
+					 <li><a href="#modules">Sub-namespaces</a></li> 					 <li><a href="#classes">Classes</a></li> 					 <li><a href="#funcs">Functions</a></li> 					 <li><a href="#vars">Variables</a></li> 				</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Namespace</span>
+					
+						<a href="../index.html">
+							globals
+						</a>
+						<svg class="sep" width="14" height="16" viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg"><title>.</title><path d="M13.8564 8L0 16V0L13.8564 8Z" /></svg>
+										<span>debug</span>
+							</h1>
+
+			
+				<p><a href="../src/debug.nas.html#1">
+					View source
+				</a></p>
+			
+			<div id="description"><pre>debug.nas -- debugging helpers
+------------------------------------------------------------------------------
+
+debug.dump(&#60;variable&#62;)               ... dumps contents of variable to terminal;
+abbreviation for print(debug.string(v))
+
+debug.local([&#60;frame:int&#62;])           ... dump local variables of current
+or given frame
+
+debug.backtrace([&#60;comment:string&#62;], [&#60;dump:bool=1&#62;], [&#60;skip_level:int=0&#62;]}
+... writes backtrace (similar to gdb's "bt full)
+dump=0: only call stack 
+dump=1 (default): with local variables 
+skip_level: remove this many levels from 
+call stack
+
+debug.proptrace([&#60;property [, &#60;frames&#62;]]) ... trace property write/add/remove
+events under the &#60;property&#62; subtree for
+a number of frames. Defaults are "/" and
+2 frames (of which the first one is incomplete).
+
+debug.tree([&#60;property&#62; [, &#60;mode&#62;])   ... dump property tree under property path
+or props.Node hash (default: root). If
+&#60;mode&#62; is unset or 0, use flat mode
+(similar to props.dump()), otherwise
+use space indentation
+
+debug.bt()                           ... abbreviation for debug.backtrace()
+
+debug.string(&#60;variable&#62;)             ... returns contents of variable as string
+
+debug.attributes(&#60;property&#62; [, &#60;verb&#62;]) ... returns attribute string for a given property.
+&#60;verb&#62;ose is by default 1, and suppressed the
+node's refcounter if 0.
+
+debug.isnan()                            returns 1 if argument is an invalid number (NaN),
+0 if it's a valid number, and nil in all other cases
+
+debug.benchmark(&#60;label:string&#62;, &#60;func&#62; [, &#60;repeat:int&#62; [, &#60;output:vector&#62;]])
+... runs function &#60;repeat&#62; times (default: nil)
+and prints total execution time in seconds,
+prefixed with &#60;label&#62;, while adding results
+to &#60;output&#62;, or returning the only result
+if &#60;repeat&#62; is nil.
+
+debug.benchmark_time(&#60;func&#62; [, &#60;repeat:int&#62; [, &#60;output:vector&#62;]])
+... like debug.benchmark, but returns total
+execution time and does not print anything.
+
+debug.rank(&#60;list:vector&#62; [, &#60;repeat:int&#62;])
+... sorts the list of functions based on execution
+time over &#60;repeat&#62; samples (default: 1).
+
+debug.print_rank(&#60;result:vector&#62;, &#60;names:int&#62;)
+... prints the &#60;result&#62; of debug.rank with &#60;names&#62;
+(which can be a vector of [name, func] or
+[func, name], or a hash of name:func).
+
+debug.printerror(&#60;err-vector&#62;)       ... prints error vector as set by call()
+
+debug.warn(&#60;message&#62;, &#60;level&#62;)       ... generate debug message followed by caller stack trace
+skipping &#60;level&#62; caller levels (default: 0).
+
+debug.propify(&#60;variable&#62;)            ... turn about everything into a props.Node
+
+debug.Probe       class              ... base class to collect stats; details below
+debug.Breakpoint  class              ... conditional backtrace; details below
+
+debug.addProbeToFunc(label, func)    ... wraps a function with a probe 
+debug.findFunctions(ns, recursive=0) ... find all functions in a hash (namespace)
+
+debug.addProbesToNamespace(ns, label="", recursive=0) 
+... combines findFunctions and addProbeToFunc
+
+CAVE: this file makes extensive use of ANSI color codes. These are
+interpreted by UNIX shells and MS Windows with ANSI.SYS extension
+installed. If the color codes aren't interpreted correctly, then
+set property /sim/startup/terminal-ansi-colors=0
+
+</pre></div>
+
+			
+				<h2 id="modules">Sub-namespaces</h2>
+
+				
+					<div class="flex">
+						<h3><a href="emesary_deb/index.html">emesary_deb</a></h3>
+						 <p>SPDX-License-Identifier: GPL-2.0-or-later
+
+NOTE! This copyright does *not* cover user models that use these Nasal
+services by normal function calls - this is merely considered normal use
+of the code, and does *not* fall under the heading of &#34;derived work.&#34;
+-------------------------------------------------------------------------------
+emesary.deb.nas - emesary debug helpers
+author:   Henning Stahlke
+created:  06/2020
+-------------------------------------------------------------------------------
+</p> 					</div>
+							
+			
+				<h2 id="classes">Classes</h2>
+
+				
+					<div class="flex">
+						<h3><a href="Breakpoint/index.html">Breakpoint</a></h3>
+						 <p>Breakpoint (BP) - do conditional backtrace (BT) controlled via property tree
+* count how often the BP was hit
+* do only a limited number of BT, avoid flooding the log / console
+
+Data can be viewed / modified in the prop tree /_debug/nas/bp/&#60;myLabel&#62;/*
+* tokens: number of backtraces to do; each hit will decrement this by 1
+* hits:   total number of hits
+
+== Example == 
+var myBP = debug.Breakpoint.new(&#34;myLabel&#34;, 0);
+myBP.enable(4);       # allow 4 hits, then be quiet 
+
+#at the place of interest (e.g. in some loop or class method) insert:
+myBP.hit();           # do backtrace here if tokens &#62; 0, reduce tokens by 1
+myBP.hit(myFunction); # same but call myFunction instead of backtrace
+
+print(myBP.getHits()); # print total number of hits
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="Probe/index.html">Probe</a></h3>
+						 <p>Probe class - collect statistics; controlled via property tree
+Data can be viewed / modified in the prop tree /_debug/nas/probe/&#60;myLabel&#62;/*
+./enable    bool, 
+./reset     bool, reset hit counters to 0 and _start_time to now
+./hits[i]   number of hits, by default i=0 -&#62; hits
+secondary counters can be added under the same path 
+with addCounter()
+./time      after generateStats() show how long the probe was enabled
+./hps       after generateStats() show avg. hits/second
+./hitratio  after generateStats() if two counters: hits[1]/hits[0]
+
+== Example == 
+var myProbe = debug.Probe.new(&#34;myLabel&#34;).enable();
+var cnt2 = myProbe.addCounter(); # create a 2nd counter
+
+#at the place of interest (e.g. in some loop or class method) insert:
+myProbe.hit();        # count how often this place in the code is hit
+if (condition) 
+myProbe.hit(cnt2); # count how often condition is true
+
+print(myProbe.getHits()); 
+print(myProbe.getHits(cnt2)/myProbe.getHits()); # print hit ratio
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="Tracer/index.html">Tracer</a></h3>
+						 <p>Tracer - perform conditional backtraces / statistics controlled via property tree
+* backtraces are written to property tree
+* do only a limited number of BT, avoid flooding the log / console
+* trace statistics can be dumped to XML file
+
+Data can be viewed / modified in the prop tree /_debug/nas/trc/&#60;myLabel&#62;/*
+* tokens: number of backtraces to do; each hit will decrement this by 1
+* hits:   total number of hits
+
+== Example == 
+var myBP = debug.Tracer.new(&#34;myLabel&#34;, 0);
+myBP.enable(4);       # allow 4 hits, then be quiet 
+
+#at the place of interest (e.g. in some loop or class method) insert:
+myBP.hit();           # do backtrace here if tokens &#62; 0, reduce tokens by 1
+myBP.hit(myFunction); # same but call myFunction instead of backtrace
+
+print(myBP.getHits()); # print total number of hits
+
+</p> 					</div>
+							
+			
+				<h2 id="funcs">Functions</h2>
+
+				
+					<div class="flex">
+						<h3><a href="func.addProbeToFunc.html">addProbeToFunc</a></h3>
+						 <p>addProbeToFunc - wrap a function with a debug probe
+f:        function to wrap with a debug probe (hit counter)
+label:    description, passed to probe
+
+WARNING: call() currently breaks the call stack which affects backtrace and 
+the use of caller(i&#62;0). Do not use addProbeToFunc on functions which rely on
+caller (which is probably bad coding style, but allowed).
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.addProbesToNamespace.html">addProbesToNamespace</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.addTracerToFunc.html">addTracerToFunc</a></h3>
+						 <p>addTracerToFunc - wrap a function with a debug breakpoint for tracing
+f:        function to wrap with a tracer
+label:    description, passed to breakpoint
+
+WARNING: call() currently breaks the call stack which affects backtrace and 
+the use of caller(i&#62;0). Do not use addTracerToFunc on functions which rely on
+caller (which is probably bad coding style, but allowed).
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.attributes.html">attributes</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.backtrace.html">backtrace</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.benchmark.html">benchmark</a></h3>
+						 <p>
+Executes function fn &#34;repeat&#34; times and prints execution time in seconds. If repeat
+is an integer and an optional &#34;output&#34; argument is specified, each test&#39;s result
+is appended to that vector, then the vector is returned. If repeat is nil, then
+the function is run once and the result returned. Otherwise, the result is discarded.
+Examples:
+
+var test = func { getprop(&#34;/sim/aircraft&#34;); }
+debug.benchmark(&#34;test()/1&#34;, test, 1000);
+debug.benchmark(&#34;test()/2&#34;, func setprop(&#34;/sim/aircraft&#34;, &#34;&#34;), 1000);
+
+var results = debug.benchmark(&#34;test()&#34;, test, 1000, []);
+print(&#34;  Results were:&#34;);
+print(&#34;    &#34;, debug.string(results));
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.benchmark_time.html">benchmark_time</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.dump.html">dump</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.dumpProbeStats.html">dumpProbeStats</a></h3>
+						 <p>dump a sorted list of hit counters to console
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.findFunctions.html">findFunctions</a></h3>
+						 <p>scan a hash for function references
+ns:           the hash to be searched
+recursive:    if you want to search sub hashes (e.g. classes), set this to 1
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.funcname.html">funcname</a></h3>
+						 <p>According to the Nasal design doc funtions do not have unique internal names.
+Nevertheless you can sometimes find a matching symbol, so funcname may help to
+make debug output more helpful, but unfortunately you cannot rely on it.
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.isnan.html">isnan</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.local.html">local</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.print_rank.html">print_rank</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.printerror.html">printerror</a></h3>
+						 <p>
+print error vector as set by call(). By using call() one can execute
+code that catches &#34;exceptions&#34; (by a die() call or errors). The Nasal
+code doesn&#39;t abort in this case. Example:
+
+var possibly_buggy = func { ... }
+call(possibly_buggy, nil, var err = []);
+debug.printerror(err);
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.propify.html">propify</a></h3>
+						 <p>
+Turn p into props.Node (if it isn&#39;t yet), or return nil.
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.proptrace.html">proptrace</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.rank.html">rank</a></h3>
+						 <p>
+Executes each function in the list and returns a sorted vector with the fastest
+on top (i.e. first). Each position in the result is a vector of [func, time].
+
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="func.removeProbesFromNamespace.html">removeProbesFromNamespace</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.string.html">string</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.tree.html">tree</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="func.warn.html">warn</a></h3>
+						 <p>like die(), but code execution continues. The level argument defines
+how many caller() levels to omit. One is automatically omitted, as
+this would only point to debug.warn(), where the event in question
+didn&#39;t happen.
+
+</p> 					</div>
+							
+			
+				<h2 id="vars">Variables</h2>
+
+				
+					<div class="flex">
+						<h3><a href="var.bp.html">bp</a></h3>
+						 <p>-- Init -----------------------------------------------------------------------
+General purpose breakpoint for the lazy ones.
+</p> 					</div>
+				
+					<div class="flex">
+						<h3><a href="var.bt.html">bt</a></h3>
+											</div>
+				
+					<div class="flex">
+						<h3><a href="var.dumpN.html">dumpN</a></h3>
+											</div>
+									</main>
+	</body>
+</html>

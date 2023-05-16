@@ -1,0 +1,2639 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Source dynamic_view.nas</title>
+
+		<meta name="color-scheme" content="dark light" />
+		
+			<meta
+				name="description"
+				content="Source file dynamic_view.nas in globals."
+			/>
+				<meta name="generator" content="nasal-docgen" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		
+			<meta
+				name="og:description"
+				content="Source file dynamic_view.nas in globals."
+			/>
+				<meta name="og:image" content="../card.png" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:site_name" content="Library globals" />
+		<meta
+			name="og:title"
+			content="Source dynamic_view.nas"
+		/>
+		<meta name="og:type" content="website" />
+		<!-- <meta name="og:url" content="..." /> -->
+
+		<link rel="stylesheet" href="../style.css" />
+
+		<link rel="apple-touch-icon" href="../icon.png" />
+		<!-- <link rel="canonical" href="..." /> -->
+		<link rel="icon" href="../favicon.png" />
+	</head>
+
+	<body>
+		<details id="toggle">
+			<summary>
+				<header>
+					<h2>Library <a href="../index.html">globals</a></h2>
+					<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" /></svg>
+				</header>
+			</summary>
+		</details>
+
+		<nav>
+			<h2>Library <a href="../index.html">globals</a></h2>
+
+			<ul class="flex">
+				<li><a href="../list.html">All items</a></li>
+				<li><a href="../src.html">Sources</a></li>
+			</ul>
+
+			<div class="flex">
+				<h3>Sources</h3>
+				<ul class="flex" id="tree">
+					
+						
+											
+						
+							<li style="--indent: 0;">
+																Autopush/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/Autopush/autopush.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		autopush.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/Autopush/driver.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		driver.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/Autopush/dynarr.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		dynarr.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/Autopush/route.nas.html">
+									
+										<span class="hidden">Autopush/</span>
+																		route.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																FailureMgr/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/FailureMgr/private.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		private.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/FailureMgr/public.nas.html">
+									
+										<span class="hidden">FailureMgr/</span>
+																		public.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																canvas/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																PFD/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/DataEntryElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DataEntryElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/GroupElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		GroupElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/HighlightElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/HighlightTimer.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		HighlightTimer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/PointerElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		PointerElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/RotatingElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		RotatingElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/ScrollElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		ScrollElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/TextElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		TextElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/PFD/UIElement.nas.html">
+									
+										<span class="hidden">canvas/PFD/</span>
+																		UIElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																api/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/canvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/colors.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/element.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		element.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/group.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		group.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/helpers.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		helpers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/image.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		image.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/map.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/path.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		path.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/svgcanvas.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		svgcanvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/text.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		text.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/api/transform.nas.html">
+									
+										<span class="hidden">canvas/api/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																draw/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/draw/compass.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		compass.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/draw/draw.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/draw/scales.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		scales.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/draw/transform.nas.html">
+									
+										<span class="hidden">canvas/draw/</span>
+																		transform.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">canvas/</span>
+																gui/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																dialogs/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/dialogs/AircraftCenter.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		AircraftCenter.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/dialogs/InputDialog.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		InputDialog.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/dialogs/MessageBox.nas.html">
+									
+										<span class="hidden">canvas/gui/dialogs/</span>
+																		MessageBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																styles/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/styles/DefaultStyle.nas.html">
+									
+										<span class="hidden">canvas/gui/styles/</span>
+																		DefaultStyle.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								
+									<span class="hidden">canvas/gui/</span>
+																widgets/
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/widgets/Button.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Button.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/widgets/CdlgWidgets.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CdlgWidgets.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/widgets/CheckBox.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		CheckBox.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/widgets/Label.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		Label.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/widgets/LineEdit.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		LineEdit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 3;">
+								<a href="../src/canvas/gui/widgets/ScrollArea.nas.html">
+									
+										<span class="hidden">canvas/gui/widgets/</span>
+																		ScrollArea.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/gui/Config.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/gui/Style.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Style.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/canvas/gui/Widget.nas.html">
+									
+										<span class="hidden">canvas/gui/</span>
+																		Widget.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/MFD_Generic.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MFD_Generic.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/MapDrivers.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapDrivers.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/MapStructure.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		MapStructure.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/PropertyElement.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		PropertyElement.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/api.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		api.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/draw.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		draw.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/gui.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/map.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		map.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/svg.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		svg.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/canvas/tooltip.nas.html">
+									
+										<span class="hidden">canvas/</span>
+																		tooltip.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																console/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/console/repl.nas.html">
+									
+										<span class="hidden">console/</span>
+																		repl.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																debug/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/debug/emesary.deb.nas.html">
+									
+										<span class="hidden">debug/</span>
+																		emesary.deb.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																input_helpers/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/input_helpers/goflight.nas.html">
+									
+										<span class="hidden">input_helpers/</span>
+																		goflight.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/jetways/jetways.nas.html">
+									
+										<span class="hidden">jetways/</span>
+																		jetways.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																jetways_edit/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/jetways_edit/jetways_edit.nas.html">
+									
+										<span class="hidden">jetways_edit/</span>
+																		jetways_edit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																local_weather/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/local_weather/cloud_definitions.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_definitions.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/local_weather/cloud_placement_lowlevel.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		cloud_placement_lowlevel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/local_weather/compat_layer.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		compat_layer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/local_weather/local_weather.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		local_weather.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/local_weather/sea_colors.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		sea_colors.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/local_weather/weather_dynamics.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_dynamics.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/local_weather/weather_tile_management.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tile_management.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/local_weather/weather_tiles.nas.html">
+									
+										<span class="hidden">local_weather/</span>
+																		weather_tiles.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																modules/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								
+									<span class="hidden">modules/</span>
+																canvas_efis/
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/modules/canvas_efis/display-unit.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		display-unit.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/modules/canvas_efis/efis-canvas.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-canvas.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/modules/canvas_efis/efis-framework.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis-framework.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/modules/canvas_efis/efis.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		efis.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/modules/canvas_efis/eicas-message-sys.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		eicas-message-sys.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 2;">
+								<a href="../src/modules/canvas_efis/main.nas.html">
+									
+										<span class="hidden">modules/canvas_efis/</span>
+																		main.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/modules/dummy.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		dummy.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/modules/repair_config.nas.html">
+									
+										<span class="hidden">modules/</span>
+																		repair_config.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																performance_monitor/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/performance_monitor/monitor.nas.html">
+									
+										<span class="hidden">performance_monitor/</span>
+																		monitor.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																std/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/std/Vector.nas.html">
+									
+										<span class="hidden">std/</span>
+																		Vector.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/std/hash.nas.html">
+									
+										<span class="hidden">std/</span>
+																		hash.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/std/string.nas.html">
+									
+										<span class="hidden">std/</span>
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																towing/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/towing/hitch.nas.html">
+									
+										<span class="hidden">towing/</span>
+																		hitch.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+																tutorial/
+							</li>
+											
+						
+							<li style="--indent: 1;">
+								<a href="../src/tutorial/tutorial.nas.html">
+									
+										<span class="hidden">tutorial/</span>
+																		tutorial.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/addons.nas.html">
+																		addons.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/aircraft.nas.html">
+																		aircraft.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/aurora.nas.html">
+																		aurora.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/bits.nas.html">
+																		bits.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/checklist.nas.html">
+																		checklist.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/contrail.nas.html">
+																		contrail.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/controls.nas.html">
+																		controls.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/debug.nas.html">
+																		debug.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/dynamic_view.nas.html">
+																		dynamic_view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/earthview.nas.html">
+																		earthview.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/emesary.nas.html">
+																		emesary.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/emesary_mp_bridge.nas.html">
+																		emesary_mp_bridge.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/emexec.nas.html">
+																		emexec.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/environment.nas.html">
+																		environment.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/events.nas.html">
+																		events.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/frame_utils.nas.html">
+																		frame_utils.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/fuel.nas.html">
+																		fuel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/geo.nas.html">
+																		geo.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/glide_slope_tunnel.nas.html">
+																		glide_slope_tunnel.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/globals.nas.html">
+																		globals.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/gui.nas.html">
+																		gui.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/io.nas.html">
+																		io.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/joystick.nas.html">
+																		joystick.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/lag_adjust.nas.html">
+																		lag_adjust.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/local_weather_auto_init.nas.html">
+																		local_weather_auto_init.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/material.nas.html">
+																		material.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/math.nas.html">
+																		math.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/modules.nas.html">
+																		modules.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/mp_broadcast.nas.html">
+																		mp_broadcast.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/multikey.nas.html">
+																		multikey.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/multiplayer.nas.html">
+																		multiplayer.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/notifications.nas.html">
+																		notifications.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/orbital_target.nas.html">
+																		orbital_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/prop_key_handler.nas.html">
+																		prop_key_handler.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/props.nas.html">
+																		props.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/redout.nas.html">
+																		redout.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/route_manager.nas.html">
+																		route_manager.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/scenery.nas.html">
+																		scenery.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/screen.nas.html">
+																		screen.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/seaport.nas.html">
+																		seaport.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/std.nas.html">
+																		std.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/string.nas.html">
+																		string.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/tanker.nas.html">
+																		tanker.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/track_target.nas.html">
+																		track_target.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/video.nas.html">
+																		video.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/view.nas.html">
+																		view.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/volcano.nas.html">
+																		volcano.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/weather_scenario.nas.html">
+																		weather_scenario.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/wildfire.nas.html">
+																		wildfire.nas
+								</a>
+							</li>
+											
+						
+							<li style="--indent: 0;">
+								<a href="../src/windsock.nas.html">
+																		windsock.nas
+								</a>
+							</li>
+															</ul>
+			</div>
+
+			<div class="spacer"></div>
+
+			<footer>
+				<p class="mini">
+					Generated by
+					<a href="https://github.com/19wintersp/Nasal-DocGen">nasal-docgen</a>
+					on 2023-05-16.
+				</p>
+			</footer>
+		</nav>
+
+		<main>
+			<h1>
+				
+					<span>Source</span>
+										<span>dynamic_view.nas</span>
+							</h1>
+
+			
+				<div id="source">
+					<div>
+						
+							<span id="1">1</span>
+						
+							<span id="2">2</span>
+						
+							<span id="3">3</span>
+						
+							<span id="4">4</span>
+						
+							<span id="5">5</span>
+						
+							<span id="6">6</span>
+						
+							<span id="7">7</span>
+						
+							<span id="8">8</span>
+						
+							<span id="9">9</span>
+						
+							<span id="10">10</span>
+						
+							<span id="11">11</span>
+						
+							<span id="12">12</span>
+						
+							<span id="13">13</span>
+						
+							<span id="14">14</span>
+						
+							<span id="15">15</span>
+						
+							<span id="16">16</span>
+						
+							<span id="17">17</span>
+						
+							<span id="18">18</span>
+						
+							<span id="19">19</span>
+						
+							<span id="20">20</span>
+						
+							<span id="21">21</span>
+						
+							<span id="22">22</span>
+						
+							<span id="23">23</span>
+						
+							<span id="24">24</span>
+						
+							<span id="25">25</span>
+						
+							<span id="26">26</span>
+						
+							<span id="27">27</span>
+						
+							<span id="28">28</span>
+						
+							<span id="29">29</span>
+						
+							<span id="30">30</span>
+						
+							<span id="31">31</span>
+						
+							<span id="32">32</span>
+						
+							<span id="33">33</span>
+						
+							<span id="34">34</span>
+						
+							<span id="35">35</span>
+						
+							<span id="36">36</span>
+						
+							<span id="37">37</span>
+						
+							<span id="38">38</span>
+						
+							<span id="39">39</span>
+						
+							<span id="40">40</span>
+						
+							<span id="41">41</span>
+						
+							<span id="42">42</span>
+						
+							<span id="43">43</span>
+						
+							<span id="44">44</span>
+						
+							<span id="45">45</span>
+						
+							<span id="46">46</span>
+						
+							<span id="47">47</span>
+						
+							<span id="48">48</span>
+						
+							<span id="49">49</span>
+						
+							<span id="50">50</span>
+						
+							<span id="51">51</span>
+						
+							<span id="52">52</span>
+						
+							<span id="53">53</span>
+						
+							<span id="54">54</span>
+						
+							<span id="55">55</span>
+						
+							<span id="56">56</span>
+						
+							<span id="57">57</span>
+						
+							<span id="58">58</span>
+						
+							<span id="59">59</span>
+						
+							<span id="60">60</span>
+						
+							<span id="61">61</span>
+						
+							<span id="62">62</span>
+						
+							<span id="63">63</span>
+						
+							<span id="64">64</span>
+						
+							<span id="65">65</span>
+						
+							<span id="66">66</span>
+						
+							<span id="67">67</span>
+						
+							<span id="68">68</span>
+						
+							<span id="69">69</span>
+						
+							<span id="70">70</span>
+						
+							<span id="71">71</span>
+						
+							<span id="72">72</span>
+						
+							<span id="73">73</span>
+						
+							<span id="74">74</span>
+						
+							<span id="75">75</span>
+						
+							<span id="76">76</span>
+						
+							<span id="77">77</span>
+						
+							<span id="78">78</span>
+						
+							<span id="79">79</span>
+						
+							<span id="80">80</span>
+						
+							<span id="81">81</span>
+						
+							<span id="82">82</span>
+						
+							<span id="83">83</span>
+						
+							<span id="84">84</span>
+						
+							<span id="85">85</span>
+						
+							<span id="86">86</span>
+						
+							<span id="87">87</span>
+						
+							<span id="88">88</span>
+						
+							<span id="89">89</span>
+						
+							<span id="90">90</span>
+						
+							<span id="91">91</span>
+						
+							<span id="92">92</span>
+						
+							<span id="93">93</span>
+						
+							<span id="94">94</span>
+						
+							<span id="95">95</span>
+						
+							<span id="96">96</span>
+						
+							<span id="97">97</span>
+						
+							<span id="98">98</span>
+						
+							<span id="99">99</span>
+						
+							<span id="100">100</span>
+						
+							<span id="101">101</span>
+						
+							<span id="102">102</span>
+						
+							<span id="103">103</span>
+						
+							<span id="104">104</span>
+						
+							<span id="105">105</span>
+						
+							<span id="106">106</span>
+						
+							<span id="107">107</span>
+						
+							<span id="108">108</span>
+						
+							<span id="109">109</span>
+						
+							<span id="110">110</span>
+						
+							<span id="111">111</span>
+						
+							<span id="112">112</span>
+						
+							<span id="113">113</span>
+						
+							<span id="114">114</span>
+						
+							<span id="115">115</span>
+						
+							<span id="116">116</span>
+						
+							<span id="117">117</span>
+						
+							<span id="118">118</span>
+						
+							<span id="119">119</span>
+						
+							<span id="120">120</span>
+						
+							<span id="121">121</span>
+						
+							<span id="122">122</span>
+						
+							<span id="123">123</span>
+						
+							<span id="124">124</span>
+						
+							<span id="125">125</span>
+						
+							<span id="126">126</span>
+						
+							<span id="127">127</span>
+						
+							<span id="128">128</span>
+						
+							<span id="129">129</span>
+						
+							<span id="130">130</span>
+						
+							<span id="131">131</span>
+						
+							<span id="132">132</span>
+						
+							<span id="133">133</span>
+						
+							<span id="134">134</span>
+						
+							<span id="135">135</span>
+						
+							<span id="136">136</span>
+						
+							<span id="137">137</span>
+						
+							<span id="138">138</span>
+						
+							<span id="139">139</span>
+						
+							<span id="140">140</span>
+						
+							<span id="141">141</span>
+						
+							<span id="142">142</span>
+						
+							<span id="143">143</span>
+						
+							<span id="144">144</span>
+						
+							<span id="145">145</span>
+						
+							<span id="146">146</span>
+						
+							<span id="147">147</span>
+						
+							<span id="148">148</span>
+						
+							<span id="149">149</span>
+						
+							<span id="150">150</span>
+						
+							<span id="151">151</span>
+						
+							<span id="152">152</span>
+						
+							<span id="153">153</span>
+						
+							<span id="154">154</span>
+						
+							<span id="155">155</span>
+						
+							<span id="156">156</span>
+						
+							<span id="157">157</span>
+						
+							<span id="158">158</span>
+						
+							<span id="159">159</span>
+						
+							<span id="160">160</span>
+						
+							<span id="161">161</span>
+						
+							<span id="162">162</span>
+						
+							<span id="163">163</span>
+						
+							<span id="164">164</span>
+						
+							<span id="165">165</span>
+						
+							<span id="166">166</span>
+						
+							<span id="167">167</span>
+						
+							<span id="168">168</span>
+						
+							<span id="169">169</span>
+						
+							<span id="170">170</span>
+						
+							<span id="171">171</span>
+						
+							<span id="172">172</span>
+						
+							<span id="173">173</span>
+						
+							<span id="174">174</span>
+						
+							<span id="175">175</span>
+						
+							<span id="176">176</span>
+						
+							<span id="177">177</span>
+						
+							<span id="178">178</span>
+						
+							<span id="179">179</span>
+						
+							<span id="180">180</span>
+						
+							<span id="181">181</span>
+						
+							<span id="182">182</span>
+						
+							<span id="183">183</span>
+						
+							<span id="184">184</span>
+						
+							<span id="185">185</span>
+						
+							<span id="186">186</span>
+						
+							<span id="187">187</span>
+						
+							<span id="188">188</span>
+						
+							<span id="189">189</span>
+						
+							<span id="190">190</span>
+						
+							<span id="191">191</span>
+						
+							<span id="192">192</span>
+						
+							<span id="193">193</span>
+						
+							<span id="194">194</span>
+						
+							<span id="195">195</span>
+						
+							<span id="196">196</span>
+						
+							<span id="197">197</span>
+						
+							<span id="198">198</span>
+						
+							<span id="199">199</span>
+						
+							<span id="200">200</span>
+						
+							<span id="201">201</span>
+						
+							<span id="202">202</span>
+						
+							<span id="203">203</span>
+						
+							<span id="204">204</span>
+						
+							<span id="205">205</span>
+						
+							<span id="206">206</span>
+						
+							<span id="207">207</span>
+						
+							<span id="208">208</span>
+						
+							<span id="209">209</span>
+						
+							<span id="210">210</span>
+						
+							<span id="211">211</span>
+						
+							<span id="212">212</span>
+						
+							<span id="213">213</span>
+						
+							<span id="214">214</span>
+						
+							<span id="215">215</span>
+						
+							<span id="216">216</span>
+						
+							<span id="217">217</span>
+						
+							<span id="218">218</span>
+						
+							<span id="219">219</span>
+						
+							<span id="220">220</span>
+						
+							<span id="221">221</span>
+						
+							<span id="222">222</span>
+						
+							<span id="223">223</span>
+						
+							<span id="224">224</span>
+						
+							<span id="225">225</span>
+						
+							<span id="226">226</span>
+						
+							<span id="227">227</span>
+						
+							<span id="228">228</span>
+						
+							<span id="229">229</span>
+						
+							<span id="230">230</span>
+						
+							<span id="231">231</span>
+						
+							<span id="232">232</span>
+						
+							<span id="233">233</span>
+						
+							<span id="234">234</span>
+						
+							<span id="235">235</span>
+						
+							<span id="236">236</span>
+						
+							<span id="237">237</span>
+						
+							<span id="238">238</span>
+						
+							<span id="239">239</span>
+						
+							<span id="240">240</span>
+						
+							<span id="241">241</span>
+						
+							<span id="242">242</span>
+						
+							<span id="243">243</span>
+						
+							<span id="244">244</span>
+						
+							<span id="245">245</span>
+						
+							<span id="246">246</span>
+						
+							<span id="247">247</span>
+						
+							<span id="248">248</span>
+						
+							<span id="249">249</span>
+						
+							<span id="250">250</span>
+						
+							<span id="251">251</span>
+						
+							<span id="252">252</span>
+						
+							<span id="253">253</span>
+						
+							<span id="254">254</span>
+						
+							<span id="255">255</span>
+						
+							<span id="256">256</span>
+						
+							<span id="257">257</span>
+						
+							<span id="258">258</span>
+						
+							<span id="259">259</span>
+						
+							<span id="260">260</span>
+						
+							<span id="261">261</span>
+						
+							<span id="262">262</span>
+						
+							<span id="263">263</span>
+						
+							<span id="264">264</span>
+						
+							<span id="265">265</span>
+						
+							<span id="266">266</span>
+						
+							<span id="267">267</span>
+						
+							<span id="268">268</span>
+						
+							<span id="269">269</span>
+						
+							<span id="270">270</span>
+						
+							<span id="271">271</span>
+						
+							<span id="272">272</span>
+						
+							<span id="273">273</span>
+						
+							<span id="274">274</span>
+						
+							<span id="275">275</span>
+						
+							<span id="276">276</span>
+						
+							<span id="277">277</span>
+						
+							<span id="278">278</span>
+						
+							<span id="279">279</span>
+						
+							<span id="280">280</span>
+						
+							<span id="281">281</span>
+						
+							<span id="282">282</span>
+						
+							<span id="283">283</span>
+						
+							<span id="284">284</span>
+						
+							<span id="285">285</span>
+						
+							<span id="286">286</span>
+						
+							<span id="287">287</span>
+						
+							<span id="288">288</span>
+						
+							<span id="289">289</span>
+						
+							<span id="290">290</span>
+						
+							<span id="291">291</span>
+						
+							<span id="292">292</span>
+						
+							<span id="293">293</span>
+						
+							<span id="294">294</span>
+						
+							<span id="295">295</span>
+						
+							<span id="296">296</span>
+						
+							<span id="297">297</span>
+						
+							<span id="298">298</span>
+						
+							<span id="299">299</span>
+						
+							<span id="300">300</span>
+						
+							<span id="301">301</span>
+						
+							<span id="302">302</span>
+						
+							<span id="303">303</span>
+						
+							<span id="304">304</span>
+						
+							<span id="305">305</span>
+						
+							<span id="306">306</span>
+						
+							<span id="307">307</span>
+						
+							<span id="308">308</span>
+						
+							<span id="309">309</span>
+						
+							<span id="310">310</span>
+						
+							<span id="311">311</span>
+						
+							<span id="312">312</span>
+						
+							<span id="313">313</span>
+						
+							<span id="314">314</span>
+						
+							<span id="315">315</span>
+						
+							<span id="316">316</span>
+						
+							<span id="317">317</span>
+						
+							<span id="318">318</span>
+						
+							<span id="319">319</span>
+						
+							<span id="320">320</span>
+						
+							<span id="321">321</span>
+						
+							<span id="322">322</span>
+						
+							<span id="323">323</span>
+						
+							<span id="324">324</span>
+						
+							<span id="325">325</span>
+						
+							<span id="326">326</span>
+						
+							<span id="327">327</span>
+						
+							<span id="328">328</span>
+						
+							<span id="329">329</span>
+						
+							<span id="330">330</span>
+						
+							<span id="331">331</span>
+						
+							<span id="332">332</span>
+						
+							<span id="333">333</span>
+						
+							<span id="334">334</span>
+						
+							<span id="335">335</span>
+						
+							<span id="336">336</span>
+						
+							<span id="337">337</span>
+						
+							<span id="338">338</span>
+						
+							<span id="339">339</span>
+						
+							<span id="340">340</span>
+						
+							<span id="341">341</span>
+						
+							<span id="342">342</span>
+						
+							<span id="343">343</span>
+						
+							<span id="344">344</span>
+						
+							<span id="345">345</span>
+						
+							<span id="346">346</span>
+						
+							<span id="347">347</span>
+						
+							<span id="348">348</span>
+						
+							<span id="349">349</span>
+						
+							<span id="350">350</span>
+						
+							<span id="351">351</span>
+						
+							<span id="352">352</span>
+						
+							<span id="353">353</span>
+						
+							<span id="354">354</span>
+						
+							<span id="355">355</span>
+						
+							<span id="356">356</span>
+						
+							<span id="357">357</span>
+						
+							<span id="358">358</span>
+						
+							<span id="359">359</span>
+						
+							<span id="360">360</span>
+						
+							<span id="361">361</span>
+						
+							<span id="362">362</span>
+						
+							<span id="363">363</span>
+						
+							<span id="364">364</span>
+						
+							<span id="365">365</span>
+						
+							<span id="366">366</span>
+						
+							<span id="367">367</span>
+						
+							<span id="368">368</span>
+						
+							<span id="369">369</span>
+						
+							<span id="370">370</span>
+						
+							<span id="371">371</span>
+						
+							<span id="372">372</span>
+						
+							<span id="373">373</span>
+						
+							<span id="374">374</span>
+						
+							<span id="375">375</span>
+						
+							<span id="376">376</span>
+						
+							<span id="377">377</span>
+						
+							<span id="378">378</span>
+						
+							<span id="379">379</span>
+						
+							<span id="380">380</span>
+						
+							<span id="381">381</span>
+						
+							<span id="382">382</span>
+						
+							<span id="383">383</span>
+						
+							<span id="384">384</span>
+						
+							<span id="385">385</span>
+						
+							<span id="386">386</span>
+						
+							<span id="387">387</span>
+						
+							<span id="388">388</span>
+						
+							<span id="389">389</span>
+						
+							<span id="390">390</span>
+						
+							<span id="391">391</span>
+						
+							<span id="392">392</span>
+						
+							<span id="393">393</span>
+						
+							<span id="394">394</span>
+						
+							<span id="395">395</span>
+						
+							<span id="396">396</span>
+						
+							<span id="397">397</span>
+						
+							<span id="398">398</span>
+						
+							<span id="399">399</span>
+						
+							<span id="400">400</span>
+						
+							<span id="401">401</span>
+						
+							<span id="402">402</span>
+						
+							<span id="403">403</span>
+						
+							<span id="404">404</span>
+						
+							<span id="405">405</span>
+						
+							<span id="406">406</span>
+						
+							<span id="407">407</span>
+						
+							<span id="408">408</span>
+						
+							<span id="409">409</span>
+						
+							<span id="410">410</span>
+						
+							<span id="411">411</span>
+						
+							<span id="412">412</span>
+						
+							<span id="413">413</span>
+						
+							<span id="414">414</span>
+						
+							<span id="415">415</span>
+						
+							<span id="416">416</span>
+						
+							<span id="417">417</span>
+						
+							<span id="418">418</span>
+						
+							<span id="419">419</span>
+						
+							<span id="420">420</span>
+						
+							<span id="421">421</span>
+						
+							<span id="422">422</span>
+						
+							<span id="423">423</span>
+						
+							<span id="424">424</span>
+						
+							<span id="425">425</span>
+						
+							<span id="426">426</span>
+						
+							<span id="427">427</span>
+						
+							<span id="428">428</span>
+						
+							<span id="429">429</span>
+						
+							<span id="430">430</span>
+						
+							<span id="431">431</span>
+						
+							<span id="432">432</span>
+						
+							<span id="433">433</span>
+						
+							<span id="434">434</span>
+						
+							<span id="435">435</span>
+						
+							<span id="436">436</span>
+						
+							<span id="437">437</span>
+						
+							<span id="438">438</span>
+						
+							<span id="439">439</span>
+						
+							<span id="440">440</span>
+						
+							<span id="441">441</span>
+						
+							<span id="442">442</span>
+						
+							<span id="443">443</span>
+						
+							<span id="444">444</span>
+						
+							<span id="445">445</span>
+						
+							<span id="446">446</span>
+						
+							<span id="447">447</span>
+						
+							<span id="448">448</span>
+											</div>
+					<pre><code># SPDX-License-Identifier: GPL-2.0-or-later
+#
+# NOTE! This copyright does *not* cover user models that use these Nasal
+# services by normal function calls - this is merely considered normal
+# use of the code, and does *not* fall under the heading of &#34;derived
+# work.&#34;
+#
+# Copyright (C) 2006-2008 by mfranz
+
+
+# Dynamic Cockpit View manager. Tries to simulate the pilot&#39;s most likely
+# deliberate view direction. Doesn&#39;t consider forced view changes due to
+# acceleration.
+#
+# To override the default recipes, put something like this into one of
+# your aircraft&#39;s Nasal files:
+#
+#   dynamic_view.register(func {
+#           # me.default_plane();      # uncomment one of these if you want
+#           # me.default_helicopter(); # to base your code on the defaults
+#
+#                                      # positive values rotate (deg) or move (m)
+#           me.heading_offset = ...    #     left
+#           me.pitch_offset = ...      #     up
+#           me.roll_offset = ...       #     right
+#           me.x_offset = ...          #     right     (transversal axis)
+#           me.y_offset = ...          #     up        (vertical axis)
+#           me.z_offset = ...          #     back/aft  (longitudinal axis)
+#           me.fov_offset = ...        #     zoom out  (field of view)
+#   });
+#
+# All offsets are by default 0, and you only need to set them if they should
+# be non-zero. The registered function is called for each frame and the respective
+# view parameters are set accordingly. The function can access all internal
+# variables of the view_manager class, such as me.roll, me.pitch, etc., and it
+# can, of course, also use module variables from the file where it&#39;s defined.
+#
+# The following commands move smoothly to a fixed view position and back.
+# All values are relative to aircraft origin (absolute), not relative to
+# the default cockpit view position. The time and field-of-view argument
+# is optional.
+#
+#   dynamic_view.lookat(hdg, pitch, roll, x, y, z [, time=0.2 [, fov=55]]);
+#   dynamic_view.resume();
+
+
+var FREEZE_DURATION = 2;
+var BLEND_TIME = 0.2;
+
+
+var sin = func(a) math.sin(a * D2R);
+var cos = func(a) math.cos(a * D2R);
+var sigmoid = func(x) { 1 / (1 + math.exp(-x)) }
+var nsigmoid = func(x) { 2 / (1 + math.exp(-x)) - 1 }
+var pow = func(v, w) { v &#60; 0 ? nil : v == 0 ? 0 : math.exp(math.ln(v) * w) }
+var npow = func(v, w) { v == 0 ? 0 : math.exp(math.ln(abs(v)) * w) * (v &#60; 0 ? -1 : 1) }
+var clamp = func(v, min, max) { v &#60; min ? min : v &#62; max ? max : v }
+var normatan = func(x) { math.atan2(x, 1) * 2 / math.pi }
+
+var normdeg = func(a) {
+	while (a &#62;= 180)
+		a -= 360;
+	while (a &#60; -180)
+		a += 360;
+	return a;
+}
+
+
+
+# Class that reads a property value, applies factor &#38; offset, clamps to min &#38; max,
+# and optionally lowpass filters.
+#
+var Input = {
+	new : func(prop = &#34;/null&#34;, factor = 1, offset = 0, filter = 0, min = nil, max = nil) {
+		var m = { parents : [Input] };
+		m.prop = isa(props.Node, prop) ? prop : props.globals.getNode(prop, 1);
+		m.factor = factor;
+		m.offset = offset;
+		m.min = min;
+		m.max = max;
+		m.lowpass = filter ? aircraft.lowpass.new(filter) : nil;
+		return m;
+	},
+	get : func {
+		var v = me.prop.getValue() * me.factor + me.offset;
+		if (me.min != nil and v &#60; me.min)
+			v = me.min;
+		if (me.max != nil and v &#62; me.max)
+			v = me.max;
+
+		return me.lowpass == nil ? v : me.lowpass.filter(v);
+	},
+	set : func(v) {
+		me.prop.setDoubleValue(v);
+	},
+};
+
+
+
+# Class that maintains one sim/current-view/goal-*-offset-deg property.
+#
+var ViewAxis = {
+	new : func(prop) {
+		var m = { parents : [ViewAxis] };
+		m.prop = props.globals.getNode(prop, 1);
+		if (m.prop.getType() == &#34;NONE&#34;)
+			m.prop.setDoubleValue(0);
+
+		m.reset();
+		return m;
+	},
+	reset : func {
+		me.applied_offset = 0;
+	},
+	add_offset : func {
+		me.prop.setValue(me.prop.getValue() + me.applied_offset);
+	},
+	sub_offset : func {
+		var raw = me.prop.getValue() - me.applied_offset;
+		me.prop.setValue(raw);
+		return raw;
+	},
+	apply : func(v) {
+		var raw = me.prop.getValue() - me.applied_offset;
+		me.applied_offset = v;
+		me.prop.setDoubleValue(raw + me.applied_offset);
+	},
+	static : func(v) {
+		normdeg(v - me.prop.getValue() + me.applied_offset);
+	},
+};
+
+
+
+# Singleton class that manages a dynamic cockpit view by manipulating
+# sim/current-view/goal-*-offset-deg properties.
+#
+var view_manager = {
+	init : func {
+		me.elapsedN = props.globals.getNode(&#34;/sim/time/elapsed-sec&#34;, 1);
+		me.deltaN = props.globals.getNode(&#34;/sim/time/delta-realtime-sec&#34;, 1);
+
+		me.headingN = props.globals.getNode(&#34;/orientation/heading-deg&#34;, 1);
+		me.pitchN = props.globals.getNode(&#34;/orientation/pitch-deg&#34;, 1);
+		me.rollN = props.globals.getNode(&#34;/orientation/roll-deg&#34;, 1);
+		me.slipN = props.globals.getNode(&#34;/orientation/side-slip-deg&#34;, 1);
+		me.speedN = props.globals.getNode(&#34;velocities/airspeed-kt&#34;, 1);
+
+		me.wind_dirN = props.globals.getNode(&#34;/environment/wind-from-heading-deg&#34;, 1);
+		me.wind_speedN = props.globals.getNode(&#34;/environment/wind-speed-kt&#34;, 1);
+
+		me.axes = [
+			me.heading_axis = ViewAxis.new(&#34;/sim/current-view/goal-heading-offset-deg&#34;),
+			me.pitch_axis = ViewAxis.new(&#34;/sim/current-view/goal-pitch-offset-deg&#34;),
+			me.roll_axis = ViewAxis.new(&#34;/sim/current-view/goal-roll-offset-deg&#34;),
+			me.x_axis = ViewAxis.new(&#34;/sim/current-view/x-offset-m&#34;),
+			me.y_axis = ViewAxis.new(&#34;/sim/current-view/y-offset-m&#34;),
+			me.z_axis = ViewAxis.new(&#34;/sim/current-view/z-offset-m&#34;),
+			me.fov_axis = ViewAxis.new(&#34;/sim/current-view/field-of-view&#34;),
+		];
+
+		# accelerations are converted to G (Earth gravitation is omitted)
+		me.ax = Input.new(&#34;/accelerations/pilot/x-accel-fps_sec&#34;, 0.03108095, 0, 0.58, 0);
+		me.ay = Input.new(&#34;/accelerations/pilot/y-accel-fps_sec&#34;, 0.03108095, 0, 0.95);
+		me.az = Input.new(&#34;/accelerations/pilot/z-accel-fps_sec&#34;, -0.03108095, -1, 0.46);
+
+		# velocities are converted to knots
+		me.vx = Input.new(&#34;/velocities/uBody-fps&#34;, 0.5924838, 0, 0.45);
+		me.vy = Input.new(&#34;/velocities/vBody-fps&#34;, 0.5924838, 0);
+		me.vz = Input.new(&#34;/velocities/wBody-fps&#34;, 0.5924838, 0);
+
+		# turn WoW bool into smooth values ranging from 0 to 1
+		me.wow = Input.new(&#34;/gear/gear/wow&#34;, 1, 0, 0.74);
+		me.hdg_change = aircraft.lowpass.new(0.95);
+		me.ubody = aircraft.lowpass.new(0.95);
+		me.last_heading = me.headingN.getValue();
+		me.size_factor = getprop(&#34;/sim/chase-distance-m&#34;) / -25;
+
+		# &#34;lookat&#34; blending
+		me.blendN = props.globals.getNode(&#34;/sim/view/dynamic/blend&#34;, 1);
+		me.blendN.setDoubleValue(0);
+		me.blendtime = BLEND_TIME;
+		me.frozen = 0;
+
+		if (props.globals.getNode(&#34;rotors&#34;, 0) != nil)
+			me.calculate = me.default_helicopter;
+		else
+			me.calculate = me.default_plane;
+		me.reset();
+	},
+	reset : func {
+		me.heading_offset = me.heading = me.target_heading = 0;
+		me.pitch_offset = me.pitch = me.target_pitch = 0;
+		me.roll_offset = me.roll = me.target_roll = 0;
+		me.x_offset = me.x = me.target_x = 0;
+		me.y_offset = me.y = me.target_y = 0;
+		me.z_offset = me.z = me.target_z = 0;
+		me.fov_offset = me.fov = me.target_fov = 0;
+
+		interpolate(me.blendN);
+		me.blendN.setDoubleValue(0);
+		foreach (var a; me.axes)
+			a.reset();
+
+		me.add_offset();
+	},
+	add_offset : func {
+		me.heading_axis.add_offset();
+		me.pitch_axis.add_offset();
+		me.roll_axis.add_offset();
+		me.fov_axis.add_offset();
+	},
+	apply : func {
+		if (me.elapsedN.getValue() &#60; me.frozen)
+			return;
+		elsif (me.frozen)
+			me.unfreeze();
+
+		me.pitch = me.pitchN.getValue();
+		me.roll = me.rollN.getValue();
+
+		me.calculate();
+
+		var b = me.blendN.getValue();
+		var B = 1 - b;
+		me.heading = me.target_heading * b + me.heading_offset * B;
+		me.pitch = me.target_pitch * b + me.pitch_offset * B;
+		me.roll = me.target_roll * b + me.roll_offset * B;
+		me.x = me.target_x * b + me.x_offset * B;
+		me.y = me.target_y * b + me.y_offset * B;
+		me.z = me.target_z * b + me.z_offset * B;
+		me.fov = me.target_fov * b + me.fov_offset * B;
+
+		me.heading_axis.apply(me.heading);
+		me.pitch_axis.apply(me.pitch);
+		me.roll_axis.apply(me.roll);
+		me.x_axis.apply(me.x);
+		me.y_axis.apply(me.y);
+		me.z_axis.apply(me.z);
+		me.fov_axis.apply(me.fov);
+	},
+	lookat : func(heading, pitch, roll, x, y, z, time, fov) {
+		me.target_heading = me.heading_axis.static(heading);
+		me.target_pitch = me.pitch_axis.static(pitch);
+		me.target_roll = me.roll_axis.static(roll);
+		me.target_x = me.x_axis.static(x);
+		me.target_y = me.y_axis.static(y);
+		me.target_z = me.z_axis.static(z);
+		me.target_fov = me.fov_axis.static(fov);
+
+		me.blendtime = time;
+		me.blendN.setValue(0);
+		interpolate(me.blendN, 1, me.blendtime);
+	},
+	resume : func {
+		interpolate(me.blendN, 0, me.blendtime);
+		me.blendtime = BLEND_TIME;
+	},
+	freeze : func {
+		if (!me.frozen) {
+			me.target_heading = me.heading;
+			me.target_pitch = me.pitch;
+			me.target_roll = me.roll;
+			me.target_x = me.x;
+			me.target_y = me.y;
+			me.target_z = me.z;
+			me.target_fov = me.fov;
+			me.blendN.setDoubleValue(1);
+		}
+		me.frozen = me.elapsedN.getValue() + FREEZE_DURATION;
+	},
+	unfreeze : func {
+		if (me.frozen) {
+			me.frozen = 0;
+			me.resume();
+		}
+	},
+};
+
+
+
+# default calculations for a plane
+#
+view_manager.default_plane = func {
+	var wow = me.wow.get();
+
+	# calculate steering factor
+	var hdg = me.headingN.getValue();
+	var hdiff = normdeg(me.last_heading - hdg);
+	me.last_heading = hdg;
+	var steering = 0; # normatan(me.hdg_change.filter(hdiff)) * me.size_factor;
+
+	var az = me.az.get();
+	var vx = me.vx.get();
+
+	# calculate sideslip factor (zeroed when no forward ground speed)
+	var wspd = me.wind_speedN.getValue();
+	var wdir = me.headingN.getValue() - me.wind_dirN.getValue();
+	var u = vx - wspd * cos(wdir);
+	var slip = sin(me.slipN.getValue()) * me.ubody.filter(normatan(u / 10));
+
+	me.heading_offset =							# view heading
+		-15 * sin(me.roll) * cos(me.pitch)				#     due to roll
+		+ 40 * steering * wow						#     due to ground steering
+		+ 10 * slip * (1 - wow);					#     due to sideslip (in air)
+
+	me.pitch_offset =							# view pitch
+		10 * sin(me.roll) * sin(me.roll)				#     due to roll
+		+ 30 * (1 / (1 + math.exp(2 - az))				#     due to G load
+			- 0.119202922);						#         [move to origin; 1/(1+exp(2)) ]
+
+	me.roll_offset = 0;
+}
+
+
+
+# default calculations for a helicopter
+#
+view_manager.default_helicopter = func {
+	var lowspeed = 1 - normatan(me.speedN.getValue() / 20);
+
+	me.heading_offset =							# view heading due to
+		-50 * npow(sin(me.roll) * cos(me.pitch), 2);			#    roll
+
+	me.pitch_offset =							# view pitch due to
+		(me.pitch &#60; 0 ? -35 : -40) * sin(me.pitch) * lowspeed		#    pitch
+		+ 15 * sin(me.roll) * sin(me.roll);				#    roll
+
+	me.roll_offset =							# view roll due to
+		-15 * sin(me.roll) * cos(me.pitch) * lowspeed;			#    roll
+}
+
+
+
+# Update loop for the whole dynamic view manager. It only runs if
+# /sim/current-view/dynamic-view is true.
+#
+var main_loop = func(id) {
+	id == loop_id or return;
+	if (cockpit_view and !panel_visible) {
+		if (mouse_button)
+			freeze();
+		else
+			view_manager.apply();
+	}
+	settimer(func { main_loop(id) }, 0);
+}
+
+
+
+var freeze = func {
+	if (mouse_mode == 0)
+		view_manager.freeze();
+}
+
+var register = func(f) {
+	view_manager.calculate = f;
+}
+
+var reset = func {
+	view_manager.reset();
+}
+
+var lookat = func {
+	call(view_manager.lookat, arg, view_manager);
+}
+
+var resume = func {
+	view_manager.resume();
+}
+
+
+var original_resetView = nil;
+var panel_visibilityN = nil;
+var dynamic_view = nil;
+
+var cockpit_view = nil;
+var panel_visible = nil;	# whether 2D panel is visible
+var elapsedN = nil;
+var mouse_mode = nil;
+var mouse_button = nil;
+var enabled = nil;
+
+var loop_id = 0;
+
+
+# disable menu entry and return for inappropriate FDMs  (see Main/fg_init.cxx)
+var fdms = {
+    acms:0, ada:0, balloon:0, external:0,
+    jsb:1, larcsim:1, magic:0, network:0,
+    null:0, pipe:0, ufo:0, yasim:1,
+};
+var fdm = getprop(&#34;/sim/flight-model&#34;);
+if (!contains(fdms, fdm) or !fdms[fdm])
+    return;
+
+enabled = props.globals.getNode(&#34;/sim&#34;).getChildren(&#34;view&#34;);
+forindex (var i; enabled)
+    enabled[i] = ((var n = enabled[i].getNode(&#34;config/dynamic-view&#34;)) != nil) and n.getBoolValue();
+
+# some properties may still be unavailable or nil
+props.globals.initNode(&#34;/accelerations/pilot/x-accel-fps_sec&#34;, 0);
+props.globals.initNode(&#34;/accelerations/pilot/y-accel-fps_sec&#34;, 0);
+props.globals.initNode(&#34;/accelerations/pilot/z-accel-fps_sec&#34;, -32);
+props.globals.initNode(&#34;/orientation/side-slip-deg&#34;, 0);
+props.globals.initNode(&#34;/gear/gear/wow&#34;, 1, &#34;BOOL&#34;);
+elapsedN = props.globals.getNode(&#34;/sim/time/elapsed-sec&#34;, 1);
+
+# let listeners keep some variables up-to-date, so that they do not have
+# to be queried in the loop
+setlistener(&#34;/sim/panel/visibility&#34;, func(n) { panel_visible = n.getValue() }, 1);
+setlistener(&#34;/sim/current-view/view-number&#34;, func(n) { cockpit_view = enabled[n.getValue()] }, 1);
+setlistener(&#34;/devices/status/mice/mouse/button&#34;, func(n) { mouse_button = n.getValue() }, 1);
+setlistener(&#34;/devices/status/mice/mouse/x&#34;, freeze);
+setlistener(&#34;/devices/status/mice/mouse/y&#34;, freeze);
+setlistener(&#34;/devices/status/mice/mouse/mode&#34;, func(n) {
+    if (mouse_mode = n.getValue())
+        view_manager.unfreeze();
+}, 1);
+
+setlistener(&#34;/sim/signals/reinit&#34;, func(n) {
+    n.getValue() and return;
+    cockpit_view = enabled[getprop(&#34;/sim/current-view/view-number&#34;)];
+    view_manager.reset();
+}, 0);
+
+view_manager.init();
+
+original_resetView = view.resetView;
+view.resetView = func {
+    original_resetView();
+    if (cockpit_view and dynamic_view)
+        view_manager.add_offset();
+}
+
+settimer(func {
+    setlistener(&#34;/sim/current-view/dynamic-view&#34;, func(n) {
+        dynamic_view = n.getBoolValue();
+        loop_id += 1;
+        view.resetView();
+        if (dynamic_view)
+            main_loop(loop_id);
+    }, 1);
+}, 0);
+
+
+
+</code></pre>
+				</div>
+					</main>
+	</body>
+</html>
