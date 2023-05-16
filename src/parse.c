@@ -254,13 +254,20 @@ static void parse_toplevel(
 		case TOK_ASSIGN:
 			if (tok->children == NULL || tok->lastChild == NULL) break;
 
-			struct Token* chch = tok->children->children;
-			if (chch == NULL) break;
+			// todo: you can assign to classes etc later on with fooclass.barprop = ...
 
-			if (tok->children->type == TOK_VAR && chch->type == TOK_SYMBOL) {
-				char* name = astrndup(chch->str, chch->strlen);
+			struct Token* chch = tok->children->children;
+			if (chch == NULL && tok->children->type != TOK_SYMBOL) break;
+
+			if (
+				(tok->children->type == TOK_VAR && chch->type == TOK_SYMBOL) ||
+				tok->children->type == TOK_SYMBOL
+			) {
+				struct Token *symbol = tok->children->type == TOK_SYMBOL ? tok->children : chch;
+
+				char* name = astrndup(symbol->str, symbol->strlen);
 				process_item(
-					chch->line,
+					symbol->line,
 					name,
 					tok->lastChild,
 					lines,
