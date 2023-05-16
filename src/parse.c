@@ -117,10 +117,10 @@ int parse_file(const char* rawfilename, const char* fr, struct module* module) {
 		const char* line_end = lines[i].start + lines[i].length;
 		size_t line_length = line_end - lines[i].start_nows - hashes - spaces;
 
-		desc = realloc(desc, length + line_length + 2);
-		desc[length] = '\n';
-		strncpy(desc + length + 1, line_end - line_length, line_length);
-		length += line_length + 1;
+		desc = realloc(desc, length + line_length + 1);
+		strncpy(desc + length, line_end - line_length, line_length);
+		length += line_length;
+		desc[length] = 0;
 
 		lines[i].doc_used = true;
 	}
